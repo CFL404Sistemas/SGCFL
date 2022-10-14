@@ -36,6 +36,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
+
 
 
 
@@ -76,7 +79,10 @@ const materialModules = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeAdminComponent,
+    NavbarComponent,
+
   ],
   imports: [
     materialModules,
