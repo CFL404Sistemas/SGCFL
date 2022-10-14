@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { ObtenerInventarioComponent } from '../app/pages/obtener-inventario/obtener-inventario.component';
+const routes: Routes = [
+  {
+    path:"obtener-inventario" , component:ObtenerInventarioComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
