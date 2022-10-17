@@ -36,7 +36,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatRadioModule} from '@angular/material/radio';
+import { CrearherramientaComponent } from './pages/crearherramienta/crearherramienta.component';
 
 
 const materialModules = [
@@ -71,12 +72,14 @@ const materialModules = [
   MatSnackBarModule,
   MatFormFieldModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  MatRadioModule
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CrearherramientaComponent
   ],
   imports: [
     materialModules,

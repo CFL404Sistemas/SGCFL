@@ -1,0 +1,35 @@
+@import "../../../styles.scss";
+
+
+.icono-de-herramientas{
+width: 125px;
+height: 125px;
+
+}
+.botonselecc2
+{
+  margin-left: 2px;
+}
+.bord{
+  width: 40%;
+}
+
+.mat-form-field-appearance-outline .mat-focused  .mat-form-field-outline-thick {
+  color: $blue;
+ }
+ ::ng-deep.mat-form-field-appearance-outline.mat-focused .mat-form-field-appearance-outline-ripple {
+  background-color: $ligthBlue;
+}
+
+::ng-deep.mat-form-field-appearance-outline:hover .mat-form-field-ripple {
+  background-color: $ligthBlue;
+}
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+color: $ligthBlue;
+}
+
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+color: $ligthBlue;
+}

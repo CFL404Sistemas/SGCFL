@@ -1,0 +1,69 @@
+<div class="conteiner-fluid text-center">
+  <div clas="row">
+    <div class="col-md-12">
+      <img
+        class="icono-de-herramientas"
+        src="https://trello.com/1/cards/634744c3d0e87900d2ad917b/attachments/6349eeb4a55df801e5702bb2/download/images.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+<div class="conteiner-fluid text-center">
+  <div clas="row">
+    <div class="col-md-12"></div>
+    <form class="user-login"[formGroup]="loginForm"(ngSubmit)="onLogin()">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <mat-form-field class="bord" appearance="outline">
+              <mat-label class="name">Nombre</mat-label>
+              <input matInput type="text" formControlName="nombre">
+            </mat-form-field>
+            <div *ngIf="formControl.nombre.errors" class="text-danger">
+              <div *ngIf="formControl.nombre.errors.required">Se necesita un nombre</div>
+            </div>
+            <div><mat-form-field class="bord" appearance="outline">
+                <mat-label class="apellido">Marca</mat-label>
+                <input matInput>
+              </mat-form-field></div>
+            <mat-form-field class="bord" appearance="outline">
+              <mat-label class="email">Nro de Serie o Registro</mat-label>
+              <input matInput type="number" formControlName="nroSerie">
+            </mat-form-field>
+            <div *ngIf="formControl.nroSerie.errors" class="text-danger">
+              <div *ngIf="formControl.nroSerie.errors.required">Se necesita un numero</div>
+            </div>
+            <div *ngIf="esNoDisponible == 'Nodisponible'">
+              <mat-form-field class="bord" appearance="outline">
+                <mat-label>Observaciones</mat-label>
+                <input matInput type="mensaje" maxlength="256">
+              </mat-form-field>
+            </div>
+            </div>
+          </div>
+    </form>
+  </div>
+</div>
+
+<div class="conteiner-fluid">
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <mat-radio-group [(ngModel)]="esNoDisponible">
+          <mat-radio-button class="example-margin" value="Disponible"
+            >Disponible</mat-radio-button>
+
+
+
+
+
+
+          <mat-radio-button class="botonselecc2" value="Nodisponible"
+            >No disponible </mat-radio-button
+
+          >
+        </mat-radio-group>
+        <br>
+      <button mat-raised-button color="primary">Crear</button>
+    </div>
+  </div>
+</div>

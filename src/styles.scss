@@ -1,4 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$blue:#093f7c;
+$ligthBlue: #0184f5;
+$ligthGray: #a5a5a5;
+$white: #ffffff;
+$darkGray: #333333;
+.mat-radio-inner-circle{
+  background-color:blue !important
+  }
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #093f7c;
+}
