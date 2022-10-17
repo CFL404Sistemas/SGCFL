@@ -10,8 +10,8 @@ $ligthGray: #a5a5a5;
 $white: #ffffff;
 $darkGray: #333333;
 .mat-radio-inner-circle{
-  background-color:blue !important
+  background-color: $ligthBlue !important
   }
   .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color: #093f7c;
+    border-color:  $ligthBlue  !important;
 }
