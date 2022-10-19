@@ -6,7 +6,7 @@
 }
 .botonesDeFiltro,.botonesDeAccion,.listadoDeHerramientas,.botonesAceptarCancelar{
   // border: 1px solid blue;
-  margin: 10px 5px
+  margin: 5px 5px
 };
 
 // .mat-card{
@@ -22,13 +22,12 @@
 }
 
 .listCard{
-  height: 50vh;
+  height: 40vh;
   overflow: scroll;
 }
 
 .herramienta1{
   width: 100%;
-  height: 45%;
 // border: 1px solid red;
 margin-bottom: 20px;
 display: flex;
@@ -37,13 +36,13 @@ flex-direction: row;
 
 img{
   width: auto;
-  height: 70%;
+  height: 10vh;
   border-radius: 10px;
   border: 1px solid #000;
   box-shadow: 3px 5px 8px 5px #aaa;
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
+
 
 .informacionDeHerramienta{
   height: 100%;
@@ -60,19 +59,32 @@ mat-divider{
   padding: 0%;
 }
 
+
 .descripcionHerramienta{
   text-align:center;
 }
-
+.slide{
+margin-top: 10%;
+}
 .disponible{
-  position: absolute;
-  margin: 0%;
-  background-color: #1f1;
+  background-color: $ligthBlue;
   border-radius: 5px;
-
+}
+.botonMenu{
+  margin-top: 20%;
 }
 
 //COLORES
+.tituloFiltro{
+margin-bottom: 2px;
+background-color: $blue;
+color: #fff;
+border-radius: 5px 5px 0 0;
+}
+
+.filtro{
+  margin: 2px 5px ;
+}
 
 .fondo{
   background-color: $white;
@@ -80,9 +92,16 @@ mat-divider{
 
 .listCard{
   background-color: $blue;
+  overflow-x: hidden;
 
 }
 
+.boton{
+  background-color: $ligthBlue;
+  margin: 5px 10px;
+  color: #fff;
+
+}
 
 .herramienta1{
   background-color: #eee;
@@ -90,3 +109,4 @@ mat-divider{
   border-bottom: 1px solid $blue;
   border-right: 1px solid $blue;
 }
+

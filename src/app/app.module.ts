@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Material Imports */
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -40,8 +41,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ObtenerInventarioComponent } from './pages/obtener-inventario/obtener-inventario.component';
 
 
-
 const materialModules = [
+  MatSlideToggleModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCheckboxModule,
