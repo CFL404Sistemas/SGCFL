@@ -1,13 +1,20 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-*{
+* {
   box-sizing: border-box;
   max-width: 100vw;
 }
-.botonesDeFiltro,.botonesDeAccion,.listadoDeHerramientas,.botonesAceptarCancelar{
+.botonesDeFiltro,
+.botonesDeAccion,
+.listadoDeHerramientas,
+.botonesAceptarCancelar {
   // border: 1px solid blue;
-  margin: 5px 5px
-};
+  margin: 5px 5px;
+}
+
+.grupoFiltros{
+  text-align:center;
+}
 
 // .mat-card{
 //   border-radius: 0px;
@@ -16,97 +23,110 @@
 //  height: 15vh;
 // }
 
-.actionCard{
+.actionCard {
   // height: 10vh;
   padding: 10px 10px;
 }
 
-.listCard{
+.barraBusqueda{
+  margin-bottom: 5px;
+  z-index: 300;
+}
+
+.listCard {
   height: 40vh;
   overflow: scroll;
+  border: 1px solid #ccc;
 }
 
-.herramienta1{
+.herramienta1 {
   width: 100%;
-// border: 1px solid red;
-margin-bottom: 20px;
-display: flex;
-flex-direction: row;
+  // border: 1px solid red;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
-img{
+img {
   width: auto;
-  height: 10vh;
+  height: 15vh;
   border-radius: 10px;
   border: 1px solid #000;
   box-shadow: 3px 5px 8px 5px #aaa;
   margin-top: 10px;
 }
 
-
-.informacionDeHerramienta{
+.informacionDeHerramienta {
   height: 100%;
   width: 70%;
-// border: 1px solid green;
+  // border: 1px solid green;
 }
 
-mat-divider{
+mat-divider {
   background-color: #aaa;
 }
 
-.nombreHerramienta{
+.nombreHerramienta {
   margin: 0px;
   padding: 0%;
 }
 
-
-.descripcionHerramienta{
-  text-align:center;
+.descripcionHerramienta {
+  text-align: center;
 }
-.slide{
-margin-top: 10%;
+.slide {
+  margin-top: 10%;
 }
-.disponible{
+.disponible {
   background-color: $ligthBlue;
   border-radius: 5px;
+  margin-left: 20%;
+  width: 60%;
+  position: relative;
+  z-index: 400;
 }
-.botonMenu{
-  margin-top: 20%;
+.botonMenu {
+  margin: 5px;
+  margin-top: 5%;
+  border: 1px outset #aaa;
+  border: 1px outset $ligthBlue;
+  box-shadow: 1px 1px 2px 1px #666;
+}
+.textoAsignar{
+  font-size: 0.8em;
 }
 
 //COLORES
-.tituloFiltro{
-margin-bottom: 2px;
-background-color: $blue;
-color: #fff;
-border-radius: 5px 5px 0 0;
+.tituloFiltro {
+  margin-bottom: 2px;
+  background-color: $blue;
+  color: #fff;
+  border-radius: 5px 5px 0 0;
 }
 
-.filtro{
-  margin: 2px 5px ;
+.filtro {
+  margin: 2px 5px;
+  width: 40%;
 }
 
-.fondo{
+.fondo {
   background-color: $white;
 }
 
-.listCard{
+.listCard {
   background-color: $blue;
   overflow-x: hidden;
-
 }
 
-.boton{
+.boton {
   background-color: $ligthBlue;
   margin: 5px 10px;
   color: #fff;
-
 }
 
-.herramienta1{
+.herramienta1 {
   background-color: #eee;
   border-radius: 10px;
   border-bottom: 1px solid $blue;
   border-right: 1px solid $blue;
 }
-
