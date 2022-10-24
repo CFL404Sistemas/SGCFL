@@ -1,17 +1,20 @@
 <div class="conteiner-fluid text-center">
   <div clas="row">
     <div class="col-md-12">
-      <img
+      <h3>Modificar Imagen</h3>
+      <img *ngIf="!previewPicture"
         class="icono-de-herramientas animate__animated animate__pulse"
-        src="https://trello.com/1/cards/634744c3d0e87900d2ad917b/attachments/6349eeb4a55df801e5702bb2/download/images.png"
+        src="assets/agregar-herramienta.png"
         alt=""
 
-      /><input type="file" (change)="loadImageFromDevice($event)" id="file-input"
+      />
+      <img style="width:10%;" *ngIf="previewPicture" [src]="previewPicture">
+
+      <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
       accept="image/png, image/jpeg" name="upload" id="upload" class="upload-box" placeholder="Upload File">
 
 
     </div>
-    <img style="width:10%;" *ngIf="previewPicture" [src]="previewPicture">
   </div>
 </div>
 <br>
