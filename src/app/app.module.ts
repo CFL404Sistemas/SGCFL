@@ -38,6 +38,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import { CrearherramientaComponent } from './pages/crearherramienta/crearherramienta.component';
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
+
+
+
 
 
 const materialModules = [
@@ -79,7 +84,10 @@ const materialModules = [
 @NgModule({
   declarations: [
     AppComponent,
-    CrearherramientaComponent
+    CrearherramientaComponent,
+    HomeAdminComponent,
+    NavbarComponent,
+
   ],
   imports: [
     materialModules,
