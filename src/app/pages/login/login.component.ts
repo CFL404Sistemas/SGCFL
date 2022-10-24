@@ -37,7 +37,7 @@ onlogin(){
     (response: any) => {
 
 
-      this.router.navigate(["obtener-inventario"]);
+      this.router.navigate(["home-admin"]);
 
     },
     (error) => {

@@ -40,9 +40,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './pages/login/login.component';
 
-import { ObtenerInventarioComponent } from './pages/obtener-inventario/obtener-inventario.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CrearherramientaComponent } from './pages/crearherramienta/crearherramienta.component';
+import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 
+import { ObtenerInventarioComponent } from './pages/obtener-inventario/obtener-inventario.component';
 
 
 const materialModules = [
@@ -86,6 +89,9 @@ const materialModules = [
   declarations: [
     AppComponent,
     LoginComponent,
+    CrearherramientaComponent,
+    HomeAdminComponent,
+    NavbarComponent,
     ObtenerInventarioComponent
   ],
   imports: [
