@@ -1,5 +1,6 @@
-<div class="conteiner-fluid text-center">
-  <app-navbar></app-navbar>
+<app-navbar></app-navbar>
+<div class="container-fluid text-center">
+
   <div clas="row">
     <div class="col-md-12">
       <h3>Modificar Imagen</h3>
@@ -19,9 +20,9 @@
   </div>
 </div>
 <br>
-<div class="conteiner-fluid text-center">
+<div class="container-fluid text-center form">
   <div clas="row">
-    <div class="col-md-12"></div>
+    <!-- <div class="col-md-12"></div> -->
     <form class="user-login"[formGroup]="loginForm"(ngSubmit)="onLogin()">
         <div class="row">
           <div class="col-md-12 text-center">
@@ -55,7 +56,7 @@
   </div>
 </div>
 
-<div class="conteiner-fluid">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12 text-center">
         <mat-radio-group [(ngModel)]="esNoDisponible">
