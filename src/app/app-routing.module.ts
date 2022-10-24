@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrearherramientaComponent } from './pages/crearherramienta/crearherramienta.component';
-const routes: Routes = [ {path:'crear-herramienta', component:CrearherramientaComponent},];
+const routes: Routes = [ {path:'c', component:CrearherramientaComponent},];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
