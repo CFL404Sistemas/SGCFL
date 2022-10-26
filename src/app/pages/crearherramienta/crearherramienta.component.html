@@ -27,18 +27,18 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <mat-form-field class="bord" appearance="outline">
-              <mat-label class="name">Nombre</mat-label>
+              <mat-label >Nombre</mat-label>
               <input class="" matInput type="text" formControlName="nombre">
             </mat-form-field>
             <div *ngIf="formControl.nombre.errors" class="text-danger">
               <div *ngIf="formControl.nombre.errors.required">Se necesita un nombre</div>
             </div>
             <div><mat-form-field class="bord" appearance="outline">
-                <mat-label class="apellido">Marca</mat-label>
+                <mat-label >Marca</mat-label>
                 <input matInput>
               </mat-form-field></div>
             <mat-form-field class="bord" appearance="outline">
-              <mat-label class="email">Nro de Serie o Registro</mat-label>
+              <mat-label >Nro de Serie o Registro</mat-label>
               <input matInput type="number" formControlName="nroSerie">
             </mat-form-field>
             <div *ngIf="formControl.nroSerie.errors" class="text-danger">
@@ -46,9 +46,13 @@
             </div>
             <div *ngIf="esNoDisponible == 'Nodisponible'">
               <mat-form-field class="bord" appearance="outline">
-                <mat-label>Observaciones</mat-label>
-                <input matInput type="mensaje" maxlength="256">
-              </mat-form-field>
+              <mat-label >Observaciones</mat-label>
+              <input matInput type="text" formControlName="observacion">
+            </mat-form-field>
+            <div *ngIf="formControl.observacion.errors" class="text-danger">
+              <div *ngIf="formControl.observacion.errors.required">Se necesita una observacion</div>
+            </div>
+
             </div>
             </div>
           </div>

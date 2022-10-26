@@ -18,7 +18,8 @@ export class CrearherramientaComponent implements OnInit {
 
   ngOnInit(): void { this.loginForm = this.formBuilder.group({
     nombre: ["", [ Validators.required]],
-    nroSerie: ["" , [Validators.required]]
+    nroSerie: ["" , [Validators.required]],
+    observacion: ["" , [Validators.required]],
   });
   }
   get formControl(){
