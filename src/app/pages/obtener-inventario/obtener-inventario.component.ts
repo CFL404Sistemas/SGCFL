@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-obtener-inventario',
@@ -8,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class ObtenerInventarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
+
+irAltaHerramienta(){
+  this.router.navigate(["crear-herramienta"]);
+
+}
 
 }
