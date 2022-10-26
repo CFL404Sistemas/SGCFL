@@ -68,12 +68,13 @@ color: $ligthBlue;
     position: absolute;
     z-index: 1;
     width: 20%;
-    height: 20%;
+    height: 30%;
     top: 0;
     left: 0;
     opacity: 0;
     cursor: pointer;
     margin-left: 40%;
+    margin-top: 0%;
 
 }
 
@@ -93,11 +94,7 @@ input{
 
   border: 2px solid transparent;
 }
-h3
-{
-  margin-top: 20px;
-  margin-bottom: -20px;
-}
+
 
 .form{
 

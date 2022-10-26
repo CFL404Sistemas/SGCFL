@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   }
 volverhome(){
-  this.router.navigate(["home-admin"]);
+  this.router.navigate(["obtener-inventario"]);
 
 }
 }

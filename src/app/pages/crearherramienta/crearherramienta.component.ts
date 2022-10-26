@@ -58,7 +58,7 @@ toBase64(blob: Blob) {
   reader.readAsDataURL(blob);
   reader.onload = () => {
 
-    compressImage(reader.result, 125, 125).then(compressed => {
+    compressImage(reader.result, 225, 225).then(compressed => {
 
       this.previewPicture = 'data:image/jpg;base64,' + (this.domSanitizer.bypassSecurityTrustResourceUrl((compressed as string).split(',')[1]) as any).changingThisBreaksApplicationSecurity
 
