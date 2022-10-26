@@ -10,7 +10,7 @@
         alt=""
 
       />
-      <img style="width: 156px; height: 156px; margin-top: 10px;" *ngIf="previewPicture" [src]="previewPicture">
+      <img style="width: 156px; height: 156px; margin-top: 10px; border-radius: 15px;" *ngIf="previewPicture" [src]="previewPicture">
 
       <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
       accept="image/png, image/jpeg" name="upload" id="upload" class="upload-box" placeholder="Upload File">
