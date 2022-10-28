@@ -31,7 +31,10 @@
               <input class="" matInput type="text" formControlName="nombre">
             </mat-form-field>
             <div *ngIf="formControl.nombre.errors" class="text-danger">
-              <div *ngIf="formControl.nombre.errors.required">Se necesita un nombre</div>
+              <div *ngIf="formControl.nombre.errors.required"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+              </svg> Se necesita un nombre</div>
             </div>
             <div><mat-form-field class="bord" appearance="outline">
                 <mat-label >Marca</mat-label>
@@ -42,7 +45,10 @@
               <input matInput type="number" formControlName="nroSerie">
             </mat-form-field>
             <div *ngIf="formControl.nroSerie.errors" class="text-danger">
-              <div *ngIf="formControl.nroSerie.errors.required">Se necesita un numero</div>
+              <div *ngIf="formControl.nroSerie.errors.required"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+              </svg> Se necesita un numero</div>
             </div>
             <div *ngIf="esNoDisponible == 'Nodisponible'">
               <mat-form-field class="bord" appearance="outline">
@@ -50,7 +56,10 @@
               <input matInput type="text" formControlName="observacion">
             </mat-form-field>
             <div *ngIf="formControl.observacion.errors" class="text-danger">
-              <div *ngIf="formControl.observacion.errors.required">Se necesita una observacion</div>
+              <div *ngIf="formControl.observacion.errors.required"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+              </svg> Se necesita una observacion</div>
             </div>
 
             </div>
@@ -59,12 +68,12 @@
     </form>
   </div>
 </div>
-
+<br>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 text-center">
         <mat-radio-group [(ngModel)]="esNoDisponible">
-          <mat-radio-button class="example-margin" value="Disponible"
+          <mat-radio-button class="botonselecc2" value="Disponible"
             >Disponible</mat-radio-button>
 
 
