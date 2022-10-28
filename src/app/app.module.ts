@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /* Material Imports */
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
@@ -36,14 +38,18 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './pages/login/login.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { CrearherramientaComponent } from './pages/crearherramienta/crearherramienta.component';
 import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 
-
-
+import { ObtenerInventarioComponent } from './pages/obtener-inventario/obtener-inventario.component';
 
 
 const materialModules = [
+  MatSlideToggleModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCheckboxModule,
@@ -75,20 +81,24 @@ const materialModules = [
   MatSnackBarModule,
   MatFormFieldModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  MatRadioModule
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    CrearherramientaComponent,
     HomeAdminComponent,
     NavbarComponent,
-
+    ObtenerInventarioComponent
   ],
   imports: [
     materialModules,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   providers: [],

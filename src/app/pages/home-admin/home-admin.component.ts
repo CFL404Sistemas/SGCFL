@@ -15,7 +15,7 @@ export class HomeAdminComponent implements OnInit {
   }
 
   navegarHerramientas() {
-    this.router.navigate(["obtener-herramientas"]);
+    this.router.navigate(["obtener-inventario"]);
 
 
   }

@@ -1,0 +1,111 @@
+
+<app-navbar></app-navbar>
+
+<div class="container-fluid text-center fondo">
+  <div class="row 1">
+    <div class="col-md-12">
+      <div class="botonesDeFiltro">
+        <mat-card class="filterCard">
+          <h3 class="tituloFiltro">Filtrar por:</h3>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button class="filtro" value="1">Asignada</mat-radio-button>
+            <mat-radio-button class="filtro" value="2">No Asignada</mat-radio-button>
+            <mat-radio-button class="filtro" value="2">En Revision</mat-radio-button>
+            <mat-radio-button class="filtro" value="2">En Reparacion</mat-radio-button>
+            <mat-radio-button class="filtro" value="2">Todas</mat-radio-button>
+          </mat-radio-group>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="row 2">
+    <div class="col-md-12">
+      <div class="botonesDeAccion">
+        <mat-card class="actionCard">
+          <button (click)="irAltaHerramienta()" class="boton" mat-raised-button>Alta Herramienta</button>
+          <!-- <button mat-raised-button>Modificar Herramienta</button> -->
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="row 3">
+    <div class="col-md-12">
+      <div class="listadoDeHerramientas">
+        <div class="contenedorDeHerramienta">
+          <mat-card>
+            <input matImput placeholder="Buscar Herramienta">
+          </mat-card>
+          <mat-card class="listCard">
+            <div class="herramienta1">
+              <div class="imgContainer">
+                <img
+                  src="data:image/jpeg;base64,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"
+                  alt="">
+                <mat-chip class="disponible">Disponible</mat-chip>
+                <br>
+                <button class="botonMenu" mat-button [matMenuTriggerFor]="menu">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear imgMenu"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                    <path
+                      d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                  </svg>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Modificar</button>
+                  <button mat-menu-item>Eliminar</button>
+                </mat-menu>
+                <mat-slide-toggle class="slide">Asignar</mat-slide-toggle>
+              </div>
+              <div class="informacionDeHerramienta">
+                <h2 class="nombreHerramienta">Amoladora angular</h2>
+                <div class="descripcionHerramienta">
+                  <div>
+                    <label for="">Marca: </label><span>Bosch</span>
+                    <label for="">S/N: </label><span>12345</span>
+                  </div>
+                  <div>
+                    <label for="">Ubicacion: </label> <span>al lado</span>
+                    <br>
+                    <label for="">A Cargo: </label> <span>alguien</span>
+                  </div>
+                  <div>
+                    <label for="">Observacion: </label> <span>en buenas condiciones</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="herramienta1">
+              <img
+                src="https://d3f64ghtnjizps.cloudfront.net/wp-content/uploads/sites/103/2020/07/03094818/ikbp%C3%B1.jpg"
+                alt="">
+
+            </div>
+            <div class="herramienta1">
+              <img src="https://www.martinezescalada.com.ar/551-extra_large_default/pinza-universal-992801-7.jpg"
+                alt="">
+
+            </div>
+            <div class="herramienta1">
+
+            </div>
+
+          </mat-card>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row 4">
+    <div class="col-md-12">
+      <div class="botonesAceptarCancelar">
+        <mat-card class="actionCard">
+          <button class="boton" mat-raised-button>Aceptar</button>
+          <button class="boton" mat-raised-button>Cancelar</button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
