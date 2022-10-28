@@ -46,6 +46,7 @@ import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 
 import { ObtenerInventarioComponent } from './pages/obtener-inventario/obtener-inventario.component';
+import { ObtenerHistorialComponent } from './pages/obtener-historial/obtener-historial.component';
 
 
 const materialModules = [
@@ -92,7 +93,8 @@ const materialModules = [
     CrearherramientaComponent,
     HomeAdminComponent,
     NavbarComponent,
-    ObtenerInventarioComponent
+    ObtenerInventarioComponent,
+    ObtenerHistorialComponent
   ],
   imports: [
     materialModules,

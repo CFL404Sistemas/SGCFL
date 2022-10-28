@@ -6,7 +6,7 @@ import { ObtenerInventarioComponent } from '../app/pages/obtener-inventario/obte
 
 import { HomeAdminComponent } from '../app/pages/home-admin/home-admin.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
-
+import { ObtenerHistorialComponent } from './pages/obtener-historial/obtener-historial.component';
 
 const routes: Routes = [
   {
@@ -19,10 +19,12 @@ const routes: Routes = [
   { path: 'navbar', component: NavbarComponent },
   {
     path: 'login', component: LoginComponent,
-
-
-
   },
+
+  {
+    path: 'obtener-historial', component: ObtenerHistorialComponent,
+  },
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
