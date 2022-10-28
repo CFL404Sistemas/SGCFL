@@ -13,4 +13,6 @@ export class ObtenerInventarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
 }
