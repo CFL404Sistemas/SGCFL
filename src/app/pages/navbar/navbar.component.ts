@@ -15,7 +15,13 @@ export class NavbarComponent implements OnInit {
 
   }
 volverhome(){
-  this.router.navigate(["home-admin"]);
+  if(this.router.url =='/crear-herramienta'){
+    this.router.navigate(['/obtener-inventario']);
+
+  }else{
+    this.router.navigate(["home-admin"]);
+
+  }
 
 }
 }

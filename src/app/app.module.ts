@@ -48,6 +48,7 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ObtenerInventarioComponent } from './pages/obtener-inventario/obtener-inventario.component';
 
 
+
 const materialModules = [
   MatSlideToggleModule,
   MatButtonModule,
@@ -92,7 +93,8 @@ const materialModules = [
     CrearherramientaComponent,
     HomeAdminComponent,
     NavbarComponent,
-    ObtenerInventarioComponent
+    ObtenerInventarioComponent,
+
   ],
   imports: [
     materialModules,
