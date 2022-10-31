@@ -1,0 +1,35 @@
+@import "../../../styles.scss";
+.fondo{
+  background-color: $blue;
+  height: auto;
+  min-height: 100%;
+
+}
+.lista {
+  margin-top: 4%;
+}
+.botones{
+ width: 125px;
+}
+table{
+  width: 100%;
+}
+.historial{
+  margin-top: 3%;
+  min-width: 90%;
+  width: auto;
+
+}
+
+.boton2 {
+  padding-left: 3%;
+}
+
+.carta{
+  width: auto;
+  min-width: 90%;
+
+}
+.mat-form-field-appearance-fill{
+  margin-top: 2%;
+}
