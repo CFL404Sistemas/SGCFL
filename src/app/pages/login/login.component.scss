@@ -1,0 +1,58 @@
+@import "../../../styles.scss";
+
+.header {
+  background-color: $blue;
+  height: 400px;
+
+
+}
+img {
+width: 135px;
+height: 135px;
+
+}
+.titulares {
+  color: $white;
+
+
+}
+.subtitulo{
+  font-size: 18px;
+  padding-top: -15px;
+}
+
+.carta {
+border-radius: 25px 25px 0px 0px;
+border-color: pink;
+border: 20px;
+background-color: $white;
+margin-top: -105px;
+border-bottom: none;
+}
+
+  .mat-form-field-appearance-outline .mat-focused  .mat-form-field-outline-thick {
+    color: $blue;
+   }
+   ::ng-deep.mat-form-field-appearance-outline.mat-focused .mat-form-field-appearance-outline-ripple {
+    background-color: $ligthBlue;
+}
+
+::ng-deep.mat-form-field-appearance-outline:hover .mat-form-field-ripple {
+    background-color: $ligthBlue;
+}
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: $ligthBlue;
+}
+
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: $ligthBlue;
+}
+.campos{
+  width: 100%;
+}
+p a {color: $ligthBlue;}
+::ng-deep.mat-simple-snackbar-action {
+  color: $ligthBlue;
+}

@@ -4,6 +4,8 @@
   box-sizing: border-box;
   max-width: 100vw;
 }
+
+
 .botonesDeFiltro,.botonesDeAccion,.listadoDeHerramientas,.botonesAceptarCancelar{
   // border: 1px solid blue;
   margin: 5px 5px
@@ -22,7 +24,7 @@
 }
 
 .listCard{
-  height: 40vh;
+  height: 30%;
   overflow: scroll;
 }
 
