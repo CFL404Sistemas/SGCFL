@@ -19,7 +19,7 @@ export class HomeAdminComponent implements OnInit {
 
 
   }
- navegarUsuario() { this.router.navigate(["obtener-usuario"]);
+ navegarUsuario() { this.router.navigate(["crear-usuario"]);
 
  }
  navegarHistorial() {

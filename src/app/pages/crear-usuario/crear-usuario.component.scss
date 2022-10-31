@@ -1,0 +1,86 @@
+.icono-de-herramientas{
+  width: 175px;
+  height: 175px;
+  box-shadow: black 150px;
+
+
+  }
+  .botonselecc2
+  {
+    margin-left: 2px;
+  }
+  .bord{
+    width: 40%;
+  }
+
+
+
+
+  .botoncrear{
+    margin-top: 30px;
+    width: 30%;
+
+    margin-bottom: 10px;
+  }
+  .button-wrapper {
+      position: relative;
+      text-align: center;
+      margin: auto;
+  }
+
+  .button-wrapper span.label {
+      position: relative;
+      z-index: 0;
+      display: inline-block;
+      width: 100%;
+      background: #3F408B;
+      cursor: pointer;
+      color: #fff;
+      padding: 3%;
+      margin-top: 3%;
+      border-radius: 25px;
+
+  }
+
+  #upload {
+      display: inline-block;
+      position: absolute;
+      z-index: 1;
+      width: 20%;
+      height: 20%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+      margin-left: 40%;
+
+  }
+
+
+  label {
+      cursor: pointer;
+  }
+
+  .upload-photo {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+
+  }
+
+  input{
+
+    border: 2px solid transparent;
+  }
+  h3
+  {
+    margin-top: 20px;
+    margin-bottom: -20px;
+  }
+.botoncrear{
+  margin-left: 35%;
+
+ }
+
+
+

@@ -1,1 +1,57 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid text-center formu">
+  <div clas="row">
+    <div class="col-md-12"></div>
+    <form class="user-login"[formGroup]="formularioUsuario"(ngSubmit)="crearUsuario()">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <mat-form-field class="bord" appearance="outline">
+              <mat-label class="name">Nombre y Apellido</mat-label>
+              <input class="" matInput type="text" formControlName="nombre">
+            </mat-form-field>
+            <!--  Error para avisar que no se cumple el formulario-->
+            <div *ngIf="formControl.nombre.errors" class="text-danger">
+              <div *ngIf="formControl.nombre.errors.required">Se necesita un Cargo</div>
+            </div>
+            <div><mat-form-field class="bord" appearance="outline">
+                <mat-label class="apellido">Cargo</mat-label>
+                <input matInput>
+              </mat-form-field></div>
+            <mat-form-field class="bord" appearance="outline">
+              <mat-label class="email">Rol</mat-label>
+              <input matInput type="email" formControlName="nroSerie">
+            </mat-form-field>
+              <!-- Error para avisar que no se cumple el formulario -->
+
+            <div *ngIf="formControl.nroSerie.errors" class="text-danger">
+              <div *ngIf="formControl.nroSerie.errors.required">Se necesita un numero de DNI</div>
+            </div>
+            <div>
+              <mat-form-field class="bord" appearance="outline">
+                <mat-label>DNI</mat-label>
+                <input matInput type="number" formControlName="DNI"
+                 maxlength="256">
+              </mat-form-field>
+
+            </div>
+            <mat-form-field class="bord" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" maxlength="256">
+            </mat-form-field>
+            </div>
+          </div>
+          <mat-form-field class="bord" appearance="outline">
+            <mat-label>Teléfono</mat-label>
+            <input matInput type="email" maxlength="256">
+          </mat-form-field>
+     </form>
+  </div>
+  <mat-form-field class="bord" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" maxlength="256">
+  </mat-form-field>
+</div>
+
+<button  mat-raised-button color="primary" class="botoncrear">Crear</button>
 

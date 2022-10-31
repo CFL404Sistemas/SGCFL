@@ -39,7 +39,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './pages/login/login.component';
-
+import {CrearUsuarioComponent} from './pages/crear-usuario/crear-usuario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CrearherramientaComponent } from './pages/crearherramienta/crearherramienta.component';
 import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
@@ -94,6 +94,7 @@ const materialModules = [
     HomeAdminComponent,
     NavbarComponent,
     ObtenerInventarioComponent,
+    CrearUsuarioComponent
 
   ],
   imports: [
@@ -102,6 +103,7 @@ const materialModules = [
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
