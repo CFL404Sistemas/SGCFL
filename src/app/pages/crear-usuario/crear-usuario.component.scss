@@ -1,4 +1,18 @@
+
+
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #093f7c;
+  ;
+}
+
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+  color: #093f7c;
+  ;
+}
 .icono-de-herramientas{
+
   width: 175px;
   height: 175px;
   box-shadow: black 150px;
@@ -19,6 +33,8 @@
   .botoncrear{
     margin-top: 30px;
     width: 30%;
+    background: #093f7c;
+  
 
     margin-bottom: 10px;
   }
@@ -33,7 +49,7 @@
       z-index: 0;
       display: inline-block;
       width: 100%;
-      background: #3F408B;
+      background: #093f7c ;
       cursor: pointer;
       color: #fff;
       padding: 3%;
@@ -79,6 +95,10 @@
   }
 .botoncrear{
   margin-left: 35%;
+
+ }
+ .formu{
+  margin-top: 60px;
 
  }
 
