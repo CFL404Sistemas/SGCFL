@@ -23,7 +23,7 @@
 <div class="container-fluid text-center form">
   <div clas="row">
     <!-- <div class="col-md-12"></div> -->
-    <form class="user-login"[formGroup]="loginForm"(ngSubmit)="onLogin()">
+    <form class="user-login"[formGroup]="loginForm">
         <div class="row">
           <div class="col-md-12 text-center">
             <mat-form-field class="bord" appearance="outline">
@@ -38,7 +38,7 @@
             </div>
             <div><mat-form-field class="bord" appearance="outline">
                 <mat-label >Marca</mat-label>
-                <input matInput>
+                <input matInput formControlName="Marca" >
               </mat-form-field></div>
             <mat-form-field class="bord" appearance="outline">
               <mat-label >Nro de Serie o Registro</mat-label>
@@ -61,14 +61,12 @@
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
               </svg> Se necesita una observacion</div>
             </div>
-
             </div>
             </div>
           </div>
     </form>
   </div>
 </div>
-<br>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12 text-center">
@@ -87,7 +85,7 @@
           >
         </mat-radio-group>
         <br>
-      <button mat-raised-button color="primary" class="botoncrear">Crear</button>
+      <button (click)="crearherramientas()" mat-raised-button color="primary" class="botoncrear">Crear</button>
     </div>
   </div>
 </div>
