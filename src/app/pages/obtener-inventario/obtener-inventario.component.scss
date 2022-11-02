@@ -24,8 +24,8 @@
 }
 
 .listCard{
-  height: 30%;
-  overflow: scroll;
+  height: 50vh;
+  overflow-y: scroll;
 }
 
 .herramienta1{
@@ -71,7 +71,15 @@ margin-top: 10%;
 .disponible{
   background-color: $ligthBlue;
   border-radius: 5px;
+  margin: 5px;
 }
+
+.noDisponible{
+  background-color: #f00;
+  border-radius: 5px;
+  margin: 5px;
+}
+
 .botonMenu{
   margin-top: 20%;
 }

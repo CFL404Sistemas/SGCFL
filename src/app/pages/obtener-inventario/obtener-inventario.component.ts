@@ -10,14 +10,26 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class ObtenerInventarioComponent implements OnInit {
   todasLasHerramientas:any;
+  herramientasAAsignar: number[]=[];
+
 
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.obtenerHerramientas().subscribe((response:any)=>{
       console.log(response)
-      this.todasLasHerramientas=response;
+      this.todasLasHerramientas=response.response;
     })
+
+
+  }
+
+  asignar(herramienta:any){
+
+  }
+
+  aceptarAsignacion(){
+
   }
 
 irAltaHerramienta(){
