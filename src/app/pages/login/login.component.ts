@@ -37,6 +37,9 @@ onlogin(){
     (response: any) => {
 
 
+      localStorage.setItem('isLogged', 'true')
+
+
       this.router.navigate(["home-admin"]);
 
     },
