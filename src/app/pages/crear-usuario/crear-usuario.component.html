@@ -44,19 +44,19 @@
               matInput
               type="password"
               maxlength="256"
-              formControlName="Contraseña"
+              formControlName="password"
             />
           </mat-form-field>
         </div>
       </div>
       <mat-form-field class="bord" appearance="outline">
         <mat-label>Teléfono</mat-label>
-        <input matInput type="email" maxlength="256" />
+        <input formControlName="telefono" matInput type="number" maxlength="256" />
       </mat-form-field>
       <div>
         <mat-form-field class="bord" appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput type="email" maxlength="256" />
+          <input formControlName="email" matInput type="email" maxlength="256" />
         </mat-form-field>
       </div>
       <button mat-raised-button color="primary" class="botoncrear">

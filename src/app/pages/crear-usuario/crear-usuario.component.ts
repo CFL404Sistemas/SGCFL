@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from "src/app/services/auth.service";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -11,7 +12,7 @@ import {AuthService} from "src/app/services/auth.service";
 export class CrearUsuarioComponent implements OnInit {
   formularioUsuario: FormGroup | any;
 
-  constructor(private formBuilder: FormBuilder, private AuthService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -19,8 +20,11 @@ export class CrearUsuarioComponent implements OnInit {
       nombre: ["", [ Validators.required]],
       nroSerie: ["" , [Validators.required]],
       DNI: ["" , [Validators.required]],
-      Contraseña: ["" , [Validators.required]],
+      password: ["" , [Validators.required]],
       Cargo: ["" , [Validators.required]],
+      telefono: ["" , []],
+      email: ["" , []],
+
 
     });
 
@@ -34,17 +38,16 @@ export class CrearUsuarioComponent implements OnInit {
 
   crearUsuario(){
 
-    this.AuthService.Registrar(this.formularioUsuario.value.dni, this.formularioUsuario.value.password, this.formularioUsuario.value.nombre, this.formularioUsuario.value.Cargo, this.formularioUsuario.value.telefono, this.formularioUsuario.value.email).subscribe(
+    this.AuthService.Registrar(this.formularioUsuario.value.DNI, this.formularioUsuario.value.password, this.formularioUsuario.value.nombre, this.formularioUsuario.value.Cargo, this.formularioUsuario.value.telefono, this.formularioUsuario.value.email).subscribe(
       (response: any) => {
 
         console.log(response);
-        alert('BACKEND RESPONDIO BIEN');
-
-
+        this._snackBar.open('Se ha creado un usuario', 'Cerrar');
+        this.formularioUsuario.reset();
       },
       (error) => {
         console.log(error);
-        alert('BACKEND RESPONDIO MAL');
+        this._snackBar.open('Error en la creación de usuario', 'Cerrar');
 
       },
     );

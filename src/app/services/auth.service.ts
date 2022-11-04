@@ -17,13 +17,13 @@ export class AuthService {
       password: password
     });
   }
-  Registrar(dni: string, password: string, nombre: string, Cargo: string, telefono: number, email: string, ) {
+  Registrar(dni: string, password: string, nombre: string, cargo: string, telefono: number, email: string, ) {
 
-    return this.http.post( "http://127.0.0.1:8000/api/auth/register", {
+    return this.http.post( "http://127.0.0.1:8000/api/authServices/register", {
       dni: dni,
       password: password,
       nombre: nombre,
-      Cargo: Cargo,
+      cargo: cargo,
       telefono: telefono,
       email: email,
 
