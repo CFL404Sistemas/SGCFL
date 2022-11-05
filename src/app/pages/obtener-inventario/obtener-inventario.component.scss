@@ -3,8 +3,9 @@
 .fondo {
   box-sizing: border-box;
   max-width: 100vw;
-  max-height: 100vh;
 }
+
+.botonesDeFiltro,.botonesDeAccion,.listadoDeHerramientas,.botonesAceptarCancelar{
 .botonesDeFiltro,
 .botonesDeAccion,
 .listadoDeHerramientas,
@@ -17,9 +18,9 @@
 // .mat-card{
 //   border-radius: 0px;
 // }
-// .filterCard{
-//  height: 15vh;
-// }
+.filterCard{
+ height: 20vh;
+}
 
 .actionCard {
   // height: 10vh;
@@ -38,7 +39,10 @@
 .listCard {
   height: 40vh;
   overflow: scroll;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc;}
+.listCard{
+  height: 40vh;
+  overflow-y: scroll;
 }
 
 .herramienta1 {
@@ -51,7 +55,7 @@
 
 img {
   width: auto;
-  height: 20vh;
+  height: 15vh;
   border-radius: 10px;
   border: 1px solid #000;
   box-shadow: 3px 5px 8px 5px #aaa;
@@ -82,17 +86,20 @@ mat-divider {
 .disponible {
   background-color: $ligthBlue;
   border-radius: 5px;
-  margin-left: 20%;
-  width: 60%;
-  position: relative;
-  z-index: 400;
-}
-.botonMenu {
   margin: 5px;
-  margin-top: 5px;
-  border: 1px outset #aaa;
-  border: 1px outset $ligthBlue;
-  box-shadow: 1px 1px 2px 1px #666;
+}
+
+.noDisponible{
+  background-color: #f00;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.botonMenu{
+  margin-top: 20%;}
+
+.textoAsignar{
+  font-size: 0.8em;
 }
 .textoAsignar{
   font-size: 0.8em;
@@ -105,11 +112,17 @@ mat-divider {
   border-radius: 5px 5px 0 0;
 }
 
-.filtro {
-  display: inline-flex;
+mat-radio-group{
+  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:baseline;
+  justify-content: space-around;
+}
+
+.filtro {
   margin: 5px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -159,10 +172,11 @@ mat-divider {
 
 img {
   width: auto;
-  height: 30vh;
+  height: 25vh;
   border-radius: 10px;
   border: 1px solid #000;
   box-shadow: 3px 5px 8px 5px #aaa;
   margin-top: 10px;
+}
 }
 }
