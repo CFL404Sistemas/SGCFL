@@ -2,17 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from "src/app/services/auth.service";
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {GestiondeusuarioService} from "src/app/services/gestiondeusuario.service";
 
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
   styleUrls: ['./crear-usuario.component.scss']
 
+
+
+
 })
 export class CrearUsuarioComponent implements OnInit {
   formularioUsuario: FormGroup | any;
+  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+TodoslosUsuarios:any;
 
-  constructor(private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
+  constructor(private GestiondeusuarioService: GestiondeusuarioService, private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -30,6 +36,7 @@ export class CrearUsuarioComponent implements OnInit {
 
 
   }
+
 
   get formControl(){
     return this.formularioUsuario.controls;
@@ -55,9 +62,32 @@ export class CrearUsuarioComponent implements OnInit {
   };
 
 
+ObtenerUsuario(){
+
+  this.GestiondeusuarioService.obtenerusuarios().subscribe(
+    (response: any) => {
+
+      console.log(response.response_uno);
+      this.TodoslosUsuarios=response.response_uno
+
+    },
+    (error) => {
+      console.log(error);
 
 
+    },
+  );
 
+
+}
+
+onTabChanged($event: any) {
+
+  if($event.index ==1){
+    this.ObtenerUsuario();
+  }
+
+}
 
 
 }

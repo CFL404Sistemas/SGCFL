@@ -103,7 +103,7 @@ const materialModules = [
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
-  
+
   ],
   providers: [],
   bootstrap: [AppComponent]
