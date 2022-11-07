@@ -3,15 +3,16 @@
 <div class="container-fluid text-center fondo">
   <div class="row 1">
     <div class="col-md-12">
-      <div class="botonesDeFiltro">
+      <div class="botonesDeFiltro grupoFiltros">
         <mat-card class="filterCard">
           <h3 class="tituloFiltro">Filtrar por:</h3>
-          <mat-radio-group aria-label="Select an option">
-            <mat-radio-button class="filtro" value="1">Asignada</mat-radio-button>
-            <mat-radio-button class="filtro" value="2">No Asignada</mat-radio-button>
-            <mat-radio-button class="filtro" value="2">En Revision</mat-radio-button>
-            <mat-radio-button class="filtro" value="2">En Reparacion</mat-radio-button>
-            <mat-radio-button class="filtro" value="2">Todas</mat-radio-button>
+          <mat-radio-group [(ngModel)]="filtro"  aria-label="Select an option" class="filterGroup">
+            <mat-radio-button (click)="filtrar(0)" class="filtro" id="flitroDisponible" value="0">Disponibles</mat-radio-button>
+            <mat-radio-button (click)="filtrar(1)" class="filtro" id="flitroAsignadas" value="1">Asignadas</mat-radio-button>
+            <mat-radio-button (click)="filtrar(2)" class="filtro" id="flitroRevision" value="2">En Reparación</mat-radio-button>
+            <mat-radio-button (click)="filtrar(3)" class="filtro" id="flitroReparacion" value="3">En Revisión</mat-radio-button>
+            <mat-radio-button (click)="filtrar(4)" class="filtro" id="flitroBaja" value="4">Dada de baja</mat-radio-button>
+            <mat-radio-button (click)="filtrar(5)" class="filtro" id="flitroTodas" value="5" checked="checked">Todas</mat-radio-button>
           </mat-radio-group>
         </mat-card>
       </div>
@@ -31,16 +32,20 @@
     <div class="col-md-12">
       <div class="listadoDeHerramientas">
         <div class="contenedorDeHerramienta">
-          <mat-card>
-            <input matImput placeholder="Buscar Herramienta">
+          <mat-card class="barraBusqueda">
+            <input (keyup)="buscarPorNombre($event)" class="buscador" matImput placeholder="Buscar Herramienta">
           </mat-card>
           <mat-card class="listCard">
-            <div *ngFor="let herramienta of todasLasHerramientas">
+            <!-- <mat-spinner></mat-spinner> -->
+            <div *ngFor="let herramienta of herramientasAMostrar">
               <div class="herramienta1">
                 <div class="imgContainer">
                   <img [src]="herramienta.img" alt="">
                   <mat-chip *ngIf="herramienta.estado==0" class="disponible">Disponible</mat-chip>
-                  <mat-chip *ngIf="herramienta.estado==1" class="noDisponible">No Disponible</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==1" class="noDisponible">Asignada</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==2" class="noDisponible">En reparacion</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==3" class="noDisponible">En revision</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==4" class="noDisponible">Dada de baja</mat-chip>
                   <br>
                   <button class="botonMenu" mat-button [matMenuTriggerFor]="menu">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -57,6 +62,9 @@
                   </mat-menu>
                   <mat-slide-toggle disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)" class="slide">Asignar</mat-slide-toggle>
                   <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==1" class="slide">Asignar</mat-slide-toggle>
+                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar</mat-slide-toggle>
+                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar</mat-slide-toggle>
+                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==4" class="slide">Asignar</mat-slide-toggle>
                 </div>
                 <div class="informacionDeHerramienta">
                   <h2 class="nombreHerramienta">{{herramienta.nombre}}</h2>
@@ -86,10 +94,11 @@
     <div class="col-md-12">
       <div class="botonesAceptarCancelar">
         <mat-card class="actionCard">
-          <button class="boton" mat-raised-button>Aceptar</button>
+          <button (click)="aceptarAsignacion()" class="boton" mat-raised-button>Aceptar</button>
           <button class="boton" mat-raised-button>Cancelar</button>
         </mat-card>
       </div>
     </div>
+
   </div>
 </div>
