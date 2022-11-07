@@ -6,6 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EsUsuarioGuard implements CanLoad {
+  constructor() {
+
+    console.log('se ejecuta guard',localStorage.getItem('isLogged'));
+
+
+
+
+  }
 
   canLoad(
     route: Route,
@@ -14,7 +22,13 @@ export class EsUsuarioGuard implements CanLoad {
 
 
      console.log('se ejecuta guard',localStorage.getItem('isLogged'));
-      return true;
+
+
+
+
+
+
+     return false;
 
 
 

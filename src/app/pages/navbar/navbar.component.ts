@@ -15,7 +15,11 @@ export class NavbarComponent implements OnInit {
 
   }
 volverhome(){
+  localStorage.removeItem('isLogged')
   this.router.navigate(["home-admin"]);
 
+}
+cerrarsecion(){
+  this.router.navigate(["login"]);
 }
 }
