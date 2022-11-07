@@ -6,9 +6,9 @@
         <div class="col-md-12 ">
           <p class="fs-2 text mt-3">Historial</p>
           <br />
-          <form class="d-flex" role="search">
-            <input class="form-control me-2 bg-text-primary" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success bg-primary text-info" type="submit">Search</button>
+          <form class="d-flex " role="search">
+            <input class="form-control me-2 bg-text-primary text-center numeroSerie" type="search" placeholder="Ingresar Numero de Serie" aria-label="Search">
+            <button class="btn btn-outline-success boton" type="submit">Filtrar</button>
           </form>
           <br>
         </div>
@@ -51,7 +51,7 @@
             >
 
             <mat-form-field appearance="fill" class="warn fecha ms-3">
-              <mat-label>Verbose datepicker</mat-label>
+              <mat-label>Fecha</mat-label>
               <input matInput [matDatepicker]="dp" />
 
               <mat-datepicker-toggle
@@ -80,57 +80,16 @@
                       <div href="#" class="list-group-item list-group-item-action active" aria-current="true">
                         <div class="d-flex w-100 justify-content-between">
                           <h2 class=" mb-1">Martillo</h2>
-                          <small>10/05/2022</small>
+                          <small style="font-size: 15px;">10/05/2022</small>
                         </div>
-                        <small>N° Serie: 5555555555</small>
-                        <p class="datoslista mb-1">Responsable: Lazarte Agustin</p>
-                        <p class="datoslista mb-1">Movimiento: No Disponible</p>
-                        <small>Comentario:</small>
+                        <h5>N° Serie: </h5>
+                        <p class="datoslista mb-1">Responsable:</p>
+                        <p class="datoslista mb-1">Movimiento:</p>
+                        <input class="form-control me-2 bg-text-primary text-center comentario" type="search" placeholder="Comentario" aria-label="Search" >
                       </div>
                 </div>
             </div>
-          <div class="col-md-3 mt-1">
-            <div class="list-group">
-              <div href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h2 class=" mb-1">Martillo</h2>
-                  <small>10/05/2022</small>
-                </div>
-                <small>N° Serie: 5555555555</small>
-                <p class="datoslista mb-1">Responsable: Lazarte Agustin</p>
-                <p class="datoslista mb-1">Movimiento: No Disponible</p>
-                <small>Comentario:</small>
-              </div>
-              </div>
-          </div>
-          <div class="col-md-3 mt-1">
-            <div class="list-group">
-              <div href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h2 class=" mb-1">Martillo</h2>
-                  <small>10/05/2022</small>
-                </div>
-                <small>N° Serie: 5555555555</small>
-                <p class="datoslista mb-1">Responsable: Lazarte Agustin</p>
-                <p class="datoslista mb-1">Movimiento: No Disponible</p>
-                <small>Comentario:</small>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mt-1">
-            <div class="list-group">
-              <div href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h2 class=" mb-1">Martillo</h2>
-                  <small>10/05/2022</small>
-                </div>
-                <small>N° Serie: 5555555555</small>
-                <p class="datoslista mb-1">Responsable: Lazarte Agustin</p>
-                <p class="datoslista mb-1">Movimiento: No Disponible</p>
-                <small>Comentario:</small>
-              </div>
-            </div>
-          </div>
+
   </div>
 </mat-card>
 </div>
@@ -169,6 +128,13 @@
               <th mat-header-cell *matHeaderCellDef>Responsable</th>
               <td mat-cell *matCellDef="let element">{{ element.section }}</td>
             </ng-container>
+
+            <ng-container matColumnDef="comentario">
+              <th id="thahorasi" mat-header-cell *matHeaderCellDef>Comentario</th>
+              <td mat-cell *matCellDef="let element"><input class="form-control me-auto bg-text-primary text-center comentario" style="width: 100%" type="search" placeholder="Comentario" aria-label="Search" value="{{element.comentario}}"></td>
+            </ng-container>
+
+
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

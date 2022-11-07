@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./obtener-historial.component.scss']
 })
 export class ObtenerHistorialComponent implements OnInit {
-  displayedColumns: string[] = ['number','name', 'accion', 'symbol','section'];
+  displayedColumns: string[] = ['number','name', 'accion', 'symbol','section','comentario'];
   dataSource = ELEMENT_DATA;
   constructor() { }
 
@@ -27,12 +27,13 @@ export interface PeriodicElement {
   accion: string;
   symbol: string;
   section: string;
+  comentario: string;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
-  {number: 2221, name: 'Taladro', accion: 'Disponible' , symbol: '12/04/2022', section:'Nicolas A'},
-  {number: 2222, name: 'Amoladora', accion: 'No Disponible' , symbol: '13/05/2022', section:'Nicolas A'},
-  {number: 2223, name: 'Martillo', accion: 'Disponible' , symbol: '16/06/2022', section:'Nicolas A'},
-  {number: 2224, name: 'Destornillador', accion: 'Disponible' , symbol: '16/07/2022', section:'Nicolas A'},
+  {number: 2221, name: 'Taladro', accion: 'Disponible' , symbol: '12/04/2022', section:'Nicolas A', comentario: ''},
+  {number: 2222, name: 'Amoladora', accion: 'No Disponible' , symbol: '13/05/2022', section:'Nicolas A', comentario: ''},
+  {number: 2223, name: 'Martillo', accion: 'Disponible' , symbol: '16/06/2022', section:'Nicolas A', comentario: ''},
+  {number: 2224, name: 'Destornillador', accion: 'Disponible' , symbol: '16/07/2022', section:'Nicolas A', comentario: ''},
 ];
 
 
