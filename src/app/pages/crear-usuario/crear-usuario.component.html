@@ -75,15 +75,24 @@
       </mat-list-option>
     </mat-selection-list>
 
-    <p>
-    Usuarios seleccionado: {{shoes.selectedOptions.selected.length}}
-    </p>
-    <div class="example-label">Basic</div>
-    <div class="example-button-row">
-      <button  mat-button>Borrar Usuario</button>
+<div  *ngIf="TodoslosUsuarios!=undefined" >
+   <div class="select"> Usuario Seleccionado: {{shoes.selectedOptions.selected.length}}</div>
 
+
+
+    <div class="example-button-row text-center">
+      <button class="borrar" mat-button>Borrar Usuario</button>
+
+    </div>
+
+    </div>
+    <div *ngIf="TodoslosUsuarios==undefined" class="spinnerContainer">
+      <mat-spinner ></mat-spinner>
+      <div class="loading">Cargando</div>
     </div>
   </mat-tab>
 
 
+
 </mat-tab-group>
+

@@ -107,4 +107,37 @@
   color: #0184f5;
 }
 
+.select{
+  margin-left: 10px;
+}
+.borrar{
+background-color:#093f7c;
+color: #fff;
+width: 30%;
+}
+.spinnerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 100vh;
+}
 
+.loading {
+  color: #fff;
+  margin-top: 5px;
+  animation: texto-cargando 3s infinite;
+}
+
+@keyframes texto-cargando {
+  0% {
+    text-shadow: 1px 1px 2px  #0184f5;
+
+  }
+
+  66% {
+    color:  #0184f5; ;
+  }
+}
