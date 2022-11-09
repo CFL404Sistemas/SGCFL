@@ -16,18 +16,15 @@ export class NavbarComponent implements OnInit {
   }
 volverhome(){
 
-<<<<<<< HEAD
   if(this.router.url =='/crear-herramienta'){
     this.router.navigate(['/obtener-inventario']);
-    
+
 
   }else{
     this.router.navigate(["home-admin"]);
 
   }
-=======
   this.router.navigate(["home-admin"]);
->>>>>>> 9cc2f86bad924c133bca7a442df7d95ce8c49671
 
 }
 cerrarsecion(){
