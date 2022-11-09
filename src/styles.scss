@@ -36,3 +36,6 @@ $darkGray: #333333;
 border-color: $ligthBlue!important;
 }
 }
+.mat-progress-spinner circle, .mat-spinner circle{
+  stroke: $ligthBlue!important;
+}
