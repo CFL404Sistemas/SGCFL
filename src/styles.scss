@@ -26,7 +26,7 @@ $darkGray: #333333;
   }
   .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
     border-color:  $ligthBlue  !important;
-
+  }
 
 .mat-radio-inner-circle{
   background-color: $ligthBlue!important;
@@ -35,14 +35,18 @@ $darkGray: #333333;
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
 border-color: $ligthBlue!important;
 }
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: $ligthBlue;
+  box-shadow: 0px 0px 5px 3px #aaf;
 }
-<<<<<<< HEAD
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: $blue;
+}
+
 .mat-progress-spinner circle, .mat-spinner circle{
   stroke: $ligthBlue!important;
 }
-=======
 
 
 
 
->>>>>>> 9cc2f86bad924c133bca7a442df7d95ce8c49671

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders} from "@angular/common/http";
-
+import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 
 
 @Injectable({
@@ -18,6 +17,11 @@ export class AuthService {
       password: password
     });
   }
+
+  obtenerHerramientas(){
+    return this.http.get('http://127.0.0.1:8000/api/obtener-herramientas');
+  }
+
   Registrar(dni: string, password: string, nombre: string, cargo: string, telefono: number, email: string, ) {
 
     return this.http.post( "http://127.0.0.1:8000/api/authServices/register", {
@@ -41,5 +45,6 @@ export class AuthService {
 
 
     });
-  }
+
+
 }
