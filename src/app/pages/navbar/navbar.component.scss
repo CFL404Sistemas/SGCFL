@@ -6,6 +6,7 @@ height:84px ;
 
 .navbar {
 background-color: #093F7C;
+width: 100%;
 }
 .mititulo { color:white;
   margin-left: 20px;
@@ -18,3 +19,18 @@ background-color: #093F7C;
   color: white;
  cursor: pointer;
 }
+.cerrar{
+ margin: end  !important;
+}
+
+.container-row{
+  width:100%;
+}
+
+.exit-app{
+  margin-top: 1%;
+  float: right !important;
+  color:#ffff;
+  vertical-align:middle;
+}
+

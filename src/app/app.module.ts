@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,8 +45,7 @@ import { HomeAdminComponent } from './pages/home-admin/home-admin.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 
 import { ObtenerInventarioComponent } from './pages/obtener-inventario/obtener-inventario.component';
-import { ObtenerHistorialComponent } from './pages/obtener-historial/obtener-historial.component';
-
+import { EdicionperfilComponent } from './pages/edicionperfil/edicionperfil.component';
 
 
 const materialModules = [
@@ -84,7 +82,8 @@ const materialModules = [
   MatFormFieldModule,
   FormsModule,
   ReactiveFormsModule,
-  MatRadioModule
+  MatRadioModule,
+  HttpClientModule
 ];
 
 @NgModule({
@@ -95,6 +94,7 @@ const materialModules = [
     HomeAdminComponent,
     NavbarComponent,
     ObtenerInventarioComponent,
+    EdicionperfilComponent
   ],
   bootstrap: [AppComponent]
 })

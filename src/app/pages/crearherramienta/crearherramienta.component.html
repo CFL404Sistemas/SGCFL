@@ -1,15 +1,16 @@
-<div class="conteiner-fluid text-center">
-  <app-navbar></app-navbar>
+<app-navbar></app-navbar>
+<div class="container-fluid text-center">
+
   <div clas="row">
     <div class="col-md-12">
-      <h3>Modificar Imagen</h3>
+
       <img *ngIf="!previewPicture"
         class="icono-de-herramientas animate__animated animate__pulse"
         src="assets/agregar-herramienta.png"
         alt=""
 
       />
-      <img style="width:10%;" *ngIf="previewPicture" [src]="previewPicture">
+      <img style="width: 156px; height: 156px; margin-top: 10px; border-radius: 15px;" *ngIf="previewPicture" [src]="previewPicture">
 
       <input type="file" (change)="loadImageFromDevice($event)" id="file-input"
       accept="image/png, image/jpeg" name="upload" id="upload" class="upload-box" placeholder="Upload File">
@@ -19,47 +20,58 @@
   </div>
 </div>
 <br>
-<div class="conteiner-fluid text-center">
+<div class="container-fluid text-center form">
   <div clas="row">
-    <div class="col-md-12"></div>
-    <form class="user-login"[formGroup]="loginForm"(ngSubmit)="onLogin()">
+    <!-- <div class="col-md-12"></div> -->
+    <form class="user-login"[formGroup]="loginForm">
         <div class="row">
           <div class="col-md-12 text-center">
             <mat-form-field class="bord" appearance="outline">
-              <mat-label class="name">Nombre</mat-label>
+              <mat-label >Nombre</mat-label>
               <input class="" matInput type="text" formControlName="nombre">
             </mat-form-field>
             <div *ngIf="formControl.nombre.errors" class="text-danger">
-              <div *ngIf="formControl.nombre.errors.required">Se necesita un nombre</div>
+              <div *ngIf="formControl.nombre.errors.required"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+              </svg> Se necesita un nombre</div>
             </div>
             <div><mat-form-field class="bord" appearance="outline">
-                <mat-label class="apellido">Marca</mat-label>
-                <input matInput>
+                <mat-label >Marca</mat-label>
+                <input matInput formControlName="Marca" >
               </mat-form-field></div>
             <mat-form-field class="bord" appearance="outline">
-              <mat-label class="email">Nro de Serie o Registro</mat-label>
+              <mat-label >Nro de Serie o Registro</mat-label>
               <input matInput type="number" formControlName="nroSerie">
             </mat-form-field>
             <div *ngIf="formControl.nroSerie.errors" class="text-danger">
-              <div *ngIf="formControl.nroSerie.errors.required">Se necesita un numero</div>
+              <div *ngIf="formControl.nroSerie.errors.required"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+              </svg> Se necesita un numero</div>
             </div>
             <div *ngIf="esNoDisponible == 'Nodisponible'">
               <mat-form-field class="bord" appearance="outline">
-                <mat-label>Observaciones</mat-label>
-                <input matInput type="mensaje" maxlength="256">
-              </mat-form-field>
+              <mat-label >Observaciones</mat-label>
+              <input matInput type="text" formControlName="observacion">
+            </mat-form-field>
+            <div *ngIf="formControl.observacion.errors" class="text-danger">
+              <div *ngIf="formControl.observacion.errors.required"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+              </svg> Se necesita una observacion</div>
+            </div>
             </div>
             </div>
           </div>
     </form>
   </div>
 </div>
-
-<div class="conteiner-fluid">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12 text-center">
         <mat-radio-group [(ngModel)]="esNoDisponible">
-          <mat-radio-button class="example-margin" value="Disponible"
+          <mat-radio-button class="botonselecc2" value="Disponible"
             >Disponible</mat-radio-button>
 
 
@@ -73,7 +85,7 @@
           >
         </mat-radio-group>
         <br>
-      <button mat-raised-button color="primary" class="botoncrear">Crear</button>
+      <button (click)="crearherramientas()" mat-raised-button color="primary" class="botoncrear">Crear</button>
     </div>
   </div>
 </div>
