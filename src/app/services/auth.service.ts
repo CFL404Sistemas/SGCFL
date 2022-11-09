@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,4 +29,17 @@ export class AuthService {
       email: email,
 
     });}
+  crearheramienta(nombre: string, marca: string, NrodeSerie:string, observacion:string, imagen:string, estado:string) {
+
+    return this.http.post( "http://127.0.0.1:8000/api/herramienta/crearHerramienta", {
+      nombre: nombre ,
+      marca: marca,
+      NrodeSerie: NrodeSerie,
+      observacion: observacion,
+      imagen: imagen,
+      estado: estado,
+
+
+    });
+  }
 }
