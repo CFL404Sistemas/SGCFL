@@ -96,6 +96,9 @@ const materialModules = [
     ObtenerInventarioComponent,
     EdicionperfilComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserAnimationsModule
+  ]
 })
 export class AppModule { }
