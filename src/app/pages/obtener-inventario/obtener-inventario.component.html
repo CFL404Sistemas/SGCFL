@@ -36,7 +36,10 @@
             <input (keyup)="buscarPorNombre($event)" class="buscador" matImput placeholder="Buscar Herramienta">
           </mat-card>
           <mat-card class="listCard">
-            <!-- <mat-spinner></mat-spinner> -->
+            <div *ngIf="herramientasAMostrar==undefined" class="spinnerContainer">
+              <mat-spinner ></mat-spinner>
+              <div class="loading">Cargando</div>
+            </div>
             <div *ngFor="let herramienta of herramientasAMostrar">
               <div class="herramienta1">
                 <div class="imgContainer">

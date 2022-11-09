@@ -42,3 +42,7 @@ border-color: $ligthBlue!important;
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
   background-color: $blue;
 }
+
+.mat-progress-spinner circle, .mat-spinner circle{
+  stroke: $ligthBlue!important;
+}

@@ -21,7 +21,7 @@ export class ObtenerInventarioComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService,private _snackBar: MatSnackBar,) {}
 
   ngOnInit(): void {
-
+    console.log(this.todasLasHerramientas)
     // codigo de estados de las herrmamientas:
     // 0: disponible
     // 1: asignada
