@@ -35,17 +35,17 @@ onlogin(){
 
   this.Login.login(this.loginform.value.dni, this.loginform.value.password).subscribe(
     (response: any) => {
-
+console.log(response);
 
       localStorage.setItem('isLogged', 'true')
-
+      localStorage.setItem('userData', JSON.stringify(response.response))
 
       this.router.navigate(["home-admin"]);
 
     },
     (error) => {
       console.log(error);
-      this._snackBar.open('ERROR', 'Cerrar');
+      this._snackBar.open('DNI o Contraseña Incorrecta', 'Cerrar');
 
     },
   );

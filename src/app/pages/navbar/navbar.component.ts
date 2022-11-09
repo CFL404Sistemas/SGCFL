@@ -7,19 +7,23 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
+ datosUsuario:any;
   constructor(public router: Router) { }
 
   ngOnInit(): void {
-
+  this.datosUsuario=(JSON.parse(localStorage.getItem('userData')!));
 
   }
 volverhome(){
-  localStorage.removeItem('isLogged')
+
   this.router.navigate(["home-admin"]);
 
 }
 cerrarsecion(){
   this.router.navigate(["login"]);
+  localStorage.removeItem('isLogged')
+}
+editarperfil(){
+  this.router.navigate(["edicion-perfil"])
 }
 }

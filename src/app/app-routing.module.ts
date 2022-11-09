@@ -5,8 +5,8 @@ import { CrearherramientaComponent } from './pages/crearherramienta/crearherrami
 import { ObtenerInventarioComponent } from '../app/pages/obtener-inventario/obtener-inventario.component';
 import { HomeAdminComponent } from '../app/pages/home-admin/home-admin.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
-import { EsUsuarioGuard } from '../app/guard/es-usuario.guard';
 import { ValidadorGuard } from '../app/guard/validador.guard';
+import { EdicionperfilComponent } from './pages/edicionperfil/edicionperfil.component';
 const routes: Routes = [
   {
     path: 'home-admin',
@@ -37,7 +37,11 @@ const routes: Routes = [
     path: '', component: LoginComponent,
 
   },
-
+  {
+    path: 'edicion-perfil',
+    component: EdicionperfilComponent,
+    canActivate: [ValidadorGuard],
+  }
 
 ];
 @NgModule({
