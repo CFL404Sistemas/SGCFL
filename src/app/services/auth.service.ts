@@ -26,6 +26,7 @@ export class AuthService {
       cargo: cargo,
       telefono: telefono,
       email: email,
+      dni:dni
 
     });}
     obtenerHerramientas(){

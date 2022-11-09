@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from "src/app/services/auth.service";
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {GestiondeusuarioService} from "src/app/services/gestiondeusuario.service";
+import {GestiondeusuarioService} from "../../services/gestiondeusuario.service";
 
 @Component({
   selector: 'app-crear-usuario',
