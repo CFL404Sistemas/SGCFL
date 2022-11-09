@@ -33,7 +33,7 @@ const routes: Routes = [
     canActivate: [ValidadorGuard],
   },
   {
-    path: 'login', component: LoginComponent,
+    path: '', component: LoginComponent,
   },
   {
     path: 'crear-usuario', component:CrearUsuarioComponent,
