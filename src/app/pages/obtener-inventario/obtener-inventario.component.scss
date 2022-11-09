@@ -1,114 +1,220 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
-*{
+.fondo {
   box-sizing: border-box;
   max-width: 100vw;
 }
 
+.botonesDeFiltro,
+.botonesDeAccion,
+.listadoDeHerramientas,
+.botonesAceptarCancelar {
+  .botonesDeFiltro,
+  .botonesDeAccion,
+  .listadoDeHerramientas,
+  .botonesAceptarCancelar {
+    // border: 1px solid blue;
+    margin: 5px 5px;
+  }
 
-.botonesDeFiltro,.botonesDeAccion,.listadoDeHerramientas,.botonesAceptarCancelar{
-  // border: 1px solid blue;
-  margin: 5px 5px
-};
+  // .mat-card{
+  //   border-radius: 0px;
+  // }
+  .filterCard {
+    height: 20vh;
+  }
 
-// .mat-card{
-//   border-radius: 0px;
-// }
-// .filterCard{
-//  height: 15vh;
-// }
+  .actionCard {
+    // height: 10vh;
+    padding: 10px 10px;
+  }
 
-.actionCard{
-  // height: 10vh;
-  padding: 10px 10px;
+  .spinnerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 40vh;
+  }
+
+  .loading {
+    color: #fff;
+    margin-top: 5px;
+    animation: texto-cargando 3s infinite;
+  }
+
+  @keyframes texto-cargando {
+    0% {
+      text-shadow: 1px 1px 2px $ligthBlue;
+    }
+
+    66% {
+      color: $ligthBlue;
+    }
+  }
+
+  .barraBusqueda {
+    margin-bottom: 5px;
+    padding: 2px;
+    z-index: 300;
+  }
+  .buscador {
+    border-radius: 5px;
+  }
+
+  .listCard {
+    height: 50vh;
+    overflow: scroll;
+    border: 1px solid #ccc;
+  }
+
+  .listCard {
+    height: 47vh;
+    overflow-y: scroll;
+  }
+
+  .herramienta1 {
+    width: 100%;
+    // border: 1px solid red;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  img {
+    width: auto;
+    height: 15vh;
+    border-radius: 10px;
+    border: 1px solid #000;
+    box-shadow: 3px 5px 8px 5px #aaa;
+    margin-top: 10px;
+  }
+
+  .informacionDeHerramienta {
+    width: 60%;
+    // border: 1px solid green;
+  }
+
+  mat-divider {
+    background-color: #aaa;
+  }
+
+  .nombreHerramienta {
+    margin: 0px;
+    padding: 0%;
+  }
+
+  .descripcionHerramienta {
+    text-align: center;
+  }
+
+  .slide {
+    margin-top: 10%;
+  }
+
+  .disponible {
+    background-color: $ligthBlue;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .noDisponible {
+    background-color: #f00;
+    border-radius: 5px;
+    font-size: 1.3em;
+    font-style: oblique;
+    font-weight: 400;
+  }
+
+  .botonMenu {
+    margin-top: 10%;
+  }
+
+  .textoAsignar {
+    font-size: 0.8em;
+  }
+  .textoAsignar {
+    font-size: 0.8em;
+  }
+
+  .tituloFiltro {
+    margin-bottom: 2px;
+    background-color: $blue;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+  }
+
+  mat-radio-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    justify-content: space-around;
+  }
+
+  .filtro {
+    margin: 5px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .fondo {
+    background-color: $white;
+  }
+
+  .listCard {
+    background-color: $blue;
+    overflow-x: hidden;
+  }
+
+  .boton {
+    background-color: $ligthBlue;
+    margin: 5px 10px;
+    color: #fff;
+  }
+
+  .herramienta1 {
+    background-color: #eee;
+    border-radius: 10px;
+    border-bottom: 1px solid $blue;
+    border-right: 1px solid $blue;
+  }
+
+  @media (min-width: 600px) {
+    .descripcionHerramienta {
+      padding-left: 40%;
+      text-align: left;
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+    .informacionDeHerramienta {
+      width: 100%;
+    }
+
+    span,
+    label {
+      margin: 5px 10px;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    img {
+      width: auto;
+      height: 25vh;
+      border-radius: 10px;
+      border: 1px solid #000;
+      box-shadow: 3px 5px 8px 5px #aaa;
+      margin-top: 10px;
+    }
+  }
 }
-
-.listCard{
-  height: 30%;
-  overflow: scroll;
-}
-
-.herramienta1{
-  width: 100%;
-// border: 1px solid red;
-margin-bottom: 20px;
-display: flex;
-flex-direction: row;
-}
-
-img{
-  width: auto;
-  height: 10vh;
-  border-radius: 10px;
-  border: 1px solid #000;
-  box-shadow: 3px 5px 8px 5px #aaa;
-  margin-top: 10px;
-}
-
-
-.informacionDeHerramienta{
-  height: 100%;
-  width: 70%;
-// border: 1px solid green;
-}
-
-mat-divider{
-  background-color: #aaa;
-}
-
-.nombreHerramienta{
-  margin: 0px;
-  padding: 0%;
-}
-
-
-.descripcionHerramienta{
-  text-align:center;
-}
-.slide{
-margin-top: 10%;
-}
-.disponible{
-  background-color: $ligthBlue;
-  border-radius: 5px;
-}
-.botonMenu{
-  margin-top: 20%;
-}
-
-//COLORES
-.tituloFiltro{
-margin-bottom: 2px;
-background-color: $blue;
-color: #fff;
-border-radius: 5px 5px 0 0;
-}
-
-.filtro{
-  margin: 2px 5px ;
-}
-
-.fondo{
-  background-color: $white;
-}
-
-.listCard{
-  background-color: $blue;
-  overflow-x: hidden;
-
-}
-
-.boton{
-  background-color: $ligthBlue;
-  margin: 5px 10px;
-  color: #fff;
-
-}
-
-.herramienta1{
-  background-color: #eee;
-  border-radius: 10px;
-  border-bottom: 1px solid $blue;
-  border-right: 1px solid $blue;
-}
-
