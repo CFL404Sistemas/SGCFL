@@ -9,6 +9,7 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import {CrearUsuarioComponent} from './pages/crear-usuario/crear-usuario.component';
 
 
+import { ObtenerHistorialComponent } from './pages/obtener-historial/obtener-historial.component';
 
 const routes: Routes = [
   {
@@ -21,20 +22,15 @@ const routes: Routes = [
   { path: 'navbar', component: NavbarComponent },
   {
     path: 'login', component: LoginComponent,
-
-
-
   },
   {
     path: 'crear-usuario', component:CrearUsuarioComponent,
-
-
-
-
-
-
-
   },
+
+  {
+    path: 'obtener-historial', component: ObtenerHistorialComponent,
+  },
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
