@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row" style="width:100%;">
       <div class="col-md-12" *ngIf="this.router.url =='/home-admin'">
-        <img class="icono rounded" src="{{datosUsuario.img_avatar}}" (click)="editarperfil()">
+        <img class="icono rounded" src="{{datosUsuario.img_avatar}}">
         <span class="mititulo h4">Bienvenido  {{datosUsuario.nombre}} </span>
         <div (click)="cerrarsecion()"
          class="exit-app">
