@@ -12,7 +12,7 @@
             <mat-radio-button (click)="filtrar(2)" class="filtro" id="flitroRevision" value="2">En Reparación</mat-radio-button>
             <mat-radio-button (click)="filtrar(3)" class="filtro" id="flitroReparacion" value="3">En Revisión</mat-radio-button>
             <mat-radio-button (click)="filtrar(4)" class="filtro" id="flitroBaja" value="4">Dada de baja</mat-radio-button>
-            <mat-radio-button (click)="filtrar(5)" class="filtro" id="flitroTodas" value="5" checked="checked">Todas</mat-radio-button>
+            <mat-radio-button (click)="filtrar(5)" class="filtro" id="flitroTodas" value="5" checked="true">Todas</mat-radio-button>
           </mat-radio-group>
         </mat-card>
       </div>
@@ -40,14 +40,17 @@
               <mat-spinner ></mat-spinner>
               <div class="loading">Cargando</div>
             </div>
+            <div *ngIf="herramientasAMostrar==0">
+              <h1 style="color: #eee; font-style: italic;">No se encontro esa herramienta</h1>
+            </div>
             <div *ngFor="let herramienta of herramientasAMostrar">
               <div class="herramienta1">
                 <div class="imgContainer">
                   <img [src]="herramienta.img" alt="">
                   <mat-chip *ngIf="herramienta.estado==0" class="disponible">Disponible</mat-chip>
-                  <mat-chip *ngIf="herramienta.estado==1" class="noDisponible">Asignada</mat-chip>
-                  <mat-chip *ngIf="herramienta.estado==2" class="noDisponible">En reparacion</mat-chip>
-                  <mat-chip *ngIf="herramienta.estado==3" class="noDisponible">En revision</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==1" class="asignada">Asignada</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==2" class="reparacion">En reparacion</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==3" class="revision">En revision</mat-chip>
                   <mat-chip *ngIf="herramienta.estado==4" class="noDisponible">Dada de baja</mat-chip>
                   <br>
                   <button class="botonMenu" mat-button [matMenuTriggerFor]="menu">
