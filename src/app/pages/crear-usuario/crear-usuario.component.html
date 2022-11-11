@@ -72,7 +72,17 @@
     <mat-selection-list #shoes>
       <mat-list-option *ngFor="let usuario of TodoslosUsuarios">
         {{usuario.nombre}}
+        <div>
+        
+         
+           
+            <input class="contraseña" type="password" matInput placeholder="Nueva Contraseña" >
+            
+       
+      </div>
       </mat-list-option>
+
+
     </mat-selection-list>
 
 <div  *ngIf="TodoslosUsuarios!=undefined" >

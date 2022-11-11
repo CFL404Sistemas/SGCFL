@@ -17,8 +17,8 @@ export class CrearUsuarioComponent implements OnInit {
   formularioUsuario: FormGroup | any;
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 TodoslosUsuarios:any;
-
-  constructor(private GestiondeusuarioService: GestiondeusuarioService, private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
+arrayIDUsuarios: any = [];
+constructor(private GestiondeusuarioService: GestiondeusuarioService, private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -33,6 +33,59 @@ TodoslosUsuarios:any;
 
 
     });
+
+
+  }
+
+  borrarUsuarios(){
+
+
+    this.GestiondeusuarioService.borrar(this.arrayIDUsuarios).subscribe(
+      (response: any) => {
+
+        console.log(response);
+        this.quitarUsuariosArray();
+
+
+      },
+      (error) => {
+        console.log(error);
+
+
+      },
+    );
+  }
+
+  quitarUsuariosArray(){
+
+    console.log(this.TodoslosUsuarios); /*  Array de usuarios */
+    console.log(this.arrayIDUsuarios);  /* Array con los id de los usuarios eliminados */
+/* Consigna: Hay que cruzar los dos array, tal que: se quiten del primer array, aquellos usuarios que se encuentren en el segundo (validando ID) */
+    for (let i in this.TodoslosUsuarios){
+
+      for (let j in this.arrayIDUsuarios){
+
+
+
+        if(this.TodoslosUsuarios[i].id == this.arrayIDUsuarios[j]){
+
+          this.TodoslosUsuarios.splice(i,1);
+
+        }
+
+        console.log(this.TodoslosUsuarios[i]);
+        console.log(this.arrayIDUsuarios[j]);
+
+      }
+    }
+
+  }
+
+  usuarioSeleccionado(usuarioElegido: any ){
+
+    this.arrayIDUsuarios.push(usuarioElegido);
+
+    console.log(this.arrayIDUsuarios);
 
 
   }

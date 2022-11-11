@@ -14,4 +14,14 @@ export class GestiondeusuarioService {
     return this.http.get("http://127.0.0.1:8000/api/usuarios/obtenerUsuarios");
 
      }
+
+     borrar(idusuarios:any) {
+
+      return this.http.post( "http://127.0.0.1:8000/api/usuarios/borrarusuarios", {
+        idusuarios:idusuarios
+      });
+    }
+
+
+
 }
