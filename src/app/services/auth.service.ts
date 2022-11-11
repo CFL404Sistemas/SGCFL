@@ -29,6 +29,9 @@ export class AuthService {
       dni:dni
 
     });}
+    MostrarHistorial(){
+      return this.http.get('http://127.0.0.1:8000/api/historial');
+  }
     obtenerHerramientas(){
       return this.http.get('http://127.0.0.1:8000/api/obtener-herramientas');
   }

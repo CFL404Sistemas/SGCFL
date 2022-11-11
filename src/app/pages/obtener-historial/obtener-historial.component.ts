@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-obtener-historial',
   templateUrl: './obtener-historial.component.html',
@@ -7,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObtenerHistorialComponent implements OnInit {
   displayedColumns: string[] = ['number','name', 'accion', 'symbol','section','comentario'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+dataSource: any[]=[]
+  ElementosAMostrar: any;
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.authService.MostrarHistorial().subscribe((response:any)=>{
+      console.log(response)
+      this.ElementosAMostrar=response.response;
+      this.dataSource= this.ElementosAMostrar;
+      console.log(this.ElementosAMostrar[0].created_at.split("T21:45:27.000000Z").join("") );
+
+    })
+
   }
 
 }
@@ -29,12 +39,6 @@ export interface PeriodicElement {
   section: string;
   comentario: string;
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {number: 2221, name: 'Taladro', accion: 'Disponible' , symbol: '12/04/2022', section:'Nicolas A', comentario: ''},
-  {number: 2222, name: 'Amoladora', accion: 'No Disponible' , symbol: '13/05/2022', section:'Nicolas A', comentario: ''},
-  {number: 2223, name: 'Martillo', accion: 'Disponible' , symbol: '16/06/2022', section:'Nicolas A', comentario: ''},
-  {number: 2224, name: 'Destornillador', accion: 'Disponible' , symbol: '16/07/2022', section:'Nicolas A', comentario: ''},
-];
-
+const ELEMENT_DATA: PeriodicElement[] = []
 
 
