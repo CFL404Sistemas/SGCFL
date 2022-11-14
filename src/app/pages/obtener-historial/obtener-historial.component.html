@@ -6,29 +6,21 @@
         <div class="col-md-12 ">
           <p class="fs-2 text mt-3">Historial</p>
           <br />
-          <div for="">Busqueda</div>
 
-          <form class="d-flex " role="search">
-            <input class="form-control me-2 bg-text-primary text-center numeroSerie" type="search" placeholder="Buscar" aria-label="Search">
-            <!-- <button class="btn btn-outline-success boton" type="submit">Filtrar</button> -->
-            <mat-radio-button value="dos">Numero de Serie</mat-radio-button>
-            <mat-radio-button value="dos">Responsable</mat-radio-button>
+<!-- BUSCADOR Y FILTROS -->
 
-          </form>
+            <input class="form-control me-2 bg-text-primary text-center buscador" (keyup)="onKey($event)" type="search" placeholder="Buscar" aria-label="Search">
+
+
+
           <br>
         </div>
         <div class="row text-center">
           <div class="col-md-12 ">
-            <!-- <mat-radio-button value="uno" checked="true">Todos</mat-radio-button>
-            <mat-radio-button value="dos">Disponible</mat-radio-button>
-            <mat-radio-button value="tres">No Disponible</mat-radio-button> -->
-            <div for="">filtros</div>
-
-
-
+<!-- FILTRO FECHA -->
             <mat-form-field appearance="fill" class="warn fecha ms-3">
               <mat-label>Fecha</mat-label>
-              <input matInput [matDatepicker]="dp" />
+              <input matInput [matDatepicker]="dp"  (dateChange)="dateSeleccionado($event)"  />
 
               <mat-datepicker-toggle
                 matSuffix
