@@ -145,10 +145,10 @@ width: 100%;
 
 .contraseña {
 
-  margin-left: 80%;
+
   border-color: #093f7c;
   width: 20%;
-  
+
 }
 
 
@@ -169,4 +169,17 @@ margin-top: 20px;
 
   }
 
+  @media only screen and (max-width: 768px) {
+.modificar{
+  font-size: smaller;
+
+}
+.borrar {
+
+  font-size: smaller;
+}
+.contraseña {
+  width: 50%;
+}
+  }
 
