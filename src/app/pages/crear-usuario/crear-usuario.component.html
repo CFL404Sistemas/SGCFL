@@ -1,0 +1,108 @@
+<app-navbar></app-navbar>
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="onTabChanged($event);">
+  <mat-tab label="Creación de Usuario"><div class="container-fluid text-center formu">
+    <div clas="row">
+      <div class="col-md-12"></div>
+      <form
+        class="user-login"
+        [formGroup]="formularioUsuario"
+        (ngSubmit)="crearUsuario()"
+      >
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <mat-form-field class="bord" appearance="outline">
+              <mat-label class="name">Nombre y Apellido</mat-label>
+              <input class="" matInput type="text" formControlName="nombre" />
+            </mat-form-field>
+            <!--  Error para avisar que no se cumple el formulario-->
+            <div *ngIf="formControl.nombre.errors" class="text-danger"></div>
+
+            <div>
+              <mat-form-field class="bord" appearance="outline">
+                <mat-label class="apellido">Cargo</mat-label>
+                <input matInput formControlName="Cargo" />
+              </mat-form-field>
+            </div>
+
+            <!-- Error para avisar que no se cumple el formulario -->
+
+            <div *ngIf="formControl.nroSerie.errors" class="text-danger"></div>
+            <div>
+              <mat-form-field class="bord" appearance="outline">
+                <mat-label>DNI</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  formControlName="DNI"
+                  maxlength="256"
+                />
+              </mat-form-field>
+            </div>
+            <mat-form-field class="bord" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input
+                matInput
+                type="password"
+                maxlength="256"
+                formControlName="password"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-form-field class="bord" appearance="outline">
+          <mat-label>Teléfono</mat-label>
+          <input formControlName="telefono" matInput type="number" maxlength="256" />
+        </mat-form-field>
+        <div>
+          <mat-form-field class="bord" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput type="email" maxlength="256" />
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" class="botoncrear">
+          Crear
+        </button>
+      </form>
+
+
+    </div>
+  </div>
+  </mat-tab>
+  <mat-tab  label="Historial de Usuarios" >
+    <mat-selection-list #shoes>
+      <mat-list-option *ngFor="let usuario of TodoslosUsuarios">
+        {{usuario.nombre}}
+        <div>
+        
+         
+           
+            <input class="contraseña" type="password" matInput placeholder="Nueva Contraseña" >
+            
+       
+      </div>
+      </mat-list-option>
+
+
+    </mat-selection-list>
+
+<div  *ngIf="TodoslosUsuarios!=undefined" >
+   <div class="select"> Usuario Seleccionado: {{shoes.selectedOptions.selected.length}}</div>
+
+
+
+    <div class="example-button-row text-center">
+      <button class="borrar" mat-button>Borrar Usuario</button>
+
+    </div>
+
+    </div>
+    <div *ngIf="TodoslosUsuarios==undefined" class="spinnerContainer">
+      <mat-spinner ></mat-spinner>
+      <div class="loading">Cargando</div>
+    </div>
+  </mat-tab>
+
+
+
+</mat-tab-group>
+

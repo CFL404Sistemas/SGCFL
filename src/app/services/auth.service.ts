@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders} from "@angular/common/http";
-import { NonNullableFormBuilder } from '@angular/forms';
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 
 
 
@@ -9,7 +8,7 @@ import { NonNullableFormBuilder } from '@angular/forms';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient )  {
 
   }
   login(dni: string, password: string) {
@@ -18,6 +17,20 @@ export class AuthService {
       dni: dni,
       password: password
     });
+  }
+  Registrar(dni: string, password: string, nombre: string, cargo: string, telefono: number, email: string, ) {
+
+    return this.http.post( "http://127.0.0.1:8000/api/authServices/register", {
+      password: password,
+      nombre: nombre,
+      cargo: cargo,
+      telefono: telefono,
+      email: email,
+      dni:dni
+
+    });}
+    obtenerHerramientas(){
+      return this.http.get('http://127.0.0.1:8000/api/obtener-herramientas');
   }
   crearheramienta(nombre: string, marca: string, NrodeSerie:string, observacion:string, imagen:string, estado:string) {
 
@@ -33,3 +46,4 @@ export class AuthService {
     });
   }
 }
+

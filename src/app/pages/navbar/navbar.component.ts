@@ -16,11 +16,19 @@ export class NavbarComponent implements OnInit {
   }
 volverhome(){
 
+  if(this.router.url =='/crear-herramienta'){
+    this.router.navigate(['/obtener-inventario']);
+
+
+  }else{
+    this.router.navigate(["home-admin"]);
+
+  }
   this.router.navigate(["home-admin"]);
 
 }
 cerrarsecion(){
-  this.router.navigate(["login"]);
+  this.router.navigate([""]);
   localStorage.removeItem('isLogged')
 }
 
