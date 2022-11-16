@@ -49,11 +49,11 @@ dataSource: any[]=[]
   onKey(event:any) {
     console.log(event.target.value)
     this.busquedaUsuario=event.target.value;
-    console.log('aca estoy', this.busquedaUsuario)
+
 
     this.dataSource = this.ElementosAMostrar.filter((element: { nserie: number; nombre: string; responsable: string; movimiento: string}) => {
-      // 👇️ using AND (&&) operator
-      return element.nserie == this.busquedaUsuario || element.nombre == this.busquedaUsuario || element.movimiento == this.busquedaUsuario || element.responsable == this.busquedaUsuario
+
+      return element.nserie == this.busquedaUsuario || element.nombre.toLowerCase() == this.busquedaUsuario.toLowerCase() || element.movimiento.toLowerCase() == this.busquedaUsuario.toLowerCase() || element.responsable == this.busquedaUsuario || element.nombre.toLowerCase().includes(this.busquedaUsuario.toLowerCase()) || element.nserie.toString().toLowerCase().includes(this.busquedaUsuario.toLowerCase()) || element.responsable.toLowerCase().includes(this.busquedaUsuario.toLowerCase())
     });
 
 
@@ -69,13 +69,12 @@ dataSource: any[]=[]
     this.nuevaFecha= fecha.toISOString().slice(0,10)
     console.log(this.nuevaFecha)
     this.dataSource = this.ElementosAMostrar.filter((element: { created_at: any}) => {
-      // 👇️ using AND (&&) operator
 
-      var x= element.created_at.slice(0,10)
 
-      return x == this.nuevaFecha
+      return element.created_at.slice(0,10) == this.nuevaFecha
     });
     if (event.target.value == 0 || event.target.value === "" ||event.target.value == '' || event.target.value == undefined || event.target.value == null ){
+      console.log('SACOFECHA?');
       this.dataSource= this.ElementosAMostrar;
 
     }
