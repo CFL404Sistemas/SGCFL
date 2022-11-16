@@ -18,6 +18,7 @@ export class CrearUsuarioComponent implements OnInit {
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 TodoslosUsuarios:any;
 arrayIDUsuarios: any = [];
+arrayUsuariosAModificar : any = [];
 constructor(private GestiondeusuarioService: GestiondeusuarioService, private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -88,6 +89,7 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
     console.log(this.arrayIDUsuarios);
 
 
+
   }
 
 
@@ -115,12 +117,28 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
   };
 
 
+  nuevaContra(datosUsuario: any, eventoNuevaContra: any){
+
+
+    /* Una variable temporal  */
+    var temporal = {
+      idUsuario: datosUsuario.id,
+      nuevaContra:  eventoNuevaContra.target.value
+    };
+
+    this.arrayUsuariosAModificar.push(temporal);
+
+
+
+  }
+
+
 ObtenerUsuario(){
 
   this.GestiondeusuarioService.obtenerusuarios().subscribe(
     (response: any) => {
 
-      console.log(response.response_uno);
+      console.log('Esto me responde el banckend',response.response_uno);
       this.TodoslosUsuarios=response.response_uno
 
     },
@@ -141,7 +159,24 @@ onTabChanged($event: any) {
   }
 
 }
+Contranueva(){
 
+  console.log(this.arrayUsuariosAModificar);
+
+  this.GestiondeusuarioService.Contranueva(this.arrayUsuariosAModificar).subscribe(
+    (response: any) => {
+
+      console.log('llamado exitoso',response);
+      this._snackBar.open('Se ha modificado la contraseña', 'Cerrar');
+
+    },
+    (error) => {
+      console.log(error);
+
+    },
+  );
+
+  }
 
 }
 

@@ -77,14 +77,11 @@
   <mat-tab  label="Historial de Usuarios" >
     <mat-selection-list #shoes>
       <div *ngFor="let usuario of TodoslosUsuarios">
-      <mat-list-option >
-        {{usuario.nombre}}
-        <div>
-
-
-      </div>
-      </mat-list-option>
-      <input class="contraseña" type="password" matInput placeholder="Nueva Contraseña" >
+        <mat-list-option >
+          {{usuario.nombre}}
+        </mat-list-option>
+        <input (change)="nuevaContra(usuario, $event);"
+        class="contraseña" type="password" matInput placeholder="Nueva Contraseña" >
 
       </div>
 
@@ -103,7 +100,7 @@
         <div class="col-md-6">
 
           <div class="margen">
-            <button class="modificar" mat-button>Modificar Contraseña</button>
+            <button (click)="Contranueva()" class="modificar" mat-button>Modificar Contraseña</button>
 
           </div>
 
