@@ -59,7 +59,7 @@
                   <mat-chip *ngIf="herramienta.estado==3" class="revision">En revision</mat-chip>
                   <mat-chip *ngIf="herramienta.estado==4" class="noDisponible">Dada de baja</mat-chip>
                   <br>
-                  <button class="botonMenu" mat-button [matMenuTriggerFor]="menu">
+                  <button class="botonMenu" mat-button [matMenuTriggerFor]="menu" *ngIf="herramienta.estado!=4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                       class="bi bi-gear imgMenu" viewBox="0 0 16 16">
                       <path
@@ -71,19 +71,10 @@
                   <mat-menu #menu="matMenu">
                     <button *ngIf="rolUsuario==='ADMINISTRADOR'" mat-menu-item>Modificar</button>
                     <button *ngIf="rolUsuario==='ADMINISTRADOR'" mat-menu-item>Eliminar</button>
-                    <button *ngIf="rolUsuario!=='ADMINISTRADOR'" (click)="ponerEnRevision(herramienta)"
+                    <button *ngIf="rolUsuario!=='ADMINISTRADOR'&&herramienta.estado==4&&herramienta.estado==3" (click)="ponerEnRevision(herramienta)"
                       mat-menu-item>Para Revisión</button>
                   </mat-menu>
-                  <mat-slide-toggle disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
-                    class="slide">Asignar</mat-slide-toggle>
-                  <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
-                    (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
-                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
-                  </mat-slide-toggle>
-                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar
-                  </mat-slide-toggle>
-                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==4" class="slide">Asignar
-                  </mat-slide-toggle>
+
                 </div>
                 <div class="informacionDeHerramienta">
                   <h2 class="nombreHerramienta">{{herramienta.nombre}}</h2>
@@ -102,6 +93,16 @@
                     </div>
                   </div>
                 </div>
+                <mat-slide-toggle  disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
+                class="slide">Asignar</mat-slide-toggle>
+              <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
+                (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
+              <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
+              </mat-slide-toggle>
+              <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar
+              </mat-slide-toggle>
+              <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==4" class="slide">Asignar
+              </mat-slide-toggle>
               </div>
             </div>
           </mat-card>

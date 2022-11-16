@@ -115,61 +115,150 @@ export class ObtenerInventarioComponent implements OnInit {
   }
 
   aceptar() {
-    //aceptar la asignacion
-    if (this.herramientasAAsignar.length > 0&&this.herramientasADesasignar.length== 0&&this.herramientasARevisar.length== 0) {
+    let aAsignar = this.herramientasAAsignar.length;
+    let aRevision = this.herramientasARevisar.length;
+    let aDesasignar = this.herramientasADesasignar.length;
+
+    if (aAsignar > 0 && aDesasignar == 0 && aRevision == 0) {
+      //asignar si, desasignar no, revisar no
+      //aceptar asignar
       this._snackBar.open(
         'Ud se ha asignado ' +
           this.herramientasAAsignar.length +
           ' herramienta(s)',
         'Cerrar'
       );
-    }else{
+    } else if (
+      (aAsignar > 0 && aDesasignar != 0 && aRevision == 0) ||
+      (aAsignar > 0 && aDesasignar == 0 && aRevision != 0)
+    ) {
+      //asignar si, desasignar si, revisar no O asignar si, desasignar no, revisar si
+      //hay otras acciones pendientes
       this._snackBar.open(
-        'No puede asignar herramientas sino completa otras acciones',
+        'Hay otras acciones pendientes antes de asignar herramientas',
         'Cerrar'
       );
-    }
-
-    //aceptar la des-asignacion
-    if (this.herramientasAAsignar.length == 0&&this.herramientasADesasignar.length> 0&&this.herramientasARevisar.length== 0) {
+    } else if (aAsignar == 0 && aDesasignar == 0 && aRevision == 0) {
+      // arrays vacios
+      //hoy hay herramientas
+      this._snackBar.open(
+        'NO ha realizado ninguna acción',
+        'Cerrar'
+      );
+    } else if (aAsignar == 0 && aDesasignar > 0 && aRevision == 0) {
+      //asignar no, desasignar si, revisar no
+      //aceptar desasignar
       this._snackBar.open(
         'Ud se ha des-asignado ' +
-        this.herramientasADesasignar.length +
-        ' herramienta(s)',
-        'Cerrar');
-    }else{
+          this.herramientasADesasignar.length +
+          ' herramienta(s)',
+        'Cerrar'
+      );
+    } else if (
+      (aAsignar != 0 && aDesasignar > 0 && aRevision == 0) ||
+      (aAsignar == 0 && aDesasignar > 0 && aRevision == 0)
+    ) {
+      //asignar si, desasignar si, revisar no O asignar no, desasignar si, revisar si
+      //hay acciones pendientes
       this._snackBar.open(
-        'No puede des-asignar herramientas sino completa otras acciones',
+        'Hay otras acciones pendientes antes de asignar herramientas',
+        'Cerrar'
+      );
+    } else if (aAsignar == 0 && aDesasignar == 0 && aRevision > 0) {
+      //asignar no, desasignar no, revisar si
+      //aceptar revisar
+      this._snackBar.open(
+        'Ud ha puesto ' +
+          this.herramientasARevisar.length +
+          ' herramienta(s) en revisión',
+        'Cerrar'
+      );
+    } else if (
+      (aAsignar != 0 && aDesasignar == 0 && aRevision > 0) ||
+      (aAsignar == 0 && aDesasignar != 0 && aRevision > 0)
+    ) {
+      //asignar si, desasignar no, revisar si O asignar no, desasignar si, revisar si
+      //hay acciones  pendientes
+      this._snackBar.open(
+        'Hay otras acciones pendientes antes de asignar herramientas',
         'Cerrar'
       );
     }
+    //aceptar la asignacion
 
-    //aceptar la puesta en revision
-    if (this.herramientasAAsignar.length== 0&&this.herramientasADesasignar.length== 0&&this.herramientasARevisar.length> 0) {
-      this._snackBar.open(
-      'Ud se ha puesto ' +
-        this.herramientasARevisar.length +
-        ' herramienta(s) para revisión',
-        'Cerrar');
-    }else{
-      this._snackBar.open(
-        'No puede poner en revisión herramientas sino completa otras acciones',
-        'Cerrar'
-      );
-    }
+    // if (
+    //   this.herramientasAAsignar.length > 0 &&
+    //   this.herramientasADesasignar.length == 0 &&
+    //   this.herramientasARevisar.length == 0
+    // ) {
+    //   this._snackBar.open(
+    //     'Ud se ha asignado ' +
+    //       this.herramientasAAsignar.length +
+    //       ' herramienta(s)',
+    //     'Cerrar'
+    //   );
+    // } else {
+    //   this._snackBar.open(
+    //     'No puede asignar herramientas sino completa otras acciones',
+    //     'Cerrar'
+    //   );
+    // }
 
+    // //aceptar la des-asignacion
+    // if (
+    //   this.herramientasAAsignar.length == 0 &&
+    //   this.herramientasADesasignar.length > 0 &&
+    //   this.herramientasARevisar.length == 0
+    // ) {
+    //   this._snackBar.open(
+    //     'Ud se ha des-asignado ' +
+    //       this.herramientasADesasignar.length +
+    //       ' herramienta(s)',
+    //     'Cerrar'
+    //   );
+    // } else {
+    //   this._snackBar.open(
+    //     'No puede des-asignar herramientas sino completa otras acciones',
+    //     'Cerrar'
+    //   );
+    // }
+
+    // //aceptar la puesta en revision
+    // if (
+    //   this.herramientasAAsignar.length == 0 &&
+    //   this.herramientasADesasignar.length == 0 &&
+    //   this.herramientasARevisar.length > 0
+    // ) {
+    //   this._snackBar.open(
+    //     'Ud se ha puesto ' +
+    //       this.herramientasARevisar.length +
+    //       ' herramienta(s) para revisión',
+    //     'Cerrar'
+    //   );
+    // } else {
+    //   this._snackBar.open(
+    //     'No puede poner en revisión herramientas sino completa otras acciones',
+    //     'Cerrar'
+    //   );
+    // }
+    // if (
+    //   this.herramientasARevisar.length == 0 &&
+    //   this.herramientasAAsignar.length == 0 &&
+    //   this.herramientasADesasignar.length == 0
+    // ) {
+    //   this._snackBar.open('Por favor, realice alguna acción', 'Cerrar');
+    // }
   }
 
-
   //cancelar y limpiar todos los arrays
-  cancelar(){
-    this.herramientasAAsignar=[];
-    this.herramientasADesasignar=[];
-    this.herramientasARevisar=[];
-    this._snackBar.open(
-      'Ud ha cancelado todas las acciones',
-      'Cerrar'
-    );
+  cancelar() {
+    this.herramientasAAsignar = [];
+    this.herramientasADesasignar = [];
+    this.herramientasARevisar = [];
+    this._snackBar.open('Ud ha cancelado todas las acciones', 'Cerrar');
+    setTimeout(() => {
+      window.location.reload()
+    }, 100);
   }
 
   //poner en revision
