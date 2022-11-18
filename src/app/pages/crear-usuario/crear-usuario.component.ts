@@ -39,13 +39,14 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
   }
 
   borrarUsuarios(){
-
+    console.log('Viendo si mandamos IDS',this.arrayIDUsuarios);
 
     this.GestiondeusuarioService.borrar(this.arrayIDUsuarios).subscribe(
       (response: any) => {
 
         console.log(response);
         this.quitarUsuariosArray();
+        this._snackBar.open('Los usuarios se han eliminado correctamente.', 'Cerrar');
 
 
       },
@@ -78,15 +79,37 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
         console.log(this.arrayIDUsuarios[j]);
 
       }
+
+    }
+
+    /*  Estas tres formas de borrar, ejecutamos las 3*/
+    this.arrayIDUsuarios.length = 0; /* Le digo que su longitud sea 0 */
+    this.arrayIDUsuarios = []; /* Lo vuelvo a definir como array en 0 */
+    while(this.arrayIDUsuarios.length){ /* Ya fue, recorro todo el array y voy sacando elemento por elemento */
+      this.arrayIDUsuarios.pop();
     }
 
   }
 
-  usuarioSeleccionado(usuarioElegido: any ){
+  usuarioSeleccionado(usuarioElegido: any, posicionUsuario: any ){
 
-    this.arrayIDUsuarios.push(usuarioElegido);
 
+    /* Evaluar si ya se encuentra en el array, sacarlo, caso contrario pushearlo. */
+    /* esta accion es cuando no esta en el array */
+
+
+    if(!this.arrayIDUsuarios.includes(usuarioElegido)){
+      this.arrayIDUsuarios.push(usuarioElegido);
+
+
+
+    }else{
+      this.arrayIDUsuarios.splice(posicionUsuario,1);
+
+
+    }
     console.log(this.arrayIDUsuarios);
+
 
 
 
@@ -104,12 +127,12 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
       (response: any) => {
 
         console.log(response);
-        this._snackBar.open('Se ha creado un usuario', 'Cerrar');
+        this._snackBar.open('Se ha creado un usuario.', 'Cerrar');
         this.formularioUsuario.reset();
       },
       (error) => {
         console.log(error);
-        this._snackBar.open('Error en la creación de usuario', 'Cerrar');
+        this._snackBar.open('Error en la creación de usuario.', 'Cerrar');
 
       },
     );

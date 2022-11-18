@@ -76,8 +76,8 @@
   </mat-tab>
   <mat-tab  label="Historial de Usuarios" >
     <mat-selection-list #shoes>
-      <div *ngFor="let usuario of TodoslosUsuarios">
-        <mat-list-option >
+      <div *ngFor="let usuario of TodoslosUsuarios; let posicion = index">
+        <mat-list-option (click)="usuarioSeleccionado(usuario.id, posicion);">
           {{usuario.nombre}}
         </mat-list-option>
         <input (change)="nuevaContra(usuario, $event);"
@@ -116,7 +116,7 @@
         <div class="col-md-6">
 
         <div class="margen">
-          <button class="borrar" mat-button>Borrar Usuario</button>
+          <button (click)="borrarUsuarios();" class="borrar" mat-button>Borrar Usuario</button>
         </div>
       </div>
       </div>
