@@ -16,9 +16,10 @@ export class ObtenerInventarioComponent implements OnInit {
   //array de herr a asignar para enviar al back
   herramientasAAsignar: number[] = [];
   herramientasAMostrar: any;
-  filtro: any;
+  filtro: number=0;
   datosUsuario: any;
   rolUsuario: any;
+  cancelarOn:boolean=false;
 
   //array de herramientas para poner en revision
   herramientasARevisar: number[] = [];
@@ -44,23 +45,16 @@ export class ObtenerInventarioComponent implements OnInit {
     //datos del usuario guardado en el localHost
     this.datosUsuario = JSON.parse(localStorage.getItem('userData')!);
     //rol del usuario para los ngIf
-    this.rolUsuario = this.datosUsuario.cargo;
+    this.rolUsuario = 'ADMINISTRADOR'//this.datosUsuario.cargo;
 
     console.log(this.rolUsuario);
 
     this.authService.obtenerHerramientas().subscribe((response: any) => {
-
       console.log(response);
       this.todasLasHerramientas = response.response;
       this.herramientasAMostrar = this.todasLasHerramientas;
-
-
-
-
-
-
-
     });
+
   }
 
   //filtros
@@ -93,7 +87,7 @@ export class ObtenerInventarioComponent implements OnInit {
           (e: any) => e.estado == 4
         );
         break;
-      case 5:
+      default:
         this.herramientasAMostrar = this.todasLasHerramientas;
     }
   }
@@ -114,13 +108,13 @@ export class ObtenerInventarioComponent implements OnInit {
       let index = this.herramientasAAsignar.indexOf(herramienta.id);
       this.herramientasAAsignar.splice(index, 1);
       //Codigo para cambiale el estado a la entidad pincipal en su posicion x del aray
-      this.herramientasAMostrar[x].estado = 0;
+      // this.herramientasAMostrar[x].estado = 0;
       //
 
     } else {
       this.herramientasAAsignar.push(herramienta.id);
         //Codigo para cambiale el estado a la entidad pincipal en su posicion x del aray
-      this.herramientasAMostrar[x].estado = 1;
+      // this.herramientasAMostrar[x].estado = 1;
         //
     }
     this.herramientasAAsignar.sort(function (a, b) {
@@ -183,23 +177,23 @@ export class ObtenerInventarioComponent implements OnInit {
     //En todasLasHerramientas tenemos un array con las herramientas en su estado inicial, tal y como vinieon del backend
 
     //La idea pensada es restaurar a su estado inicial todas las herramientas con esta asignacion
-    this.herramientasAMostrar = this.todasLasHerramientas;
-    //No esta funcionando.
     //
-
-
-    this.herramientasAAsignar.length = 0;
+    this.herramientasAAsignar.length = 0; //hacemos los todos los array de control:a asignar, a des-asignar y a revision 0
     this.herramientasADesasignar.length = 0;
     this.herramientasARevisar.length = 0;
-    this._snackBar.open(
+    this._snackBar.open(      //mostramos la snackbar que se cancelaron las acciones
       'Ud ha cancelado todas las acciones',
       'Cerrar'
-
     );
 
-    console.log('pincipal?',this.herramientasAMostrar[3]);
-    console.log('foto?',this.todasLasHerramientas[3]);
+    this.herramientasAMostrar=undefined; //hacemos el array a mostrar undefined para que se muestre el spinner
+    this.filtro=10;
+    setTimeout(() => { //hacemos un setTimeout para que el spinner se muestre 0,5 seg y hacemos el array a mostrar como al principio
+      this.herramientasAMostrar=this.todasLasHerramientas;
+    }, 500);
 
+    // console.log('pincipal?',this.herramientasAMostrar[3]);
+    // console.log('foto?',this.todasLasHerramientas[3]);
 
   }
 
