@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import {DatePipe} from '@angular/common';
+import {ServicioCrearherramientaService} from 'src/app/services/servicio-crearherramienta.service'
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-obtener-historial',
   templateUrl: './obtener-historial.component.html',
@@ -26,7 +28,8 @@ dataSource: any[]=[]
   busquedaUsuario:any
   fechaUsuario: any
   nuevaFecha: any
-  constructor(private authService: AuthService) { }
+  historial: any
+  constructor(private _snackBar: MatSnackBar, private authService: AuthService, private ServicioCrearherramientaService: ServicioCrearherramientaService ) { }
 
   ngOnInit(): void {
 
@@ -79,8 +82,25 @@ dataSource: any[]=[]
 
     }
 
+
   }
+guardarComentario(id: number, event: any){
+  console.log(event)
+
+  this.ServicioCrearherramientaService.comentarioNuevo(id, event).subscribe((response:any)=>{
+    console.log(response)
+
+  }),
+
+
+  this._snackBar.open('Comentario Guardado', 'Cerrar');
+
 }
+
+}
+
+
+
 
 
 Component({

@@ -125,3 +125,19 @@ mat-radio-button {
   }
 }
 
+
+
+
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+color: black;
+}
+
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+color: black;
+
+}
+.cambiatepls{
+  margin-bottom: -4%;
+}
