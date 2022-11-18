@@ -107,6 +107,16 @@
                     </div>
                   </div>
                 </div>
+                <mat-slide-toggle  disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
+                class="slide">Asignar</mat-slide-toggle>
+              <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
+                (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
+              <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
+              </mat-slide-toggle>
+              <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar
+              </mat-slide-toggle>
+              <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==4" class="slide">Asignar
+              </mat-slide-toggle>
               </div>
             <!-- </div> -->
           </mat-card>
