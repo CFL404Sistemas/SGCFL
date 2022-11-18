@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { ConnectableObservable, filter } from 'rxjs';
 import { find } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -49,9 +49,17 @@ export class ObtenerInventarioComponent implements OnInit {
     console.log(this.rolUsuario);
 
     this.authService.obtenerHerramientas().subscribe((response: any) => {
+
       console.log(response);
       this.todasLasHerramientas = response.response;
       this.herramientasAMostrar = this.todasLasHerramientas;
+
+
+
+
+
+
+
     });
   }
 
@@ -101,12 +109,19 @@ export class ObtenerInventarioComponent implements OnInit {
   }
 
   //boton "aceptar", muestra y envia datos al back segun las acciones que se hayan hecho
-  asignar(herramienta: any) {
+  asignar(herramienta: any,x: number) {
     if (this.herramientasAAsignar.includes(herramienta.id)) {
       let index = this.herramientasAAsignar.indexOf(herramienta.id);
       this.herramientasAAsignar.splice(index, 1);
+      //Codigo para cambiale el estado a la entidad pincipal en su posicion x del aray
+      this.herramientasAMostrar[x].estado = 0;
+      //
+
     } else {
       this.herramientasAAsignar.push(herramienta.id);
+        //Codigo para cambiale el estado a la entidad pincipal en su posicion x del aray
+      this.herramientasAMostrar[x].estado = 1;
+        //
     }
     this.herramientasAAsignar.sort(function (a, b) {
       return a - b;
@@ -163,13 +178,29 @@ export class ObtenerInventarioComponent implements OnInit {
 
   //cancelar y limpiar todos los arrays
   cancelar(){
-    this.herramientasAAsignar=[];
-    this.herramientasADesasignar=[];
-    this.herramientasARevisar=[];
+
+    //En herramientasAMostrar tenemos el array lo que renderiza el html, con los datos que juega el usuario
+    //En todasLasHerramientas tenemos un array con las herramientas en su estado inicial, tal y como vinieon del backend
+
+    //La idea pensada es restaurar a su estado inicial todas las herramientas con esta asignacion
+    this.herramientasAMostrar = this.todasLasHerramientas;
+    //No esta funcionando.
+    //
+
+
+    this.herramientasAAsignar.length = 0;
+    this.herramientasADesasignar.length = 0;
+    this.herramientasARevisar.length = 0;
     this._snackBar.open(
       'Ud ha cancelado todas las acciones',
       'Cerrar'
+
     );
+
+    console.log('pincipal?',this.herramientasAMostrar[3]);
+    console.log('foto?',this.todasLasHerramientas[3]);
+
+
   }
 
   //poner en revision

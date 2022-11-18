@@ -49,7 +49,7 @@
             <div *ngIf="herramientasAMostrar==0">
               <p class="noEncontrado">No se encontro esa herramienta</p>
             </div>
-            <div *ngFor="let herramienta of herramientasAMostrar">
+            <div *ngFor="let herramienta of herramientasAMostrar;let x = index">
               <div class="herramienta1">
                 <div class="imgContainer">
                   <img [src]="herramienta.img" alt="">
@@ -74,8 +74,11 @@
                     <button *ngIf="rolUsuario!=='ADMINISTRADOR'" (click)="ponerEnRevision(herramienta)"
                       mat-menu-item>Para Revisión</button>
                   </mat-menu>
-                  <mat-slide-toggle disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
+                  <mat-slide-toggle disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta, x)"
                     class="slide">Asignar</mat-slide-toggle>
+                    <div *ngIf="herramienta.estado==0"> SOY 0</div>
+                    <div *ngIf="herramienta.estado==1"> SOY 1</div>
+
                   <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
                     (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
                   <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
