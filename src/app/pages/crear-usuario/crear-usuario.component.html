@@ -32,7 +32,7 @@
 
             <!-- Error para avisar que no se cumple el formulario -->
 
-            <div *ngIf="formControl.nroSerie.errors" class="text-danger"></div>
+            <div *ngIf="formControl.nroSerie.errors" class="text-danger "></div>
             <div>
               <mat-form-field class="bord" appearance="outline">
                 <mat-label>DNI</mat-label>
@@ -77,11 +77,11 @@
   <mat-tab  label="Historial de Usuarios" >
     <mat-selection-list #shoes>
       <div *ngFor="let usuario of TodoslosUsuarios; let posicion = index">
-        <mat-list-option (click)="usuarioSeleccionado(usuario.id, posicion);">
+        <mat-list-option class="text-center" (click)="usuarioSeleccionado(usuario.id, posicion);">
           {{usuario.nombre}}
         </mat-list-option>
         <input (change)="nuevaContra(usuario, $event);"
-        class="contraseña" type="password" matInput placeholder="Nueva Contraseña" >
+        class="contraseña text-center" type="password" matInput placeholder="Nueva Contraseña" >
 
       </div>
 
@@ -89,7 +89,7 @@
     </mat-selection-list>
 
 <div  *ngIf="TodoslosUsuarios!=undefined" >
-   <div class="select"> Usuario Seleccionado: {{shoes.selectedOptions.selected.length}}</div>
+   <div class="select text-center"> Usuario Seleccionado: {{shoes.selectedOptions.selected.length}}</div>
 
 
 
