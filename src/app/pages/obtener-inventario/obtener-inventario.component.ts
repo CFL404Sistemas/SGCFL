@@ -5,6 +5,8 @@ import { find } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { identifierName } from '@angular/compiler';
+import { ServicioCrearherramientaService } from 'src/app/services/servicio-crearherramienta.service';
+
 import * as $ from 'jquery';
 @Component({
   selector: 'app-obtener-inventario',
@@ -41,7 +43,8 @@ estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en re
   constructor(
     private router: Router,
     private authService: AuthService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private gestionHerramienta: ServicioCrearherramientaService
   ) {}
 
   ngOnInit(): void {
@@ -206,6 +209,22 @@ estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en re
         'Cerrar'
       );
     }
+
+
+
+
+
+    this.gestionHerramienta.asignarHerramientas(this.herramientasAAsignar).subscribe((response: any) => {
+      console.log(response);
+
+
+    });
+
+
+
+
+
+
     //aceptar la asignacion
 
     // if (

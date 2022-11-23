@@ -17,4 +17,16 @@ comentarioNuevo(id: number, comentario: string) {
     comentario : comentario,
   });
 }
+
+
+asignarHerramientas(arrConHerramientasAsignar: any) {
+
+  return this.http.post( "http://127.0.0.1:8000/api/herramienta/gestionarAsignacion", {
+    arrConHerramientasAsignar: arrConHerramientasAsignar,
+  });
+}
+
+
+
+
 }
