@@ -28,10 +28,8 @@ volverhome(){
 
 }
 cerrarsecion(){
-  this.router.navigate(["login"]);
+  this.router.navigate([""]);
   localStorage.removeItem('isLogged')
 }
-editarperfil(){
-  this.router.navigate(["edicion-perfil"])
-}
+
 }

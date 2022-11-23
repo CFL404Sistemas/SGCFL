@@ -11,7 +11,7 @@ import {CrearUsuarioComponent} from './pages/crear-usuario/crear-usuario.compone
 import { ObtenerHistorialComponent } from './pages/obtener-historial/obtener-historial.component';
 
 import { ValidadorGuard } from '../app/guard/validador.guard';
-import { EdicionperfilComponent } from './pages/edicionperfil/edicionperfil.component';
+
 const routes: Routes = [
   {
     path: 'home-admin',
@@ -42,11 +42,7 @@ const routes: Routes = [
   {
     path: 'obtener-historial', component: ObtenerHistorialComponent,
   },
-  {
-    path: 'edicion-perfil',
-    component: EdicionperfilComponent,
-    canActivate: [ValidadorGuard],
-  }
+
 
 ];
 @NgModule({

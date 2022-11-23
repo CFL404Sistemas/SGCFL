@@ -107,3 +107,37 @@ h5 {
   padding-left: 86px;
   width: 20%;
 }
+
+mat-radio-button {
+  margin: 2%;
+}
+.buscador{
+  margin-top: 37px;
+  height: 35px;
+  margin-left: 40%;
+}
+
+
+@media only screen and (max-width: 768px){
+  .buscador{
+    margin-left: 0%;
+    margin-top: 2px;
+  }
+}
+
+
+
+
+/* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+color: black;
+}
+
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+color: black;
+
+}
+.cambiatepls{
+  margin-bottom: -4%;
+}

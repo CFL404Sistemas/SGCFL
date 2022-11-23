@@ -1,39 +1,45 @@
 // VARIABLES DE COLORES, PRIMARIO , SECUNDARIO, TERCIARIO, ETC
 
-$blue:#093f7c;
+$blue: #093f7c;
 $ligthBlue: #0184f5;
 $ligthGray: #a5a5a5;
 $white: #ffffff;
 $darkGray: #333333;
 /* You can add global styles to this file, and also import other style files */
 
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; };
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 // VARIABLES DE COLORES, PRIMARIO , SECUNDARIO, TERCIARIO, ETC
 
-$blue:#093f7c;
+$blue: #093f7c;
 $ligthBlue: #0184f5;
 $ligthGray: #a5a5a5;
 $white: #ffffff;
 $darkGray: #333333;
-.mat-radio-inner-circle{
-  background-color: $ligthBlue !important
-  }
-  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color:  $ligthBlue  !important;
-  }
+.mat-radio-inner-circle {
+  background-color: $ligthBlue !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $ligthBlue !important;
+}
 
-.mat-radio-inner-circle{
-  background-color: $ligthBlue!important;
+.mat-radio-inner-circle {
+  background-color: $ligthBlue !important;
   border: none;
 }
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
-border-color: $ligthBlue!important;
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $ligthBlue !important;
 }
 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
   background-color: $ligthBlue;
@@ -43,16 +49,28 @@ border-color: $ligthBlue!important;
   background-color: $blue;
 }
 
-.mat-progress-spinner circle, .mat-spinner circle{
-  stroke: $ligthBlue!important;
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $ligthBlue !important;
 }
-.mat-progress-spinner circle, .mat-spinner circle{
-  stroke: $ligthBlue!important;
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $ligthBlue !important;
 }
 
 
+//pisando colores de angular en los formularios
+.mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color: $ligthBlue!important;
+}
 
+.mat-form-field.mat-focused .mat-form-field-label{
+  color:  $ligthBlue!important;
+}
 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-simple-snackbar-action {
+  color: $ligthBlue!important;
+}

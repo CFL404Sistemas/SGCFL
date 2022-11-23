@@ -19,9 +19,15 @@
 
             <div>
               <mat-form-field class="bord" appearance="outline">
-                <mat-label class="apellido">Cargo</mat-label>
-                <input matInput formControlName="Cargo" />
-              </mat-form-field>
+                 <mat-label>Cargo</mat-label>
+                  <mat-select formControlName="Cargo">
+                    <mat-option value="ADMIN">Admin</mat-option>
+                  <mat-option value="INSTRUCTOR">Instructor</mat-option>
+                    <mat-option value="SECRETARIA">Secretaria</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+
             </div>
 
             <!-- Error para avisar que no se cumple el formulario -->
@@ -70,9 +76,16 @@
   </mat-tab>
   <mat-tab  label="Historial de Usuarios" >
     <mat-selection-list #shoes>
-      <mat-list-option *ngFor="let usuario of TodoslosUsuarios">
-        {{usuario.nombre}}
-      </mat-list-option>
+      <div *ngFor="let usuario of TodoslosUsuarios; let posicion = index">
+        <mat-list-option (click)="usuarioSeleccionado(usuario.id, posicion);">
+          {{usuario.nombre}}
+        </mat-list-option>
+        <input (change)="nuevaContra(usuario, $event);"
+        class="contraseña" type="password" matInput placeholder="Nueva Contraseña" >
+
+      </div>
+
+
     </mat-selection-list>
 
 <div  *ngIf="TodoslosUsuarios!=undefined" >
@@ -80,12 +93,38 @@
 
 
 
-    <div class="example-button-row text-center">
-      <button class="borrar" mat-button>Borrar Usuario</button>
 
-    </div>
 
+ <div class="container-fluid">
+      <div class="row text-center">
+        <div class="col-md-6">
+
+          <div class="margen">
+            <button (click)="Contranueva()" class="modificar" mat-button>Modificar Contraseña</button>
+
+          </div>
+
+
+
+
+
+
+
+
+        </div>
+
+        <div class="col-md-6">
+
+        <div class="margen">
+          <button (click)="borrarUsuarios();" class="borrar" mat-button>Borrar Usuario</button>
+        </div>
+      </div>
+      </div>
     </div>
+   </div>
+
+
+
     <div *ngIf="TodoslosUsuarios==undefined" class="spinnerContainer">
       <mat-spinner ></mat-spinner>
       <div class="loading">Cargando</div>
