@@ -31,7 +31,5 @@ cerrarsecion(){
   this.router.navigate([""]);
   localStorage.removeItem('isLogged')
 }
-editarperfil(){
-  this.router.navigate(["edicion-perfil"])
-}
+
 }

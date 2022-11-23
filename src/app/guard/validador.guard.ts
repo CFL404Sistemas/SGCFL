@@ -12,7 +12,7 @@ export class ValidadorGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      console.log('se ejecuta guard',localStorage.getItem('isLogged'));
+      
 
       if(localStorage.getItem('isLogged')){
         return true;

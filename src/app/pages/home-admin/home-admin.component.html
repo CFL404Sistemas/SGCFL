@@ -1,62 +1,38 @@
 <app-navbar></app-navbar>
 
+<div class="container-fluid text-center">
+  <div class="margen row text-center mt-4">
+    <div class="col-md-4 text-center">
+      <mat-card
+        class="tarjeta mat-elevation-z0 gestion-invetario-img1 gestionHerramienta"
+        matRipple
+        (click)="navegarHerramientas()"
+      >
+          <h2 class="gestion"> <div class="backText">Gestión De Inventario</div></h2>
+      </mat-card>
+    </div>
 
-  <div class="container-fluid text-center">
-    <div class=" margen row text-center mt-4">
-      <div class="col-md-4 text-center">
-
-
-
-
-        <mat-card class="tarjeta mat-elevation-z0"matRipple (click)="navegarHerramientas()">
-
-
-
-
-
-          <img  src="../../../assets/vec4.png "  class="gestionHerramienta text-center">
-
-               <div class="gestion" ><b>Gestión De Inventario</b> </div>
-
-        </mat-card>
-
-
-       </div>
-
-       <div class="col-md-4 text-center">
-
-        <mat-card class="tarjeta mat-elevation-z0"matRipple  (click)="navegarUsuario()">
-          <img src="../../../assets/Usuario.jpg" class="gestionHerramienta">
-
-
-                <div class="Gestionusuario" ><b>Gestión De Usuario</b> </div>
-
-
-
-
-        </mat-card>
-
-
-
-       </div>
-
-       <div class="col-md-4 text-center">
-
-        <mat-card class="tarjeta mat-elevation-z0"matRipple  (click)="navegarHistorial()">
-          <img src="../../../assets/vec2.png" class="gestionHerramienta">
-
-          <div class="Historial" ><b>Ver Historial</b> </div>
-
-
-
-        </mat-card>
-
-
-      </div>
-
+    <div class="col-md-4 text-center">
+      <mat-card
+        class="tarjeta mat-elevation-z0 gestion-invetario-img2 gestionHerramienta"
+        matRipple
+        (click)="navegarUsuario()"
+      >
+          <h2 class="gestion"><div class="backText">Gestión De Usuario</div></h2>
+      </mat-card>
+    </div>
+    <div class="col-md-4 text-center">
+      <mat-card
+        class="tarjeta mat-elevation-z0 gestion-invetario-img3 gestionHerramienta"
+        matRipple
+        (click)="navegarHistorial()"
+      >
+          <h2 class="gestion"><div class="backText">Ver Historial</div></h2>
+      </mat-card>
     </div>
 
 
 
-     </div>
 
+  </div>
+</div>
