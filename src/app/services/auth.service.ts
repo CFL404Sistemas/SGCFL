@@ -40,9 +40,9 @@ export class AuthService {
     return this.http.post( "http://127.0.0.1:8000/api/herramienta/crearHerramienta", {
       nombre: nombre ,
       marca: marca,
-      NrodeSerie: NrodeSerie,
+      numero_de_serie: NrodeSerie,
       observacion: observacion,
-      imagen: imagen,
+      img: imagen,
       estado: estado,
 
 

@@ -113,7 +113,8 @@
 .borrar{
 background-color:#093f7c;
 color: #fff;
-width: 30%;
+width: 100%;
+
 }
 .spinnerContainer {
   display: flex;
@@ -141,3 +142,44 @@ width: 30%;
     color:  #0184f5; ;
   }
 }
+
+.contraseña {
+
+
+  border-color: #093f7c;
+  width: 20%;
+
+}
+
+
+
+
+.margen {
+
+  padding-left: 30%;
+padding-right: 30%;
+margin-top: 20px;
+
+}
+
+.modificar{
+  background-color:#093f7c;
+  color: #fff;
+  width: 100%;
+
+  }
+
+  @media only screen and (max-width: 768px) {
+.modificar{
+  font-size: smaller;
+
+}
+.borrar {
+
+  font-size: smaller;
+}
+.contraseña {
+  width: 50%;
+}
+  }
+

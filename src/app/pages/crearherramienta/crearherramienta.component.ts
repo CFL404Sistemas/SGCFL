@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
@@ -32,6 +32,7 @@ export class CrearherramientaComponent implements OnInit {
       nroSerie: ["", [Validators.required]],
       observacion: ["", [Validators.required]],
       Marca: ["", [Validators.nullValidator]],
+      estado: [""],
     });
   }
   get formControl() {
@@ -44,7 +45,8 @@ export class CrearherramientaComponent implements OnInit {
       this.loginForm.value.nroSerie,
       this.loginForm.value.observacion,
       this.previewPicture,
-      this.esNoDisponible
+      this.esNoDisponible,
+
     ).subscribe(
       (Response: any) => {
         console.log(Response);
