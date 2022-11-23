@@ -85,7 +85,7 @@ dataSource: any[]=[]
 
   }
 guardarComentario(id: number, event: any){
-  console.log(event)
+  console.log('queestpymandndo', event)
 
   this.ServicioCrearherramientaService.comentarioNuevo(id, event).subscribe((response:any)=>{
     console.log(response)

@@ -53,7 +53,12 @@
                         <h5>N° Serie: {{ElementosAMostrar.nserie}} </h5>
                         <p class="datoslista mb-1">Responsable: {{ElementosAMostrar.responsable}}</p>
                         <p class="datoslista mb-1">Movimiento: {{ElementosAMostrar.movimiento}}</p>
-                        <input class="form-control me-2 bg-text-primary text-center comentario" type="search" placeholder="" aria-label="Search" >
+                        <mat-form-field class="cambiatepls mt-2" appearance="outline">
+                          <input  matInput [(ngModel)]="ElementosAMostrar.comentario" type="text">
+                          <button (click)="guardarComentario(ElementosAMostrar.id, ElementosAMostrar.comentario)" matSuffix mat-icon-button>
+                            <mat-icon>send</mat-icon>
+                          </button>
+                        </mat-form-field>
                       </div>
                 </div>
             </div>
