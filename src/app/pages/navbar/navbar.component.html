@@ -3,7 +3,7 @@
     <div class="row" style="width:100%;">
       <div class="col-md-12" *ngIf="this.router.url =='/home-admin'">
         <img class="icono rounded" src="{{datosUsuario.img_avatar}}" (click)="editarperfil()">
-        <span class="mititulo h4">Bienvenido  {{datosUsuario.nombre}} </span>
+        <span class="mitituloNavbar h5">Bienvenido  {{datosUsuario.nombre}} </span>
         <div (click)="cerrarsecion()"
          class="exit-app">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
