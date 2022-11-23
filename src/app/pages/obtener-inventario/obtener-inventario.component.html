@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-
 <div class="container-fluid text-center fondo">
   <div class="row 1 row1">
     <div class="col-md-12">
@@ -11,13 +10,14 @@
             </mat-radio-button>
             <mat-radio-button (click)="filtrar(1)" class="filtro" id="flitroAsignadas" value="1">Asignadas
             </mat-radio-button>
-            <mat-radio-button (click)="filtrar(2)" class="filtro" id="flitroRevision" value="2">En Reparación
+            <mat-radio-button (click)="filtrar(2)" class="filtro" id="flitroRevision" value="2">Reparación
             </mat-radio-button>
-            <mat-radio-button (click)="filtrar(3)" class="filtro" id="flitroReparacion" value="3">En Revisión
+            <mat-radio-button (click)="filtrar(3)" class="filtro" id="flitroReparacion" value="3">Revisión
             </mat-radio-button>
-            <mat-radio-button *ngIf="rolUsuario==='ADMINISTRADOR'" (click)="filtrar(4)" class="filtro" id="flitroBaja" value="4" >Dada de baja
+            <mat-radio-button *ngIf="rolUsuario==='ADMINISTRADOR'" (click)="filtrar(4)" class="filtro" id="flitroBaja"
+              value="4">Dada de baja
             </mat-radio-button>
-            <mat-radio-button (click)="filtrar(5)" class="filtro" id="flitroTodas" value="5" checked="true" >Todas
+            <mat-radio-button (click)="filtrar(5)" class="filtro" id="flitroTodas" value="5" checked="true">Todas
             </mat-radio-button>
           </mat-radio-group>
         </mat-card>
@@ -50,74 +50,75 @@
               <p class="noEncontrado">No se encontro esa herramienta</p>
             </div>
             <!-- <div *ngIf="!cancelarOn"> -->
-              <div *ngFor="let herramienta of herramientasAMostrar;let x = index">
-                <div class="herramienta1">
-                  <div class="imgContainer">
-                    <img [src]="herramienta.img" alt="">
-                    <mat-chip *ngIf="herramienta.estado==0" class="disponible">Disponible</mat-chip>
-                    <mat-chip *ngIf="herramienta.estado==1" class="asignada">Asignada</mat-chip>
-                    <mat-chip *ngIf="herramienta.estado==2" class="reparacion">En reparacion</mat-chip>
-                    <mat-chip *ngIf="herramienta.estado==3" class="revision">En revision</mat-chip>
-                    <mat-chip *ngIf="herramienta.estado==4" class="noDisponible">Dada de baja</mat-chip>
-                    <br>
-                    <button class="botonMenu" mat-button [matMenuTriggerFor]="menu">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                        class="bi bi-gear imgMenu" viewBox="0 0 16 16">
-                        <path
-                          d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
-                        <path
-                          d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
-                      </svg>
-                    </button>
-                    <mat-menu #menu="matMenu">
-                      <button *ngIf="rolUsuario==='ADMINISTRADOR'" mat-menu-item>Modificar</button>
-                      <button *ngIf="rolUsuario==='ADMINISTRADOR'" mat-menu-item>Eliminar</button>
-                      <button *ngIf="rolUsuario!=='ADMINISTRADOR'" (click)="ponerEnRevision(herramienta)"
-                        mat-menu-item>Para Revisión</button>
-                    </mat-menu>
-                    <mat-slide-toggle disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta, x)"
-                      class="slide">Asignar</mat-slide-toggle>
-                      <!-- <div *ngIf="herramienta.estado==0"> SOY 0</div>
+            <div *ngFor="let herramienta of herramientasAMostrar;let x = index">
+              <div class="herramienta1">
+                <div class="imgContainer">
+                  <img [src]="herramienta.img" alt="">
+                  <mat-chip *ngIf="herramienta.estado==0" class="disponible">Disponible</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==1" class="asignada">Asignada</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==2" class="reparacion">En reparacion</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==3" class="revision">En revision</mat-chip>
+                  <mat-chip *ngIf="herramienta.estado==4" class="noDisponible">Dada de baja</mat-chip>
+                  <br>
+                  <button class="botonMenu" mat-button [matMenuTriggerFor]="menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-gear imgMenu" viewBox="0 0 16 16">
+                      <path
+                        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                      <path
+                        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                    </svg>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button *ngIf="rolUsuario==='ADMINISTRADOR'" (click)="mostrarModalModificacion(herramienta)"
+                      mat-menu-item>Modificar</button>
+                    <button *ngIf="rolUsuario==='ADMINISTRADOR'" (click)="mostrarModalEliminacion(herramienta)" mat-menu-item>Dar de baja</button>
+                    <button *ngIf="rolUsuario!=='ADMINISTRADOR'" (click)="ponerEnRevision(herramienta)"
+                      mat-menu-item>Para Revisión</button>
+                  </mat-menu>
+                  <mat-slide-toggle disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
+                    class="slide">Asignar</mat-slide-toggle>
+                  <!-- <div *ngIf="herramienta.estado==0"> SOY 0</div>
                       <div *ngIf="herramienta.estado==1"> SOY 1</div> -->
 
-                    <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
-                      (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
-                    <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
-                    </mat-slide-toggle>
-                    <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar
-                    </mat-slide-toggle>
-                    <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==4" class="slide">Asignar
-                    </mat-slide-toggle>
-                  </div>
-                  <div class="informacionDeHerramienta">
-                    <h2 class="nombreHerramienta">{{herramienta.nombre}}</h2>
-                    <div class="descripcionHerramienta">
-                      <div>
-                        <label for="">Marca: </label><span>{{herramienta.marca}}</span>
-                        <label for="">S/N: </label><span>{{herramienta.numero_de_serie}}</span>
-                      </div>
-                      <div>
-                        <label for="">Ubicacion: </label> <span>{{herramienta.ubicacion}}</span>
-                        <br>
-                        <label for="">A Cargo: </label> <span>alguien</span>
-                      </div>
-                      <div>
-                        <label for="">Observacion: </label> <span>{{herramienta.observacion}}</span>
-                      </div>
+                  <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
+                    (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
+                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
+                  </mat-slide-toggle>
+                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar
+                  </mat-slide-toggle>
+                  <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==4" class="slide">Asignar
+                  </mat-slide-toggle>
+                </div>
+                <div class="informacionDeHerramienta">
+                  <h2 class="nombreHerramienta">{{herramienta.nombre}}</h2>
+                  <div class="descripcionHerramienta">
+                    <div>
+                      <label for="">Marca: </label><span>{{herramienta.marca}}</span>
+                      <label for="">S/N: </label><span>{{herramienta.numero_de_serie}}</span>
+                    </div>
+                    <div>
+                      <label for="">Ubicacion: </label> <span>{{herramienta.ubicacion}}</span>
+                      <br>
+                      <label for="">Responsable: </label> <span>alguien</span>
+                    </div>
+                    <div>
+                      <label for="">Observacion: </label> <span>{{herramienta.observacion}}</span>
                     </div>
                   </div>
                 </div>
-                <mat-slide-toggle  disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
-                class="slide">Asignar</mat-slide-toggle>
-              <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
+              </div>
+              <!-- <mat-slide-toggle  disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
+                class="slide">Asignar</mat-slide-toggle> -->
+              <!-- <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
                 (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
               <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
               </mat-slide-toggle>
               <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar
               </mat-slide-toggle>
               <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==4" class="slide">Asignar
-              </mat-slide-toggle>
-              </div>
+              </mat-slide-toggle> -->
+            </div>
             <!-- </div> -->
           </mat-card>
         </div>
@@ -135,4 +136,79 @@
     </div>
 
   </div>
+
+  <!-- MODAL DE MODIFICACION DE HERRAMIENTAS -->
+  <div [ngClass]="{'claseMostrarModal':modalHerramientaAModificar,'claseOcultarModal':!modalHerramientaAModificar}"
+    class="row 5 row5">
+    <div class="col-md-12">
+      <div>
+        <mat-card class="formularioModificar">
+          <form>
+            <h2 class="tituloModal">Modificar Datos de Herramienta</h2>
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombre de Herramienta</mat-label>
+              <input id="nombreHerramientaAModificar" matInput value=>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Nro de Serie</mat-label>
+              <input id="numeroDeSerieAModificar" matInput value=>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Marca</mat-label>
+              <input id="marcaHerramientaAModificar" matInput value=>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Responsable</mat-label>
+              <input id="responsableHerramientaAModificar" matInput value=>
+            </mat-form-field>
+            <br>
+            <!-- SELECTOR DE ESTADO DE LAS HERRAMIENTAS -->
+            <form>
+              <mat-label id="estadoHerramientaAModificar"></mat-label>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label>Nuevo estado</mat-label>
+                <mat-select name="estado">
+                  <mat-option *ngFor="let estado of estadosHerramientas" value="">
+                    {{estado}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+            <br>
+            <mat-form-field class="example-full-width">
+              <mat-label>Observación</mat-label>
+              <textarea id="observacionHerramientaAModificar" matInput placeholder=""></textarea>
+            </mat-form-field>
+            <br>
+            <button class="boton" (click)="aceptarModificacion()" mat-raised-button>Aceptar</button>
+            <button (click)="ocultarModalModificacion()" class="boton" mat-raised-button>Cancelar</button>
+          </form>
+        </mat-card>
+
+      </div>
+    </div>
+  </div>
+
+  <div [ngClass]="{'claseMostrarModal':modalHerramientaAEliminar,'claseOcultarModal':!modalHerramientaAEliminar}"
+    class="row 6 row6">
+    <div class="col-md-12">
+      <div>
+        <!-- CARD DE CONFIRMACION DE BAJA DE HERRAMIENTA -->
+        <mat-card class="cardBajaHerramienta">
+              <h2 class="tituloModal" >Baja de herramienta</h2>
+          <mat-card-content><p id="herramientaAEliminar">Texto a completar con el TS</p></mat-card-content>
+          <mat-card-content><h2>Seguro?</h2></mat-card-content>
+          <mat-card-actions>
+            <button class="boton" (click)="aceptarEliminacion()" mat-raised-button>Aceptar</button>
+            <button class="boton" (click)="ocultarModalEliminacion()" mat-raised-button>Cancelar</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
 </div>

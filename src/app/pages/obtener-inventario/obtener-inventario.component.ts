@@ -5,7 +5,7 @@ import { find } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { identifierName } from '@angular/compiler';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-obtener-inventario',
   templateUrl: './obtener-inventario.component.html',
@@ -21,11 +21,22 @@ export class ObtenerInventarioComponent implements OnInit {
   rolUsuario: any;
   cancelarOn:boolean=false;
 
+//array con los estados de las herramientas
+estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en revisión', 'dada de baja']
+
   //array de herramientas para poner en revision
   herramientasARevisar: number[] = [];
 
   //herramientas a des-asignar
   herramientasADesasignar: number[] = [];
+
+
+  //variable con herramienta a modificar
+  modalHerramientaAModificar:boolean=false;
+
+  modalHerramientaAEliminar:boolean=false;
+
+
 
   constructor(
     private router: Router,
@@ -41,6 +52,8 @@ export class ObtenerInventarioComponent implements OnInit {
     // 2: en reparacion
     // 3: en revision
     // 4: dada de baja
+
+
 
     //datos del usuario guardado en el localHost
     this.datosUsuario = JSON.parse(localStorage.getItem('userData')!);
@@ -103,7 +116,7 @@ export class ObtenerInventarioComponent implements OnInit {
   }
 
   //boton "aceptar", muestra y envia datos al back segun las acciones que se hayan hecho
-  asignar(herramienta: any,x: number) {
+  asignar(herramienta: any) {
     if (this.herramientasAAsignar.includes(herramienta.id)) {
       let index = this.herramientasAAsignar.indexOf(herramienta.id);
       this.herramientasAAsignar.splice(index, 1);
@@ -314,6 +327,74 @@ export class ObtenerInventarioComponent implements OnInit {
     });
     console.log('Herramientas a des-asignar: ' + this.herramientasADesasignar);
   }
+
+
+  //modificar datos de herramienta
+  mostrarModalModificacion(herramienta:any){
+    this.modalHerramientaAModificar=true;
+    //animacion de formulario
+    $('.formularioModificar').css('animation','modal 0.3s');
+
+  //autocompletado de los datos de la herramienta
+  $('#nombreHerramientaAModificar').val(herramienta.nombre);
+  $('#numeroDeSerieAModificar').val(herramienta.numero_de_serie);
+  $('#marcaHerramientaAModificar').val(herramienta.marca);
+  $('#responsableHerramientaAModificar').val('FALTA AGREGAR ESTE CAMPO A LA BASE DE DATOS!!!!');
+  $('#observacionHerramientaAModificar').val(herramienta.observacion);
+    //AUTOCOMPLETADO DEL ESTADO ACTUAL DE LA HERRAMIENTA
+    if(herramienta.estado==0){
+      $('#estadoHerramientaAModificar').text('Estado actual: Disponible');
+    }else if(herramienta.estado==1){
+      $('#estadoHerramientaAModificar').text('Estado actual: Asignada');
+    }else if(herramienta.estado==2){
+      $('#estadoHerramientaAModificar').text('Estado actual: En Reparación');
+    }else if(herramienta.estado==3){
+      $('#estadoHerramientaAModificar').text('Estado actual: En Revisión');
+    }else if(herramienta.estado==4){
+      $('#estadoHerramientaAModificar').text('Estado actual: Dada de baja');
+    }
+  }
+
+  ocultarModalModificacion(){
+    this.modalHerramientaAModificar=false;
+  }
+
+aceptarModificacion(){
+  this._snackBar.open(
+    'Datos de la herramienta modificados',
+    'Cerrar'
+  );
+setTimeout(() => {
+  this.modalHerramientaAModificar=false;
+}, 500);
+
+}
+
+
+//modal de eliminacion
+
+mostrarModalEliminacion(herramienta:any){
+  this.modalHerramientaAEliminar=true;
+  //animacion de formulario
+  $('.cardBajaHerramienta').css('animation','modal 0.3s');
+  $('#herramientaAEliminar').text('Ud está a punto de dar de baja esta herramienta: ' + herramienta.nombre )
+}
+
+ocultarModalEliminacion(){
+  this.modalHerramientaAEliminar=false;
+}
+
+aceptarEliminacion(){
+  this._snackBar.open(
+    'Ud ha dado de baja una herramienta',
+    'Cerrar'
+  );
+setTimeout(() => {
+  this.modalHerramientaAEliminar=false;
+}, 500);
+
+}
+
 
   //alta de herramientas
   irAltaHerramienta() {
