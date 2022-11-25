@@ -56,7 +56,7 @@ dataSource: any[]=[]
 
     this.dataSource = this.ElementosAMostrar.filter((element: { nserie: number; nombre: string; responsable: string; movimiento: string}) => {
 
-      return element.nserie == this.busquedaUsuario || element.nombre.toLowerCase() == this.busquedaUsuario.toLowerCase() || element.movimiento.toLowerCase() == this.busquedaUsuario.toLowerCase() || element.responsable == this.busquedaUsuario || element.nombre.toLowerCase().includes(this.busquedaUsuario.toLowerCase()) || element.nserie.toString().toLowerCase().includes(this.busquedaUsuario.toLowerCase()) || element.responsable.toLowerCase().includes(this.busquedaUsuario.toLowerCase())
+      return element.nserie == this.busquedaUsuario || element.nombre.toLowerCase() == this.busquedaUsuario.toLowerCase() || element.movimiento.toLowerCase() == this.busquedaUsuario.toLowerCase() || element.responsable == this.busquedaUsuario || element.nombre.toLowerCase().includes(this.busquedaUsuario.toLowerCase()) || element.nserie.toString().toLowerCase().includes(this.busquedaUsuario.toLowerCase()) || element.responsable.toLowerCase().includes(this.busquedaUsuario.toLowerCase()) || element.movimiento ==this.busquedaUsuario.toLowerCase() || element.movimiento.toLowerCase().includes(this.busquedaUsuario.toLowerCase())
     });
 
 

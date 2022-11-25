@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 loginform: FormGroup | any;
+mostrarSpinner: boolean = false;
   constructor(private _snackBar: MatSnackBar, private formBuilder: FormBuilder, public Login: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,7 +32,7 @@ ayuda (
 
 onlogin(){
 
-
+this.mostrarSpinner = true;
 
   this.Login.login(this.loginform.value.dni, this.loginform.value.password).subscribe(
     (response: any) => {
@@ -46,7 +47,7 @@ console.log(response);
     (error) => {
       console.log(error);
       this._snackBar.open('DNI o Contraseña Incorrecta', 'Cerrar');
-
+      this.mostrarSpinner = false;
     },
   );
 

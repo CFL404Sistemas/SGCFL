@@ -42,10 +42,16 @@
 <div class="container-fluid mt-5">
   <mat-card class="carta2">
     <div class="row">
+      <div *ngIf="ElementosAMostrar==undefined" class="spinnerContainer">
+        <mat-spinner></mat-spinner>
+        <div class="loading">Cargando</div>
+      </div>
           <div class="col-md-3 mt-1">
 
                     <div class="list-group">
+
                       <div href="#" class="list-group-item list-group-item-action active" aria-current="true" *ngFor="let ElementosAMostrar of dataSource">
+
                         <div class="d-flex w-100 justify-content-between">
                           <h2 class=" mb-1">{{ElementosAMostrar.nombre}}</h2>
                           <small style="font-size: 15px;">{{ElementosAMostrar.created_at.substring(0,10)}}</small>
@@ -59,6 +65,7 @@
                             <mat-icon>send</mat-icon>
                           </button>
                         </mat-form-field>
+
                       </div>
                 </div>
             </div>
@@ -72,9 +79,17 @@
   <div class="visibilidadtabla">
     <div class="container-fluid lista historial">
 
+
       <div class="row">
+
+
         <mat-card class="carta2">
-          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <div *ngIf="ElementosAMostrar==undefined" class="spinnerContainer">
+            <mat-spinner></mat-spinner>
+            <div class="loading">Cargando</div>
+          </div>
+
+          <table *ngIf="ElementosAMostrar!=undefined" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <ng-container matColumnDef="number">
               <th mat-header-cell *matHeaderCellDef>N° Serie</th>
@@ -117,7 +132,9 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
           </table>
+
         </mat-card>
       </div>
     </div>
