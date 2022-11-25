@@ -19,6 +19,7 @@ export class CrearUsuarioComponent implements OnInit {
 TodoslosUsuarios:any;
 arrayIDUsuarios: any = [];
 arrayUsuariosAModificar : any = [];
+desactivarBOTON : boolean = false;
 constructor(private GestiondeusuarioService: GestiondeusuarioService, private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -41,6 +42,8 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
   borrarUsuarios(){
     console.log('Viendo si mandamos IDS',this.arrayIDUsuarios);
 
+    this.desactivarBOTON = true;
+
     this.GestiondeusuarioService.borrar(this.arrayIDUsuarios).subscribe(
       (response: any) => {
 
@@ -48,10 +51,12 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
         this.quitarUsuariosArray();
         this._snackBar.open('Los usuarios se han eliminado correctamente.', 'Cerrar');
 
+        this.desactivarBOTON = false;
 
       },
       (error) => {
         console.log(error);
+        this.desactivarBOTON = false;
 
 
       },
