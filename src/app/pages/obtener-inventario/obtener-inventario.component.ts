@@ -8,6 +8,7 @@ import { identifierName } from '@angular/compiler';
 import { ServicioCrearherramientaService } from 'src/app/services/servicio-crearherramienta.service';
 
 import * as $ from 'jquery';
+import { NumberFormatStyle } from '@angular/common';
 @Component({
   selector: 'app-obtener-inventario',
   templateUrl: './obtener-inventario.component.html',
@@ -22,6 +23,7 @@ export class ObtenerInventarioComponent implements OnInit {
   datosUsuario: any;
   rolUsuario: any;
   cancelarOn:boolean=false;
+  paraEliminar:boolean=false;
 
 //array con los estados de las herramientas
 estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en revisión', 'dada de baja']
@@ -61,14 +63,16 @@ estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en re
     //datos del usuario guardado en el localHost
     this.datosUsuario = JSON.parse(localStorage.getItem('userData')!);
     //rol del usuario para los ngIf
-    this.rolUsuario = 'ADMINISTRADOR'//this.datosUsuario.cargo;
+    this.rolUsuario =this.datosUsuario.cargo;
 
-    console.log(this.rolUsuario);
+    console.log(this.datosUsuario);
 
     this.authService.obtenerHerramientas().subscribe((response: any) => {
       console.log(response);
       this.todasLasHerramientas = response.response;
-      this.herramientasAMostrar = this.todasLasHerramientas;
+      this.rolUsuario=='ADMIN'? this.herramientasAMostrar = this.todasLasHerramientas :  this.herramientasAMostrar = this.todasLasHerramientas.filter(
+        (e: any) => e.estado !== 4
+      );
     });
 
   }
@@ -104,7 +108,9 @@ estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en re
         );
         break;
       default:
-        this.herramientasAMostrar = this.todasLasHerramientas;
+          this.rolUsuario=='ADMIN'? this.herramientasAMostrar = this.todasLasHerramientas :  this.herramientasAMostrar = this.todasLasHerramientas.filter(
+            (e: any) => e.estado !== 4
+          );
     }
   }
 
@@ -394,9 +400,11 @@ setTimeout(() => {
 
 mostrarModalEliminacion(herramienta:any){
   this.modalHerramientaAEliminar=true;
+  this.paraEliminar=true;
   //animacion de formulario
   $('.cardBajaHerramienta').css('animation','modal 0.3s');
-  $('#herramientaAEliminar').text('Ud está a punto de dar de baja esta herramienta: ' + herramienta.nombre )
+  $('#herramientaAEliminar').text('Ud está a punto de dar de baja esta herramienta: ' + herramienta.nombre+ ' ' + herramienta.numero_de_serie )
+
 }
 
 ocultarModalEliminacion(){
@@ -414,9 +422,39 @@ setTimeout(() => {
 
 }
 
+//modal de revision
+
+mostrarModalRevision(herramienta:any){
+  this.modalHerramientaAEliminar=true;
+  //animacion de formulario
+  $('.cardBajaHerramienta').css('animation','modal 0.3s');
+  $('#herramientaAEliminar').text('Ud está a punto de poner esta herramienta en revision: ' + herramienta.nombre+ ' ' + herramienta.numero_de_serie )
+}
+
+ocultarModalRevision(){
+  this.modalHerramientaAEliminar=false;
+}
+
+aceptarRevision(){
+  this._snackBar.open(
+    'Ud a puesto una herramienta en revision',
+    'Cerrar'
+  );
+setTimeout(() => {
+  this.modalHerramientaAEliminar=false;
+}, 500);
+
+}
+
 
   //alta de herramientas
   irAltaHerramienta() {
     this.router.navigate(['crear-herramienta']);
   }
+}
+
+if(0>1){
+  true
+}else{
+  false
 }

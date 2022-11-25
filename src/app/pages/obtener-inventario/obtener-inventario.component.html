@@ -14,7 +14,7 @@
             </mat-radio-button>
             <mat-radio-button (click)="filtrar(3)" class="filtro" id="flitroReparacion" value="3">Revisión
             </mat-radio-button>
-            <mat-radio-button *ngIf="rolUsuario==='ADMINISTRADOR'" (click)="filtrar(4)" class="filtro" id="flitroBaja"
+            <mat-radio-button *ngIf="rolUsuario==='ADMIN'" (click)="filtrar(4)" class="filtro" id="flitroBaja"
               value="4">Dada de baja
             </mat-radio-button>
             <mat-radio-button (click)="filtrar(5)" class="filtro" id="flitroTodas" value="5" checked="true">Todas
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="rolUsuario==='ADMINISTRADOR'" class="row 2 row2">
+  <div *ngIf="rolUsuario==='ADMIN'" class="row 2 row2">
     <div class="col-md-12">
       <div class="botonesDeAccion">
         <mat-card class="actionCard">
@@ -70,10 +70,10 @@
                     </svg>
                   </button>
                   <mat-menu #menu="matMenu">
-                    <button *ngIf="rolUsuario==='ADMINISTRADOR'" (click)="mostrarModalModificacion(herramienta)"
+                    <button *ngIf="rolUsuario==='ADMIN'" (click)="mostrarModalModificacion(herramienta)"
                       mat-menu-item>Modificar</button>
-                    <button *ngIf="rolUsuario==='ADMINISTRADOR'" (click)="mostrarModalEliminacion(herramienta)" mat-menu-item>Dar de baja</button>
-                    <button *ngIf="rolUsuario!=='ADMINISTRADOR'" (click)="ponerEnRevision(herramienta)"
+                    <button *ngIf="rolUsuario==='ADMIN'" (click)="mostrarModalEliminacion(herramienta)" mat-menu-item>Dar de baja</button>
+                    <button *ngIf="rolUsuario==='ADMIN'||rolUsuario==='USUARIO'" (click)="mostrarModalRevision(herramienta)"
                       mat-menu-item>Para Revisión</button>
                   </mat-menu>
                   <mat-slide-toggle disabled="false" *ngIf="herramienta.estado==0" (change)="asignar(herramienta)"
@@ -203,7 +203,8 @@
           <mat-card-content><p id="herramientaAEliminar">Texto a completar con el TS</p></mat-card-content>
           <mat-card-content><h2>Seguro?</h2></mat-card-content>
           <mat-card-actions>
-            <button class="boton" (click)="aceptarEliminacion()" mat-raised-button>Aceptar</button>
+            <button class="boton" *ngIf="paraEliminar" (click)="aceptarEliminacion()" mat-raised-button>Aceptar</button>
+            <button class="boton" *ngIf="!paraEliminar" (click)="aceptarRevision()" mat-raised-button>Aceptar</button>
             <button class="boton" (click)="ocultarModalEliminacion()" mat-raised-button>Cancelar</button>
           </mat-card-actions>
         </mat-card>
