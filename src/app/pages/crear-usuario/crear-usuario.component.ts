@@ -20,6 +20,7 @@ TodoslosUsuarios:any;
 arrayIDUsuarios: any = [];
 arrayUsuariosAModificar : any = [];
 desactivarBOTON : boolean = false;
+desactivarbotonpass : boolean =true;
 constructor(private GestiondeusuarioService: GestiondeusuarioService, private formBuilder: FormBuilder, private AuthService: AuthService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -156,7 +157,7 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
 
     this.arrayUsuariosAModificar.push(temporal);
 
-
+this.desactivarbotonpass = false
 
   }
 
