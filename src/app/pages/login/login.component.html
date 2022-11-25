@@ -27,7 +27,11 @@
           <input type="password" matInput placeholder="Ingresar Contraseña" formControlName="password">
         </mat-form-field>
         <div class=" text-center">
-          <button type="submit" class="btn btn-primary mt-3 w-75">Ingresar</button>
+          <div *ngIf="mostrarSpinner==true" class="spinnerContainer">
+            <mat-spinner></mat-spinner>
+            <div class="loading">Cargando</div>
+          </div>
+          <button *ngIf="mostrarSpinner==false" type="submit" class="btn btn-primary mt-3 w-75">Ingresar</button>
         </div>
       </form>
 
