@@ -82,7 +82,7 @@
                       <div *ngIf="herramienta.estado==1"> SOY 1</div> -->
 
                   <mat-slide-toggle disabled="false" checked="true" *ngIf="herramienta.estado==1"
-                    (change)="devolverHerramienta(herramienta)" class="slide">Des-asignar</mat-slide-toggle>
+                    (change)="devolverHerramienta(herramienta)" class="slide">Asignar</mat-slide-toggle>
                   <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==2" class="slide">Asignar
                   </mat-slide-toggle>
                   <mat-slide-toggle disabled="true" *ngIf="herramienta.estado==3" class="slide">Asignar
@@ -164,6 +164,8 @@
               <mat-label>Responsable</mat-label>
               <input id="responsableHerramientaAModificar" matInput value=>
             </mat-form-field>
+            <br>
+              <input hidden id="idHerramienta" matInput value=>
             <br>
             <!-- SELECTOR DE ESTADO DE LAS HERRAMIENTAS -->
             <form>

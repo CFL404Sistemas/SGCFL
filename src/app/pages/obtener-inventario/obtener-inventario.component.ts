@@ -220,7 +220,7 @@ estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en re
 
 
 
-    this.gestionHerramienta.asignarHerramientas(this.herramientasAAsignar).subscribe((response: any) => {
+    this.gestionHerramienta.asignarHerramientas(this.herramientasAAsignar, this.herramientasADesasignar).subscribe((response: any) => {
       console.log(response);
 
 
@@ -361,6 +361,7 @@ estadosHerramientas:string[]=['disponible', 'asignada', 'en reparación', 'en re
     $('.formularioModificar').css('animation','modal 0.3s');
 
   //autocompletado de los datos de la herramienta
+  $('#idHerramienta').val(herramienta.id);
   $('#nombreHerramientaAModificar').val(herramienta.nombre);
   $('#numeroDeSerieAModificar').val(herramienta.numero_de_serie);
   $('#marcaHerramientaAModificar').val(herramienta.marca);
@@ -389,6 +390,57 @@ aceptarModificacion(){
     'Datos de la herramienta modificados',
     'Cerrar'
   );
+
+
+  this.gestionHerramienta.modificarHerramienta(
+    $('#nombreHerramientaAModificar').val(),
+    $('#numeroDeSerieAModificar').val(),
+    $('#marcaHerramientaAModificar').val(),
+    $('#responsableHerramientaAModificar').val(),
+    $('#observacionHerramientaAModificar').val(),
+    $('#estadoHerramientaAModificar').val(),
+    $('#idHerramienta').val(),
+  ).subscribe((response: any) => {
+    console.log(response);
+
+
+  });
+
+
+
+  console.log($('#nombreHerramientaAModificar').val());
+  console.log($('#numeroDeSerieAModificar').val());
+  console.log($('#marcaHerramientaAModificar').val());
+  console.log($('#responsableHerramientaAModificar').val());
+  console.log($('#observacionHerramientaAModificar').val());
+  console.log($('#estadoHerramientaAModificar'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Cada campo en el formulario de edicion de herramienta
+    tiene un ID, con jquery accedemos a cada campo por medio de su ID y obtenemos su nuevo
+    valor con .val */
+
+    /* Ahora que tenemos todos los datos, mandamos al backend los mismos */
+
+
+
+
+
+
+
+
 setTimeout(() => {
   this.modalHerramientaAModificar=false;
 }, 500);
