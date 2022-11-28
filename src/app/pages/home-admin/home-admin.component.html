@@ -2,7 +2,21 @@
 
 <div class="container-fluid text-center">
   <div class="margen row text-center mt-4">
-    <div class="col-md-4 text-center">
+    <div  class="col-md-4 text-center" *ngIf="rolUsuario !='ADMIN'" ></div>
+    <div  class="col-md-4 text-center" *ngIf="rolUsuario !='ADMIN'" >
+
+      <mat-card
+        class="tarjeta mat-elevation-z0 gestion-invetario-img1 gestionHerramienta"
+        matRipple
+        (click)="navegarHerramientas()"
+      >
+          <h2 class="gestion"> <div class="backText">Gestión De Inventario</div></h2>
+      </mat-card>
+      <div  class="col-md-4 text-center" *ngIf="rolUsuario !='ADMIN'" ></div>
+    </div>
+
+    <div  class="col-md-4 text-center"*ngIf="rolUsuario =='ADMIN'" [ngClass]="{'vistausuario':rolUsuario =='ADMINISTRADOR' }">
+
       <mat-card
         class="tarjeta mat-elevation-z0 gestion-invetario-img1 gestionHerramienta"
         matRipple
@@ -12,7 +26,7 @@
       </mat-card>
     </div>
 
-    <div class="col-md-4 text-center">
+    <div *ngIf="rolUsuario ==='ADMIN'"class="col-md-4 text-center">
       <mat-card
         class="tarjeta mat-elevation-z0 gestion-invetario-img2 gestionHerramienta"
         matRipple
@@ -21,7 +35,7 @@
           <h2 class="gestion"><div class="backText">Gestión De Usuario</div></h2>
       </mat-card>
     </div>
-    <div class="col-md-4 text-center">
+    <div  *ngIf="rolUsuario ==='ADMIN'" class="col-md-4 text-center">
       <mat-card
         class="tarjeta mat-elevation-z0 gestion-invetario-img3 gestionHerramienta"
         matRipple

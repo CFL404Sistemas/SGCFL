@@ -5,7 +5,10 @@
   box-shadow: gray;
   cursor: pointer;
   margin: auto;
+  min-height: 100%;
 }
+
+
 .gestion-invetario-img1{
   background-image: url(../../../assets/vec4.png );
   display: flex;
@@ -83,10 +86,11 @@ text-shadow: black 0 -2px;
  }
 
 .backText{
-  height: 27vh;
+  height: 30vh;
   width: 100%;
   background-color: rgba(153, 152, 152, 0.8);
   padding-top: 40%;
+
 
 
 }
@@ -99,3 +103,4 @@ text-shadow: black 0 -2px;
 .col-md-4{
 margin: 3px 0px;
 }
+
