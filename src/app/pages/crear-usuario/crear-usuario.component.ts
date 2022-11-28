@@ -42,7 +42,7 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
 
   borrarUsuarios(){
     console.log('Viendo si mandamos IDS',this.arrayIDUsuarios);
-
+    if(this.arrayIDUsuarios.length ==0 ){ this._snackBar.open('Seleccionar al menos un usuario para borrar.', 'Cerrar');return false;}
     this.desactivarBOTON = true;
 
     this.GestiondeusuarioService.borrar(this.arrayIDUsuarios).subscribe(
@@ -62,6 +62,7 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
 
       },
     );
+    return true;
   }
 
   quitarUsuariosArray(){
