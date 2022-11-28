@@ -10,11 +10,19 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+mostrarModal: boolean=true;
+
 loginform: FormGroup | any;
 mostrarSpinner: boolean = false;
   constructor(private _snackBar: MatSnackBar, private formBuilder: FormBuilder, public Login: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+
+    if(JSON.parse(localStorage.getItem('aceptoAcuerdo')!)==true){
+      this.mostrarModal=false;
+    }
+
     this.loginform = this.formBuilder.group({
       dni: ["", [Validators.required]],
       password: [
@@ -29,6 +37,14 @@ mostrarSpinner: boolean = false;
 ayuda (
 
 ){this._snackBar.open('Pedir contraseña en dirección', 'Cerrar');}
+
+
+aceptar(){
+  localStorage.setItem('aceptoAcuerdo', 'true')
+  this.mostrarModal = false;
+
+}
+
 
 onlogin(){
 
@@ -54,6 +70,10 @@ console.log(response);
 
 
 
+}
+
+modalOpen(){
+  this.mostrarModal=true;
 }
 }
 
