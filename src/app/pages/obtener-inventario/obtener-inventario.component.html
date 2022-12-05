@@ -46,7 +46,7 @@
               <mat-spinner></mat-spinner>
               <div class="loading">Cargando</div>
             </div>
-            <div *ngIf="herramientasAMostrar==0">
+            <div *ngIf="herramientasAMostrar==0" class="spinnerContainer" >
               <p class="noEncontrado">No se encontró ninguna herramienta</p>
             </div>
             <!-- <div *ngIf="!cancelarOn"> -->
@@ -157,11 +157,6 @@
             <mat-form-field class="example-full-width">
               <mat-label>Marca</mat-label>
               <input id="marcaHerramientaAModificar" matInput value=>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="example-full-width">
-              <mat-label>Responsable</mat-label>
-              <input id="responsableHerramientaAModificar" matInput value=>
             </mat-form-field>
             <br>
               <input hidden id="idHerramienta" matInput value=>

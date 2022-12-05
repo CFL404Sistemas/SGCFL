@@ -69,10 +69,10 @@ export class ServicioCrearherramientaService {
     nombreHerramientaAModificar: any,
     numeroDeSerieAModificar: any,
     marcaHerramientaAModificar: any,
-    responsableHerramientaAModificar: any,
     observacionHerramientaAModificar: any,
     estadoHerramientaAModificar: any,
-    idHerramienta: any
+    idHerramienta: any,
+    nombreUsuario:any,
   ) {
     return this.http.post(
       'http://127.0.0.1:8000/api/herramienta/modificarHerramienta',
@@ -80,10 +80,10 @@ export class ServicioCrearherramientaService {
         nombreHerramientaAModificar: nombreHerramientaAModificar,
         numeroDeSerieAModificar: numeroDeSerieAModificar,
         marcaHerramientaAModificar: marcaHerramientaAModificar,
-        responsableHerramientaAModificar: responsableHerramientaAModificar,
         observacionHerramientaAModificar: observacionHerramientaAModificar,
         estadoHerramientaAModificar: estadoHerramientaAModificar,
         idHerramienta: idHerramienta,
+        nombreUsuario: nombreUsuario,
       }
     );
   }

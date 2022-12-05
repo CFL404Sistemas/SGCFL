@@ -384,10 +384,10 @@ export class ObtenerInventarioComponent implements OnInit {
         $('#nombreHerramientaAModificar').val(),
         $('#numeroDeSerieAModificar').val(),
         $('#marcaHerramientaAModificar').val(),
-        $('#responsableHerramientaAModificar').val(),
         $('#observacionHerramientaAModificar').val(),
         codigoEstado,
         this.idHerramientaAModificar,
+        this.datosUsuario.nombre
       )
       .subscribe((response: any) => {
         this.authService.obtenerHerramientas().subscribe((response: any) => {
