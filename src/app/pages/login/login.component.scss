@@ -65,3 +65,37 @@ p a {color: $ligthBlue;}
   vertical-align: middle;
   height: 40vh;
 }
+
+.botonModal{
+  margin: 1%;
+
+}
+
+.aceptar{
+  background-color: $ligthBlue;
+  color: white;
+
+}
+
+.tituloModal{
+  background-color: $blue;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+
+.pirulito{
+  margin:auto auto auto auto;
+  margin-top: 10%;
+  padding: 1%;
+
+
+}
+
+.mostrarModal{
+  display: block;
+}
+
+.noMostrarModal{
+  display: none;
+}

@@ -1,7 +1,28 @@
+<div class="w3-container cajaModal" [ngClass]="{'mostrarModal': mostrarModal == true, 'noMostrarModal': mostrarModal == false}">
+
+  <div id="id01" class="w3-modal" style="display:block">
+    <div class="w3-modal-content">
+      <div class="container-fluid">
+        <div class="row pirulito">
+          <h2 class="tituloModal text-center">Terminos y Condiciones de Uso</h2>
+          <div class="col-md-12 text-center" >
+        <p>La utilización de la aplicación tiene carácter gratuito para el usuario,respetando la normativa nacional vigente, comprometiéndose en todos los casos a no causar daños al Centro de Formación Laboral 404 Berisso, a otro usuario o a terceros.
+          El usuario se abstendrá de utilizar la aplicación, sus contenidos o cualquiera de sus servicios con fines o efectos ilícitos,tanto el servicio como todos los materiales incluidos o transferidos, incluyendo, sin limitación, software, imágenes, texto, gráficos, logotipos, patentes, marcas registradas, marcas de servicio, derechos de autor, fotografías, audio, videos, música y todos los Derechos de Propiedad Intelectual relacionados con ellos, son la propiedad exclusiva de Centro de Formación Laboral 404 Berisso. Salvo que se indique explícitamente en este documento, no se considerará que nada en estos términos crea una licencia en o bajo ninguno de dichos Derechos de Propiedad Intelectual, y aceptas no vender, licenciar, alquilar, modificar, distribuir, copiar, publicar, adaptar, editar o crear trabajos derivados de los mismos.</p>
+        <p></p>
+        <button (click)="aceptar()" class="botonModal aceptar"mat-raised-button >Aceptar</button>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container-fluid">
   <div class="row header">
 
     <div class="col-md-12 text-center" >
+
      <img src="../../../assets/LOGO_CFL_CON_FONDO-01-01.png" alt="" class="mt-5">
      <p class="titulares mt-3">Sistema de Gestión</p>
      <p class="titulares subtitulo">Centro de Formación Laboral</p>
@@ -31,7 +52,7 @@
             <mat-spinner></mat-spinner>
             <div class="loading">Cargando</div>
           </div>
-          <button *ngIf="mostrarSpinner==false" type="submit" class="btn btn-primary mt-3 w-75">Ingresar</button>
+          <button *ngIf="mostrarSpinner==false" type="submit" class="btn btn-primary mt-3 w-75" >Ingresar</button>
         </div>
       </form>
 
