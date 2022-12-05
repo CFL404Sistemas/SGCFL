@@ -169,7 +169,7 @@ export class ObtenerInventarioComponent implements OnInit {
       this.filtro = 10;
 
       this.gestionHerramienta
-        .asignarHerramientas(this.herramientasAAsignar, this.datosUsuario.id)
+        .asignarHerramientas(this.herramientasAAsignar, this.datosUsuario.nombre)
         .subscribe((response: any) => {
           this.authService.obtenerHerramientas().subscribe((response: any) => {
             console.log(response);
@@ -213,7 +213,7 @@ export class ObtenerInventarioComponent implements OnInit {
       this.gestionHerramienta
         .desasignarHerramientas(
           this.herramientasADesasignar,
-          this.datosUsuario.id
+          this.datosUsuario.nombre
         )
         .subscribe((response: any) => {
           this.authService.obtenerHerramientas().subscribe((response: any) => {
@@ -449,7 +449,7 @@ export class ObtenerInventarioComponent implements OnInit {
     .bajaHerramienta(
       this.herramientaABaja,
       $("#observacionHerramientaABaja").val(),
-      this.datosUsuario.id
+      this.datosUsuario.nombre
     )
     .subscribe((response: any) => {
       this.authService.obtenerHerramientas().subscribe((response: any) => {
@@ -499,7 +499,7 @@ export class ObtenerInventarioComponent implements OnInit {
     .revisionHerramienta(
       this.herramientaARevision,
       $("#observacionHerramientaARevision").val(),
-      this.datosUsuario.id
+      this.datosUsuario.nombre
     )
     .subscribe((response: any) => {
       this.authService.obtenerHerramientas().subscribe((response: any) => {

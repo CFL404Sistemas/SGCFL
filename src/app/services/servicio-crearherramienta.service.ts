@@ -15,22 +15,22 @@ export class ServicioCrearherramientaService {
     });
   }
 
-  asignarHerramientas(arrConHerramientasAsignar: any, idUsuario: any) {
+  asignarHerramientas(arrConHerramientasAsignar: any, nombreUsuario: any) {
     return this.http.post(
       'http://127.0.0.1:8000/api/herramienta/gestionarAsignacion',
       {
         arrConHerramientasAsignar: arrConHerramientasAsignar,
-        idUsuario: idUsuario,
+        nombreUsuario: nombreUsuario,
       }
     );
   }
 
-  desasignarHerramientas(arrConHerramientasDesasignar: any, idUsuario: any) {
+  desasignarHerramientas(arrConHerramientasDesasignar: any, nombreUsuario: any) {
     return this.http.post(
       'http://127.0.0.1:8000/api/herramienta/gestionarDesasignacion',
       {
         arrConHerramientasDesasignar: arrConHerramientasDesasignar,
-        idUsuario: idUsuario,
+        nombreUsuario: nombreUsuario,
       }
     );
   }
@@ -38,14 +38,14 @@ export class ServicioCrearherramientaService {
   revisionHerramienta(
     idHerramienta: any,
     observacionHerramienta: any,
-    idUsuario: any
+    nombreUsuario: any
   ) {
     return this.http.post(
       'http://127.0.0.1:8000/api/herramienta/gestionarRevision',
       {
         idHerramienta: idHerramienta,
         observacionHerramienta: observacionHerramienta,
-        idUsuario: idUsuario,
+        nombreUsuario: nombreUsuario,
       }
     );
   }
@@ -53,14 +53,14 @@ export class ServicioCrearherramientaService {
   bajaHerramienta(
     idHerramienta: any,
     observacionHerramienta: any,
-    idUsuario: any
+    nombreUsuario: any
   ) {
     return this.http.post(
       'http://127.0.0.1:8000/api/herramienta/gestionarBaja',
       {
         idHerramienta: idHerramienta,
         observacionHerramienta: observacionHerramienta,
-        idUsuario: idUsuario,
+        nombreUsuario: nombreUsuario,
       }
     );
   }
