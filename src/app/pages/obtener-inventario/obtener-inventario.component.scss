@@ -363,6 +363,7 @@
   display: none;
 }
 .claseMostrarModal{
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   display: flex;
@@ -384,7 +385,7 @@
   background-color: #fff;
   width: 90%;
   margin:auto auto auto auto;
-  margin-top: 5%;
+  margin-top: 2%;
   padding: 10px;
   box-shadow: 1px 1px 5px 1px #555;
   .boton {
@@ -424,7 +425,7 @@
   background-color: #fff;
   width: 90%;
   margin:auto auto auto auto;
-  margin-top: 20%;
+  margin-top: 10%;
   padding: 10px;
   box-shadow: 1px 1px 5px 1px #555;
   .boton {
@@ -439,10 +440,10 @@
 #observacionHerramientaARevision{
   height: 20vh;
   resize: none;
-  width: 100vw;
+  width: 98vw;
 }
 #observacionHerramientaABaja{
   height: 20vh;
   resize: none;
-  width: 1000vw;
+  width: 98vw;
 }
