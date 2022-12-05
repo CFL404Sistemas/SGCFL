@@ -182,9 +182,9 @@ margin-top: 20px;
   font-size: smaller;
 }
 .contraseña {
-  width: 53%;
+  width: 100%;
   height: 35px;
-  margin-left: 90px;
+
 
 
 }
@@ -201,7 +201,12 @@ width: 280px;
   }
 
 
-.xd
-{
-  padding-left: 5%;
+.mitabla{
+  margin-top:3%;
+  padding-left:5%;
+  padding-right:5%;
+}
+
+.form-control{
+  height:100%;
 }

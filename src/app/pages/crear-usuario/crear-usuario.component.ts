@@ -48,8 +48,10 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
     this.GestiondeusuarioService.borrar(this.arrayIDUsuarios).subscribe(
       (response: any) => {
 
-        console.log(response);
-        this.quitarUsuariosArray();
+        console.log(response);window.location.reload();
+
+
+
         this._snackBar.open('Los usuarios se han eliminado correctamente.', 'Cerrar');
 
         this.desactivarBOTON = false;
@@ -98,24 +100,25 @@ constructor(private GestiondeusuarioService: GestiondeusuarioService, private fo
 
   }
 
-  usuarioSeleccionado(usuarioElegido: any, posicionUsuario: any ){
+  usuarioSeleccionado(usuarioElegido: any){
 
 
     /* Evaluar si ya se encuentra en el array, sacarlo, caso contrario pushearlo. */
     /* esta accion es cuando no esta en el array */
 
-
+    console.log(this.arrayIDUsuarios.includes(usuarioElegido));
     if(!this.arrayIDUsuarios.includes(usuarioElegido)){
       this.arrayIDUsuarios.push(usuarioElegido);
 
 
 
     }else{
-      this.arrayIDUsuarios.splice(posicionUsuario,1);
 
+
+      this.arrayIDUsuarios = this.arrayIDUsuarios.filter((usuarioEnArray: any) =>  usuarioEnArray !== usuarioElegido);
 
     }
-    console.log(this.arrayIDUsuarios);
+    console.log('Este array va a tener los ID de los usuarios a eliminar',this.arrayIDUsuarios);
 
 
 
@@ -192,7 +195,13 @@ onTabChanged($event: any) {
 Contranueva(){
 
   console.log(this.arrayUsuariosAModificar);
+if(this.arrayUsuariosAModificar.length ==0){
+  this._snackBar.open('Debe de cambiar al menos una contraseña', 'Cerrar');
 
+  return false
+
+
+}
   this.GestiondeusuarioService.Contranueva(this.arrayUsuariosAModificar).subscribe(
     (response: any) => {
 
@@ -205,7 +214,7 @@ Contranueva(){
 
     },
   );
-
+  return true
   }
 
 }
