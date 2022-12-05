@@ -84,6 +84,12 @@
     padding: 20px;
   }
 
+.imgContainer{
+  padding: 10px;
+  box-sizing: border-box;
+  width: 50%;
+}
+
   img {
     width: auto;
     height: 15vh;
@@ -94,7 +100,8 @@
   }
 
   .informacionDeHerramienta {
-    width: 60%;
+    width: 50%;
+    padding: 10px;
     // border: 1px solid green;
   }
 
@@ -105,24 +112,37 @@
   .nombreHerramienta {
     margin: 0px;
     padding: 0%;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 10px #aaf;
   }
-
+.detalleHerramienta{
+  font-style: oblique;
+  color: #000;
+  text-shadow: 1px 1px 5px #66a;
+}
   .descripcionHerramienta {
     text-align: center;
   }
 
-  .slide {
-    margin-top: 10%;
-    z-index: 10;
-  }
   mat-slide-toogle{
     z-index: 0!important;
+  }
+
+
+  .disponible, .asignada, .reparacion,.revision,.noDisponible{
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 100;
+    top: -5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bolder;
   }
 
   .disponible {
     background-color: #3a3;
     border-radius: 5px;
-    margin: 5px;
     font-size: 1.3em;
     font-style: italic;
     font-weight: 400;
@@ -131,7 +151,6 @@
   .asignada {
     background-color: #aaa;
     border-radius: 5px;
-    margin: 5px;
     font-size: 1.3em;
     font-style: italic;
     font-weight: 400;
@@ -140,7 +159,6 @@
   .reparacion {
     background-color: #EBFA05;
     border-radius: 5px;
-    margin: 5px;
     font-size: 1.3em;
     font-style: italic;
     font-weight: 400;
@@ -150,24 +168,22 @@
   .revision {
     background-color: #FAAC05;
     border-radius: 5px;
-    margin: 5px;
     font-size: 1.3em;
     font-style: italic;
     font-weight: 400;
   }
 
   .noDisponible {
-    background-color: #f00;
+    background-color: #e00;
     border-radius: 5px;
-    margin: 5px;
     font-size: 1.3em;
     font-style: italic;
     font-weight: 400;
   }
 
-  .botonMenu {
-    margin-top: 10%;
-  }
+  // .botonMenu {
+  //   margin-top: 10%;
+  // }
 
   .textoAsignar {
     font-size: 0.8em;
@@ -217,18 +233,58 @@
     border-radius: 10px;
     border-bottom: 1px solid $blue;
     border-right: 1px solid $blue;
+    padding: 0;
   }
   .noEncontrado {
+    display: flex;
+    flex-direction: column;
     color: #eee;
     font-style: italic;
     text-align: center;
-    font-size: 3em;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    width: 100%;
+    height: 30vh;
+    line-height: 1em;
   }
 
 
   @media (min-width: 600px) {
+    .spinnerContainer {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+      height: 40vh;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .loading {
+      color: #fff;
+      margin-top: 5px;
+      animation: texto-cargando 3s infinite;
+    }
+
+    .listCard{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      overflow-y:scroll;
+      padding: 0;
+      align-items: center;
+    }
+    .contHerramienta{
+      display: inline-flex;
+      flex-direction: row;
+      width: 48%;
+      margin: 10px;
+    }
     .descripcionHerramienta {
-      padding-left: 40%;
       text-align: left;
       font-size: 1.5em;
       margin-top: 20px;
@@ -259,6 +315,9 @@
       box-shadow: 3px 5px 8px 5px #aaa;
       margin-top: 10px;
     }
+
+
+
   }
 }
 
@@ -368,4 +427,17 @@
     margin: 5px 2px;
     color: #fff;
   }
+}
+
+//textarea de observacion para revision de herramienta
+
+#observacionHerramientaARevision{
+  height: 20vh;
+  resize: none;
+  width: 100vw;
+}
+#observacionHerramientaABaja{
+  height: 20vh;
+  resize: none;
+  width: 1000vw;
 }

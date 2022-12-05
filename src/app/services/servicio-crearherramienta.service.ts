@@ -1,54 +1,90 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServicioCrearherramientaService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient )  {
+  comentarioNuevo(id: number, comentario: string) {
+    return this.http.post('http://127.0.0.1:8000/api/auth/crearComentario', {
+      id: id,
+      comentario: comentario,
+    });
+  }
 
-}
+  asignarHerramientas(arrConHerramientasAsignar: any, idUsuario: any) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarAsignacion',
+      {
+        arrConHerramientasAsignar: arrConHerramientasAsignar,
+        idUsuario: idUsuario,
+      }
+    );
+  }
 
-comentarioNuevo(id: number, comentario: string) {
+  desasignarHerramientas(arrConHerramientasDesasignar: any, idUsuario: any) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarDesasignacion',
+      {
+        arrConHerramientasDesasignar: arrConHerramientasDesasignar,
+        idUsuario: idUsuario,
+      }
+    );
+  }
 
-  return this.http.post( "http://127.0.0.1:8000/api/auth/crearComentario", {
-    id: id,
-    comentario : comentario,
-  });
-}
+  revisionHerramienta(
+    idHerramienta: any,
+    observacionHerramienta: any,
+    idUsuario: any
+  ) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarRevision',
+      {
+        idHerramienta: idHerramienta,
+        observacionHerramienta: observacionHerramienta,
+        idUsuario: idUsuario,
+      }
+    );
+  }
 
+  bajaHerramienta(
+    idHerramienta: any,
+    observacionHerramienta: any,
+    idUsuario: any
+  ) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarBaja',
+      {
+        idHerramienta: idHerramienta,
+        observacionHerramienta: observacionHerramienta,
+        idUsuario: idUsuario,
+      }
+    );
+  }
 
-asignarHerramientas(arrConHerramientasAsignar: any, arrConHerramientasADesasignar: any) {
-
-  return this.http.post( "http://127.0.0.1:8000/api/herramienta/gestionarAsignacion", {
-    arrConHerramientasAsignar: arrConHerramientasAsignar,
-    arrConHerramientasADesasignar: arrConHerramientasADesasignar
-  });
-}
-
-
-modificarHerramienta(nombreHerramientaAModificar: any,
-  numeroDeSerieAModificar: any,
-  marcaHerramientaAModificar: any,
-  responsableHerramientaAModificar: any,
-  observacionHerramientaAModificar: any,
-  estadoHerramientaAModificar: any,
-  idHerramienta: any) {
-
-  return this.http.post( "http://127.0.0.1:8000/api/herramienta/modificarHerramienta", {
-    nombreHerramientaAModificar: nombreHerramientaAModificar,
-    numeroDeSerieAModificar: numeroDeSerieAModificar,
-    marcaHerramientaAModificar: marcaHerramientaAModificar,
-    responsableHerramientaAModificar: responsableHerramientaAModificar,
-    observacionHerramientaAModificar: observacionHerramientaAModificar,
-    estadoHerramientaAModificar: estadoHerramientaAModificar,
-    idHerramienta: idHerramienta,
-
-
-
-
-  });
-}
-
+  modificarHerramienta(
+    nombreHerramientaAModificar: any,
+    numeroDeSerieAModificar: any,
+    marcaHerramientaAModificar: any,
+    responsableHerramientaAModificar: any,
+    observacionHerramientaAModificar: any,
+    estadoHerramientaAModificar: any,
+    idHerramienta: any
+  ) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/modificarHerramienta',
+      {
+        nombreHerramientaAModificar: nombreHerramientaAModificar,
+        numeroDeSerieAModificar: numeroDeSerieAModificar,
+        marcaHerramientaAModificar: marcaHerramientaAModificar,
+        responsableHerramientaAModificar: responsableHerramientaAModificar,
+        observacionHerramientaAModificar: observacionHerramientaAModificar,
+        estadoHerramientaAModificar: estadoHerramientaAModificar,
+        idHerramienta: idHerramienta,
+      }
+    );
+  }
 }
