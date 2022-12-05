@@ -20,6 +20,7 @@ export class CrearherramientaComponent implements OnInit {
   esNoDisponible: string = 'Disponible';
   limitExceeded: boolean = false;
   previewPicture: any;
+  
   constructor(private _snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     private AuthServices: AuthService,
