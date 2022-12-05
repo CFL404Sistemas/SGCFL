@@ -1,20 +1,90 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServicioCrearherramientaService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient )  {
+  comentarioNuevo(id: number, comentario: string) {
+    return this.http.post('http://127.0.0.1:8000/api/auth/crearComentario', {
+      id: id,
+      comentario: comentario,
+    });
+  }
 
-}
+  asignarHerramientas(arrConHerramientasAsignar: any, nombreUsuario: any) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarAsignacion',
+      {
+        arrConHerramientasAsignar: arrConHerramientasAsignar,
+        nombreUsuario: nombreUsuario,
+      }
+    );
+  }
 
-comentarioNuevo(id: number, comentario: string) {
+  desasignarHerramientas(arrConHerramientasDesasignar: any, nombreUsuario: any) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarDesasignacion',
+      {
+        arrConHerramientasDesasignar: arrConHerramientasDesasignar,
+        nombreUsuario: nombreUsuario,
+      }
+    );
+  }
 
-  return this.http.post( "http://127.0.0.1:8000/api/auth/crearComentario", {
-    id: id,
-    comentario : comentario,
-  });
-}
+  revisionHerramienta(
+    idHerramienta: any,
+    observacionHerramienta: any,
+    nombreUsuario: any
+  ) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarRevision',
+      {
+        idHerramienta: idHerramienta,
+        observacionHerramienta: observacionHerramienta,
+        nombreUsuario: nombreUsuario,
+      }
+    );
+  }
+
+  bajaHerramienta(
+    idHerramienta: any,
+    observacionHerramienta: any,
+    nombreUsuario: any
+  ) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/gestionarBaja',
+      {
+        idHerramienta: idHerramienta,
+        observacionHerramienta: observacionHerramienta,
+        nombreUsuario: nombreUsuario,
+      }
+    );
+  }
+
+  modificarHerramienta(
+    nombreHerramientaAModificar: any,
+    numeroDeSerieAModificar: any,
+    marcaHerramientaAModificar: any,
+    observacionHerramientaAModificar: any,
+    estadoHerramientaAModificar: any,
+    idHerramienta: any,
+    nombreUsuario:any,
+  ) {
+    return this.http.post(
+      'http://127.0.0.1:8000/api/herramienta/modificarHerramienta',
+      {
+        nombreHerramientaAModificar: nombreHerramientaAModificar,
+        numeroDeSerieAModificar: numeroDeSerieAModificar,
+        marcaHerramientaAModificar: marcaHerramientaAModificar,
+        observacionHerramientaAModificar: observacionHerramientaAModificar,
+        estadoHerramientaAModificar: estadoHerramientaAModificar,
+        idHerramienta: idHerramienta,
+        nombreUsuario: nombreUsuario,
+      }
+    );
+  }
 }
