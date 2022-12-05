@@ -56,3 +56,12 @@ p a {color: $ligthBlue;}
 ::ng-deep.mat-simple-snackbar-action {
   color: $ligthBlue;
 }
+.spinnerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 40vh;
+}

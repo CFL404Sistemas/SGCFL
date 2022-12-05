@@ -108,7 +108,8 @@
 }
 
 .select{
-  margin-left: 10px;
+  margin-left: -10px;
+  margin-top: 20px;
 }
 .borrar{
 background-color:#093f7c;
@@ -146,8 +147,10 @@ width: 100%;
 .contraseña {
 
 
-  border-color: #093f7c;
-  width: 20%;
+  border-color: #5c616188;
+    width: 40%;
+    margin-left: 10%;
+    height: 30px;
 
 }
 
@@ -179,7 +182,26 @@ margin-top: 20px;
   font-size: smaller;
 }
 .contraseña {
-  width: 50%;
+  width: 53%;
+  height: 35px;
+  margin-left: 90px;
+
+
+}
+
+.select {
+
+margin-top: 20px;
+}
+
+.bord {
+
+width: 280px;
 }
   }
 
+
+.xd
+{
+  padding-left: 5%;
+}

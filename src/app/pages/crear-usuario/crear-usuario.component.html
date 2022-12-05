@@ -32,7 +32,7 @@
 
             <!-- Error para avisar que no se cumple el formulario -->
 
-            <div *ngIf="formControl.nroSerie.errors" class="text-danger"></div>
+            <div *ngIf="formControl.nroSerie.errors" class="text-danger "></div>
             <div>
               <mat-form-field class="bord" appearance="outline">
                 <mat-label>DNI</mat-label>
@@ -74,22 +74,35 @@
     </div>
   </div>
   </mat-tab>
+
+
   <mat-tab  label="Historial de Usuarios" >
-    <mat-selection-list #shoes>
-      <div *ngFor="let usuario of TodoslosUsuarios; let posicion = index">
-        <mat-list-option (click)="usuarioSeleccionado(usuario.id, posicion);">
-          {{usuario.nombre}}
-        </mat-list-option>
-        <input (change)="nuevaContra(usuario, $event);"
-        class="contraseña" type="password" matInput placeholder="Nueva Contraseña" >
+    <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col" class="col-md-3 ">Nombre de Usuario</th>
+          <th scope="col" class="col-md-3 ">Eliminar Usuario</th>
+          <th scope="col" class="col-md-6 xd">Modificar Contraseña</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of TodoslosUsuarios; let posicion = index">
+          <th scope="row" ></th>
+          <td>{{usuario.nombre}}</td>
+          <td><mat-checkbox class="example-margin "(click)="usuarioSeleccionado(usuario.id, posicion);">select</mat-checkbox></td>
+          <td><div class="contraseña">
+            <input type="password" class="form-control xd" id="floatingPassword" placeholder="password">
+            <label for="floatingPassword"></label>
+          </div></td>
+        </tr>
 
-      </div>
+      </tbody>
+    </table>
 
-
-    </mat-selection-list>
 
 <div  *ngIf="TodoslosUsuarios!=undefined" >
-   <div class="select"> Usuario Seleccionado: {{shoes.selectedOptions.selected.length}}</div>
+
 
 
 
@@ -100,7 +113,7 @@
         <div class="col-md-6">
 
           <div class="margen">
-            <button (click)="Contranueva()" class="modificar" mat-button>Modificar Contraseña</button>
+            <button (click)="Contranueva()" class="modificar" mat-button disabled="{{desactivarbotonpass}}">Modificar Contraseña</button>
 
           </div>
 
@@ -116,7 +129,7 @@
         <div class="col-md-6">
 
         <div class="margen">
-          <button (click)="borrarUsuarios();" class="borrar" mat-button>Borrar Usuario</button>
+          <button (click)="borrarUsuarios();" class="borrar" mat-button disabled="{{desactivarBOTON}}">Borrar Usuario</button>
         </div>
       </div>
       </div>
