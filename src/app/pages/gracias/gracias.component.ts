@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraciasComponent implements OnInit {
 
+  audio: any;
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  ngAfterViewInit(){
+
+
   }
 
 }
