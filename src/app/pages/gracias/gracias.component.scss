@@ -1,0 +1,92 @@
+
+.backg {
+	background-image: url("../../../assets/Sky-Stars-Pattern.jpg");
+	color: white;
+	width: auto;
+  height:100%;
+  background-size:contain;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#sw-intro {
+	font-family: "Franklin Gothic Book";
+  position: absolute;
+	width: 100%;
+  top: 50%;
+	left: 50%;
+	opacity: 0;
+  transform: translateX(-50%) translateY(-50%);
+	color: rgb(252, 223, 43);
+	font-size: 2em;
+	animation: intro 3s ease-in-out 2s;
+
+}
+
+#sw-logo {
+	position:absolute;
+	top:30%;
+	left:28%;
+	height:40%;
+	width:45%;
+	opacity: 0;
+	animation: logo 6s linear 6s;
+}
+
+#sw-crawl {
+	font-family: "Franklin Gothic";
+	text-align: center;
+	position: absolute;
+  top:30%;
+	bottom: 30%;
+	opacity: 0;
+	transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(40deg);
+	animation: crawl 60s linear 3s;
+	overflow: hidden;
+	width: 100%;
+	color: rgb(252, 223, 43);
+  line-height: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+}
+
+#sw-crawl-episode-number {
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+
+#sw-crawl-episode-title  {
+	font-size: 8em;
+  transform: scaleX(0.5);
+  line-height: 1em;
+}
+
+#sw-crawl-episode-text {
+	text-align: center;
+	font-size: 45px;
+	width: 100%;
+  line-height: 2em;
+}
+
+@keyframes crawl {
+	0% { top: 100%; opacity: 1;}
+	99% { opacity: 1;}
+	100% { top: -1500px; opacity: 0}
+}
+
+@keyframes intro {
+	0% { opacity: 0; }
+	25% { opacity: 1; }
+	75% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes logo {
+	0% { transform: scale(2); opacity: 1;}
+	100% { transform: scale(0); opacity: 0;}
+}
+

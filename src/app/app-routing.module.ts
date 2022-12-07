@@ -5,7 +5,8 @@ import { CrearherramientaComponent } from './pages/crearherramienta/crearherrami
 import { ObtenerInventarioComponent } from '../app/pages/obtener-inventario/obtener-inventario.component';
 import { HomeAdminComponent } from '../app/pages/home-admin/home-admin.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
-import {CrearUsuarioComponent} from './pages/crear-usuario/crear-usuario.component';
+import { CrearUsuarioComponent} from './pages/crear-usuario/crear-usuario.component';
+import { GraciasComponent} from './pages/gracias/gracias.component';
 
 
 import { ObtenerHistorialComponent } from './pages/obtener-historial/obtener-historial.component';
@@ -42,7 +43,11 @@ const routes: Routes = [
   {
     path: 'obtener-historial', component: ObtenerHistorialComponent,
   },
-
+  {
+    path: 'gracias',
+    component: GraciasComponent,
+    canActivate: [],
+  }
 
 ];
 @NgModule({
