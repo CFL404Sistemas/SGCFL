@@ -11,6 +11,9 @@ export class NavbarComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit(): void {
+    /* Con getItem, obtenemos los datos del usuario que se encuentran en el localstorage para luego mostrar por medio de la variable datosUsuario los datos del mismo
+    en el html */
+    /* El json.Parse es para convertir el texto que se obtiene en Objeto nuevamente */
   this.datosUsuario=(JSON.parse(localStorage.getItem('userData')!));
 
   }
@@ -28,7 +31,9 @@ volverhome(){
 
 }
 cerrarsecion(){
+  /* Si cierra sesion. volvemos al home */
   this.router.navigate([""]);
+  /* Eliminamos isLogged, por lo tanto no es true */
   localStorage.removeItem('isLogged')
 }
 

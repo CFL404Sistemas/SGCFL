@@ -1,5 +1,7 @@
+<!-- Este es el codigo correspondiente al modal de Inicio -->
+<!-- Si el usuario hace click en el boton aceptar, se ejecuta la funcion aceptar -->
+<!-- Si acepta, guardamos en el localstorage del navegador, que acepto el acuerdo y la variable mostrar modal es igual a false entonces se oculta modal -->
 <div class="w3-container cajaModal" [ngClass]="{'mostrarModal': mostrarModal == true, 'noMostrarModal': mostrarModal == false}">
-
   <div id="id01" class="w3-modal" style="display:block">
     <div class="w3-modal-content">
       <div class="container-fluid">
@@ -62,7 +64,7 @@
     </div>
     <div class="row">
       <p class="text-center mt-3">Olvidaste tu contraseña? <a (click)="ayuda()">Haga click aqui!</a></p>
-      <p class="texto5 text-center">Copyright 2022-2023 | Todos los derechos reservados CFL 404 | <a href="/gracias">CRÉDITOS</a>
+      <p class="texto5 text-center">Copyright © | Todos los derechos reservados CFL 404 | <a href="/gracias">CRÉDITOS</a>
 
     </div>
 

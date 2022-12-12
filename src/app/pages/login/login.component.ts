@@ -36,7 +36,9 @@ mostrarSpinner: boolean = false;
   }
 ayuda (
 
-){this._snackBar.open('Pedir contraseña en dirección', 'Cerrar');}
+){
+
+  this._snackBar.open('Pedir contraseña en dirección', 'Cerrar');}
 
 
 aceptar(){
@@ -52,20 +54,24 @@ this.mostrarSpinner = true;
 
   this.Login.login(this.loginform.value.dni, this.loginform.value.password).subscribe(
     (response: any) => {
-console.log(response);
+    console.log(response);
 
-      localStorage.setItem('isLogged', 'true')
-      localStorage.setItem('userData', JSON.stringify(response.response))
+        /*En un login exitoso, definimos en el localstorage, que el usuario esta loggeado  */
+          localStorage.setItem('isLogged', 'true')
+          /* En un login exitoso, definimos en el localstorage los datos de usuario que me devuelve en backend
+          stringify se usa para convertir objecto (los datos del usuario, un registro) en texto
+          El local storage solo permite almacenar texto*/
+          localStorage.setItem('userData', JSON.stringify(response.response))
 
-      this.router.navigate(["home-admin"]);
+          this.router.navigate(["home-admin"]);
 
-    },
-    (error) => {
-      console.log(error);
-      this._snackBar.open('DNI o Contraseña Incorrecta', 'Cerrar');
-      this.mostrarSpinner = false;
-    },
-  );
+        },
+        (error) => {
+          console.log(error);
+          this._snackBar.open('DNI o Contraseña Incorrecta', 'Cerrar');
+          this.mostrarSpinner = false;
+        },
+      );
 
 
 

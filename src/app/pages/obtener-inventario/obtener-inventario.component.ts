@@ -165,19 +165,18 @@ export class ObtenerInventarioComponent implements OnInit {
         'Cerrar'
       );
 
+
+
       this.herramientasAMostrar = undefined; //hacemos el array a mostrar undefined para que se muestre el spinner
       this.filtro = 10;
 
       this.gestionHerramienta
-        .asignarHerramientas(this.herramientasAAsignar, this.datosUsuario.nombre)
+      .asignarHerramientas(this.herramientasAAsignar, this.datosUsuario.nombre)
         .subscribe((response: any) => {
           this.authService.obtenerHerramientas().subscribe((response: any) => {
             console.log(response);
             this.todasLasHerramientas = response.response;
-            this.rolUsuario == 'ADMIN'
-              ? (this.herramientasAMostrar = this.todasLasHerramientas)
-              : (this.herramientasAMostrar = this.todasLasHerramientas.filter(
-                  (e: any) => e.estado !== 4
+            this.rolUsuario == 'ADMIN' ? (this.herramientasAMostrar = this.todasLasHerramientas) : (this.herramientasAMostrar = this.todasLasHerramientas.filter( (e: any) => e.estado !== 4
                 ));
           });
           this.herramientasAAsignar = [];
@@ -381,7 +380,7 @@ export class ObtenerInventarioComponent implements OnInit {
 
         this.gestionHerramienta
       .modificarHerramienta(
-        $('#nombreHerramientaAModificar').val(),
+         $('#nombreHerramientaAModificar').val(),
         $('#numeroDeSerieAModificar').val(),
         $('#marcaHerramientaAModificar').val(),
         $('#observacionHerramientaAModificar').val(),

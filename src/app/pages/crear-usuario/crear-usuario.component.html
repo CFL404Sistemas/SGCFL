@@ -23,7 +23,6 @@
                   <mat-select formControlName="Cargo">
                     <mat-option value="ADMIN">Admin</mat-option>
                   <mat-option value="INSTRUCTOR">Instructor</mat-option>
-                    <mat-option value="SECRETARIA">Secretaria</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -83,15 +82,15 @@
           <tr>
             <th scope="col" class="col-md-3 ">Nombre de Usuario</th>
             <th scope="col" class="col-md-3 " style="text-align:center;">Eliminar Usuario</th>
-            <th scope="col" class="col-md-3 xd">Modificar Contraseña</th>
+            <th scope="col" class="col-md-3 xd" style="text-align: end;">Modificar Contraseña</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let usuario of TodoslosUsuarios; let posicion = index">
             <td>{{usuario.nombre}}</td>
             <td style="text-align: center;"><mat-checkbox style="text-align: center; margin-top:5px;" class="example-margin "(click)="usuarioSeleccionado(usuario.id);"></mat-checkbox></td>
-            <td><div class="contraseña">
-              <input type="password" class="form-control xd" id="floatingPassword" placeholder="password"(change)="nuevaContra(usuario, $event);">
+            <td><div style="margin-right: 0%; margin-left: auto;" class="contraseña">
+              <input style="text-align: center; padding:0; border: 2px inset #ccc;" type="password" class="form-control xd" id="floatingPassword" placeholder="Nva Contraseña"  (change)="nuevaContra(usuario, $event);">
               <label for="floatingPassword"></label>
             </div></td>
           </tr>
