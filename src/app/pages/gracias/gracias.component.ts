@@ -10,6 +10,10 @@ export class GraciasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
+  playAudio(){
+
+  }
 }
